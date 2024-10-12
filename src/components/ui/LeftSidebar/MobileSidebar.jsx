@@ -2,10 +2,16 @@ import assets from "../../../assets";
 import { useEffect, useRef, useState } from "react";
 import useCloseModalClickOutside from "../../../hooks/useCloseModalClickOutside";
 import { useDispatch, useSelector } from "react-redux";
-import { setShowLeftSidebar } from "../../../redux/features/global/globalSlice";
+import {
+  setGroupType,
+  setShowLeftSidebar,
+} from "../../../redux/features/global/globalSlice";
 import useContextState from "../../../hooks/useContextState";
+import { useNavigate } from "react-router-dom";
 
 const MobileSidebar = () => {
+  const navigate = useNavigate();
+  const { group } = useSelector((state) => state.global);
   const { showLeftSidebar } = useSelector((state) => state.global);
   const { logo } = useContextState();
   const dispatch = useDispatch();
@@ -65,7 +71,10 @@ const MobileSidebar = () => {
           </div>
           <div className="sh-menu">
             <div className="sh-sub-menu">
-              <button className=" sh-btn">
+              <button
+                className=" sh-btn"
+                onClick={() => dispatch(setGroupType(4))}
+              >
                 <svg
                   width={18}
                   height={18}
@@ -508,7 +517,10 @@ const MobileSidebar = () => {
                 </svg>
                 <div className="sh-tab-label">cricket</div>
               </button>
-              <button className=" sh-btn">
+              <button
+                onClick={() => dispatch(setGroupType(1))}
+                className=" sh-btn"
+              >
                 <svg
                   width={18}
                   height={18}
@@ -591,7 +603,10 @@ const MobileSidebar = () => {
                 </svg>
                 <div className="sh-tab-label">football</div>
               </button>
-              <button className=" sh-btn">
+              <button
+                onClick={() => dispatch(setGroupType(2))}
+                className=" sh-btn"
+              >
                 <svg
                   width={18}
                   height={18}

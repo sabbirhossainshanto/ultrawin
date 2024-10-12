@@ -15,6 +15,8 @@ import spribe from "./images/spribe 1.a4fc82c4.svg";
 import evolution from "./images/evolution (1).d3e9bcf9.svg";
 import royal from "./images/royal_gaming.c74d670d (1).84bf0c1c.svg";
 import title from "./images/title.b1c13662.png";
+import live from "./images/liveEvent.1b77d1b4.gif";
+import lock from "./images/download.png";
 
 export default {
   theme,
@@ -34,4 +36,6 @@ export default {
   evolution,
   royal,
   title,
+  lock,
+  live,
 };

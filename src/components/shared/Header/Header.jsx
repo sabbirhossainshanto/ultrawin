@@ -1,9 +1,14 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import assets from "../../../assets";
 import { setShowLeftSidebar } from "../../../redux/features/global/globalSlice";
 import { useNavigate } from "react-router-dom";
+import useBalance from "../../../hooks/useBalance";
+import useBonusBalance from "../../../hooks/useBonusBalance";
 
 const Header = () => {
+  const { balance } = useBalance();
+  const { bonusBalance } = useBonusBalance();
+  const { token, user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   return (
@@ -107,13 +112,43 @@ const Header = () => {
             alt="whatsapp"
           />
         </button> */}
-        <button
-          onClick={() => navigate("/login")}
-          className="cb cb-variant-1 sh-new-btn"
-        >
-          login
-        </button>
-        <button className="cb cb-variant-2 sh-new-btn">signup</button>
+
+        {!token ? (
+          <>
+            <button
+              onClick={() => navigate("/login")}
+              className="cb cb-variant-1 sh-new-btn"
+            >
+              login
+            </button>
+            <button className="cb cb-variant-2 sh-new-btn">signup</button>
+          </>
+        ) : (
+          <>
+            <div className="bal-exp-btns">
+              <div className="bal-exp-btn username-sb">{user}</div>
+              <div className="bal-exp-btn balance-sb">
+                Bal:{balance?.availBalance}
+                <svg
+                  className="MuiSvgIcon-root input-tooltip"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  title="Cashable : 0 Non-cashable :0.00"
+                >
+                  <path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path>
+                </svg>
+              </div>
+            </div>
+            <div className="bal-exp-btns">
+              <div className="bal-exp-btn">
+                Bonus: {bonusBalance?.availBalance}
+              </div>
+              <div className="bal-exp-btn">Exp:{balance?.deductedExposure}</div>
+            </div>
+          </>
+        )}
+
         <div
           style={{
             display: "flex",

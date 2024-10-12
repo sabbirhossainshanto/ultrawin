@@ -1,19 +1,34 @@
+import { useDispatch, useSelector } from "react-redux";
 import assets from "../../../assets";
 import useContextState from "../../../hooks/useContextState";
+import { setGroupType } from "../../../redux/features/global/globalSlice";
+import { useNavigate } from "react-router-dom";
 
 const LeftSidebar = () => {
+  const navigate = useNavigate();
   const { logo } = useContextState();
+  const dispatch = useDispatch();
+  const { group } = useSelector((state) => state.global);
   return (
     <div className="web-view">
       <div className="side-header">
-        <div className="sh-title">
+        <div
+          className="sh-title"
+          onClick={() => {
+            dispatch(setGroupType(0));
+            navigate("/");
+          }}
+        >
           <button className="sh-website-title">
             <img src={logo} alt="" className="sh-website-title-img" />
           </button>
         </div>
         <div className="sh-menu">
           <div className="sh-sub-menu">
-            <button className="sh-btn">
+            <button
+              onClick={() => dispatch(setGroupType(4))}
+              className={`sh-btn ${group === 4 ? "active-sh-btn" : ""}`}
+            >
               <svg
                 width="18"
                 height="18"
@@ -456,7 +471,10 @@ const LeftSidebar = () => {
               </svg>
               <div className="sh-tab-label">cricket</div>
             </button>
-            <button className="sh-btn">
+            <button
+              onClick={() => dispatch(setGroupType(1))}
+              className={`sh-btn ${group === 1 ? "active-sh-btn" : ""}`}
+            >
               <svg
                 width="18"
                 height="18"
@@ -539,7 +557,10 @@ const LeftSidebar = () => {
               </svg>
               <div className="sh-tab-label">football</div>
             </button>
-            <button className="sh-btn">
+            <button
+              onClick={() => dispatch(setGroupType(2))}
+              className={`sh-btn ${group === 2 ? "active-sh-btn" : ""}`}
+            >
               <svg
                 width="18"
                 height="18"

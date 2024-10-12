@@ -1,3 +1,9 @@
 .hydrated {
   visibility: inherit;
 }
+.MuiTableRow-root {
+  color: inherit;
+  display: table-row;
+  outline: 0;
+  vertical-align: middle;
+}
