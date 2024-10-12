@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ScrollToTop from "../components/shared/ScrollToTop/ScrollToTop";
 import App from "../App";
 import Home from "../pages/Home/Home";
+import Login from "../pages/Login/Login";
 
 const MainRouter = () => {
   const router = createBrowserRouter(
@@ -20,6 +21,10 @@ const MainRouter = () => {
             element: <Home />,
           },
         ],
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
     {

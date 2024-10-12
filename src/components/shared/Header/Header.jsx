@@ -1,8 +1,10 @@
 import { useDispatch } from "react-redux";
 import assets from "../../../assets";
 import { setShowLeftSidebar } from "../../../redux/features/global/globalSlice";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   return (
     <div className="app-sub-header">
@@ -105,7 +107,12 @@ const Header = () => {
             alt="whatsapp"
           />
         </button> */}
-        <button className="cb cb-variant-1 sh-new-btn">login</button>
+        <button
+          onClick={() => navigate("/login")}
+          className="cb cb-variant-1 sh-new-btn"
+        >
+          login
+        </button>
         <button className="cb cb-variant-2 sh-new-btn">signup</button>
         <div
           style={{

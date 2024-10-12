@@ -1,3 +1,4 @@
+import assets from "../../../assets";
 import { useEffect, useRef, useState } from "react";
 import useCloseModalClickOutside from "../../../hooks/useCloseModalClickOutside";
 import { useDispatch, useSelector } from "react-redux";
@@ -1515,7 +1516,7 @@ const MobileSidebar = () => {
               <div className="sm-new-links">
                 <button className="sm-new-link">
                   <img
-                    src="static/media/Vector (2).945df162.svg"
+                    src={assets.telegram}
                     alt="TELEGRAM_NUMBER"
                     className="sm-new-img"
                   />
@@ -1523,7 +1524,7 @@ const MobileSidebar = () => {
                 </button>
                 <button className="sm-new-link">
                   <img
-                    src="static/media/Vector (4).0d0eae75.svg"
+                    src={assets.instagram}
                     alt="INSTAGRAM_LINK"
                     className="sm-new-img"
                   />
