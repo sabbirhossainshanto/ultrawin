@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 const MobileSidebar = () => {
   const navigate = useNavigate();
-  const { group } = useSelector((state) => state.global);
+  // const { group } = useSelector((state) => state.global);
   const { showLeftSidebar } = useSelector((state) => state.global);
   const { logo } = useContextState();
   const dispatch = useDispatch();
@@ -64,7 +64,14 @@ const MobileSidebar = () => {
         }}
       >
         <div className="side-header" ref={sidebarRef}>
-          <div className="sh-title">
+          <div
+            className="sh-title"
+            onClick={() => {
+              dispatch(setGroupType(0));
+              dispatch(setShowLeftSidebar(false));
+              navigate("/");
+            }}
+          >
             <button className="sh-website-title">
               <img src={logo} alt="" className="sh-website-title-img" />
             </button>
@@ -73,7 +80,10 @@ const MobileSidebar = () => {
             <div className="sh-sub-menu">
               <button
                 className=" sh-btn"
-                onClick={() => dispatch(setGroupType(4))}
+                onClick={() => {
+                  dispatch(setGroupType(4));
+                  dispatch(setShowLeftSidebar(false));
+                }}
               >
                 <svg
                   width={18}
@@ -518,7 +528,10 @@ const MobileSidebar = () => {
                 <div className="sh-tab-label">cricket</div>
               </button>
               <button
-                onClick={() => dispatch(setGroupType(1))}
+                onClick={() => {
+                  dispatch(setGroupType(1));
+                  dispatch(setShowLeftSidebar(false));
+                }}
                 className=" sh-btn"
               >
                 <svg
@@ -604,7 +617,10 @@ const MobileSidebar = () => {
                 <div className="sh-tab-label">football</div>
               </button>
               <button
-                onClick={() => dispatch(setGroupType(2))}
+                onClick={() => {
+                  dispatch(setGroupType(2));
+                  dispatch(setShowLeftSidebar(false));
+                }}
                 className=" sh-btn"
               >
                 <svg

@@ -562,7 +562,7 @@
     border: 1px solid var(--table-head-cell-border) !important;
   }
 }
-.events-table-ctn
+/* .events-table-ctn
   .events-table-content
   .MuiPaper-root
   .events-table
@@ -570,7 +570,7 @@
   .MuiTableRow-root
   .MuiTableCell-root:last-child {
   border-radius: 0 30px 30px 0 !important;
-}
+} */
 .events-table-ctn
   .events-table-content
   .MuiPaper-root
