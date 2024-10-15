@@ -787,7 +787,7 @@
   .enabled-markets {
   display: flex;
   position: absolute;
-  right: 0;
+  /* right: 0; */
   background-color: var(--table-cell-bg);
 }
 .events-table-ctn

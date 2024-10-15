@@ -32,11 +32,18 @@
   height: 0px;
 }
 
+.enabled-markets {
+  right: -200px;
+}
+
 @media (max-width: 1120px) {
   .group-table-head {
     display: none !important;
   }
   .group-table-head-mobile {
     display: block !important;
+  }
+  .enabled-markets {
+    right: 0;
   }
 }

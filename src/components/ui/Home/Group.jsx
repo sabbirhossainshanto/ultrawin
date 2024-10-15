@@ -131,17 +131,23 @@ const Group = ({ data }) => {
                                           style={{
                                             display: "flex",
                                             justifyContent: "space-between",
-                                            // minWidth: "145%",
                                           }}
                                           key={index}
                                           className="MuiTableRow-root bgc-white"
                                         >
-                                          <td
-                                            colSpan={9}
+                                          <div
                                             className="MuiTableCell-root MuiTableCell-body teams-cell mob-et-b-c"
+                                            style={
+                                              {
+                                                // width: "30vh",
+                                              }
+                                            }
                                           >
-                                            <a
-                                              style={{ cursor: "pointer" }}
+                                            <div
+                                              style={{
+                                                cursor: "pointer",
+                                                // width: "30vw",
+                                              }}
                                               className="all-markets-nav-link"
                                               onClick={() =>
                                                 navigateGameList(keys)
@@ -298,15 +304,15 @@ const Group = ({ data }) => {
                                                 data={data}
                                                 keys={keys}
                                               />
-                                            </a>
-                                          </td>
-                                          <td
+                                            </div>
+                                          </div>
+                                          <div
                                             style={{
                                               display: "flex",
                                               gap: "4px",
                                             }}
                                           >
-                                            <td
+                                            <div
                                               className="MuiTableCell-root MuiTableCell-body odds-cell MuiTableCell-alignCenter"
                                               colSpan={1}
                                             >
@@ -362,9 +368,9 @@ const Group = ({ data }) => {
                                                   )}
                                                 </div>
                                               </div>
-                                            </td>
+                                            </div>
 
-                                            <td
+                                            <div
                                               className="MuiTableCell-root MuiTableCell-body odds-cell MuiTableCell-alignCenter"
                                               colSpan={1}
                                             >
@@ -420,8 +426,8 @@ const Group = ({ data }) => {
                                                   )}
                                                 </div>
                                               </div>
-                                            </td>
-                                            <td
+                                            </div>
+                                            <div
                                               className="MuiTableCell-root MuiTableCell-body odds-cell MuiTableCell-alignCenter"
                                               colSpan={1}
                                             >
@@ -477,8 +483,8 @@ const Group = ({ data }) => {
                                                   )}
                                                 </div>
                                               </div>
-                                            </td>
-                                          </td>
+                                            </div>
+                                          </div>
                                         </tr>
                                       );
                                     })
