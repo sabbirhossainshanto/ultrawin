@@ -6,7 +6,7 @@ import SuspendedMobile from "../../shared/Suspended/SuspendedMobile";
 const MobileGroup = ({ data, keys }) => {
   const navigate = useNavigate();
   const navigateGameList = (keys) => {
-    navigate(`/game-details/${data[keys]?.eventTypeId}/${keys}`);
+    navigate(`/${data[keys]?.eventTypeId}/${keys}`);
   };
   return (
     <>

@@ -26,7 +26,10 @@ const LeftSidebar = () => {
         <div className="sh-menu">
           <div className="sh-sub-menu">
             <button
-              onClick={() => dispatch(setGroupType(4))}
+              onClick={() => {
+                dispatch(setGroupType(4));
+                navigate("/");
+              }}
               className={`sh-btn ${group === 4 ? "active-sh-btn" : ""}`}
             >
               <svg
@@ -472,7 +475,10 @@ const LeftSidebar = () => {
               <div className="sh-tab-label">cricket</div>
             </button>
             <button
-              onClick={() => dispatch(setGroupType(1))}
+              onClick={() => {
+                dispatch(setGroupType(1));
+                navigate("/");
+              }}
               className={`sh-btn ${group === 1 ? "active-sh-btn" : ""}`}
             >
               <svg
@@ -558,7 +564,10 @@ const LeftSidebar = () => {
               <div className="sh-tab-label">football</div>
             </button>
             <button
-              onClick={() => dispatch(setGroupType(2))}
+              onClick={() => {
+                dispatch(setGroupType(2));
+                navigate("/");
+              }}
               className={`sh-btn ${group === 2 ? "active-sh-btn" : ""}`}
             >
               <svg

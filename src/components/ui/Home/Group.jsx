@@ -7,7 +7,7 @@ import MobileGroup from "./MobileGroup";
 const Group = ({ data }) => {
   const navigate = useNavigate();
   const navigateGameList = (keys) => {
-    navigate(`/game-details/${data[keys]?.eventTypeId}/${keys}`);
+    navigate(`/${data[keys]?.eventTypeId}/${keys}`);
   };
   const filterSports =
     data &&

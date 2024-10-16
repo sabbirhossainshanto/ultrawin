@@ -2,7 +2,6 @@ import {
   setPlaceBetValues,
   setShowComponent,
 } from "../redux/features/events/eventSlice";
-import { setShowLoginModal } from "../redux/features/stateSlice";
 
 export const handleDesktopBetSlip = (
   betType,
@@ -64,6 +63,6 @@ export const handleDesktopBetSlip = (
     dispatch(setPlaceBetValues(betData));
     dispatch(setShowComponent(true));
   } else {
-    dispatch(setShowLoginModal(true));
+    ("navigate login");
   }
 };

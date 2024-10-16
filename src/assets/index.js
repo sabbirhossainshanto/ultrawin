@@ -17,6 +17,7 @@ import royal from "./images/royal_gaming.c74d670d (1).84bf0c1c.svg";
 import title from "./images/title.b1c13662.png";
 import live from "./images/liveEvent.1b77d1b4.gif";
 import lock from "./images/download.png";
+import multipin from "./images/multipin.404eca81.svg";
 
 export default {
   theme,
@@ -38,4 +39,5 @@ export default {
   title,
   lock,
   live,
+  multipin,
 };

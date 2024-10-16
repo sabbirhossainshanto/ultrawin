@@ -3,6 +3,7 @@ import ScrollToTop from "../components/shared/ScrollToTop/ScrollToTop";
 import App from "../App";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
+import Event from "../pages/Event/Event";
 
 const MainRouter = () => {
   const router = createBrowserRouter(
@@ -19,6 +20,10 @@ const MainRouter = () => {
           {
             index: true,
             element: <Home />,
+          },
+          {
+            path: "/:eventTypeId/:eventId",
+            element: <Event />,
           },
         ],
       },

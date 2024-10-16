@@ -3,10 +3,8 @@ import Header from "../shared/Header/Header";
 import LeftSidebar from "../ui/LeftSidebar/LeftSidebar";
 import MobileHeader from "../shared/Header/MobileHeader";
 import MobileSidebar from "../ui/LeftSidebar/MobileSidebar";
-import { useSelector } from "react-redux";
 
 const MainLayout = () => {
-  const { showLeftSidebar } = useSelector((state) => state.global);
   return (
     <>
       <div className="MuiBox-root jss31"></div>
