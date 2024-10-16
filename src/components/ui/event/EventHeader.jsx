@@ -1,4 +1,5 @@
 const EventHeader = ({ data }) => {
+  console.log(data);
   return (
     <>
       <div className="hydrated md mob-stream-section">
@@ -130,9 +131,15 @@ const EventHeader = ({ data }) => {
               <div className="eam-date">
                 <div className="eam-dates">
                   <div className="eam-date-time">
-                    <span>07</span>:<span>00 PM</span>
+                    <span>
+                      {data?.result?.length > 0 &&
+                        data?.result?.[0]?.openDate?.split(" ")[1]}
+                    </span>
                   </div>
-                  <div className="eam-date-text">12 Oct 2024</div>
+                  <div className="eam-date-text">
+                    {data?.result?.length > 0 &&
+                      data?.result?.[0]?.openDate?.split(" ")[0]}
+                  </div>
                 </div>
               </div>
             </div>
