@@ -690,6 +690,7 @@
   .MuiTableRow-root
   .temas-col {
   display: inline-flex;
+  align-items: center;
 }
 .events-table-ctn
   .events-table-content

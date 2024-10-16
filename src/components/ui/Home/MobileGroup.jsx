@@ -26,52 +26,25 @@ const MobileGroup = ({ data, keys }) => {
             </div>
           </div>
           <div className="enabled-markets">
-            {data[keys]?.isFancy === 1 ? (
+            {data[keys]?.isFancy === 1 && (
               <div className="market-enabled">
                 <div className="market-enabled-inner">FC</div>
               </div>
-            ) : (
-              <div
-                className="market-enabled"
-                style={{
-                  backgroundColor: "transparent",
-                }}
-              >
-                <div className="market-enabled-inner"></div>
-              </div>
             )}
 
-            {data[keys]?.isBookmaker === 1 ? (
+            {data[keys]?.isBookmaker === 1 && (
               <div className="market-enabled">
                 <div className="market-enabled-inner">BM</div>
               </div>
-            ) : (
-              <div
-                className="market-enabled"
-                style={{
-                  backgroundColor: "transparent",
-                }}
-              >
-                <div className="market-enabled-inner"></div>
-              </div>
             )}
 
-            {data[keys]?.isVirtual === 1 ? (
+            {data[keys]?.isVirtual === 1 && (
               <div className="market-enabled">
                 <div className="market-enabled-inner">VIR</div>
               </div>
-            ) : (
-              <div
-                className="market-enabled"
-                style={{
-                  backgroundColor: "transparent",
-                }}
-              >
-                <div className="market-enabled-inner"></div>
-              </div>
             )}
 
-            {data[keys]?.isGaming === 1 ? (
+            {data[keys]?.isGaming === 1 && (
               <div className="market-enabled bg-none">
                 <div className="market-enabled-inner">
                   <svg width="30" height="30" viewBox="0 0 50 30" fill="none">
@@ -101,15 +74,6 @@ const MobileGroup = ({ data, keys }) => {
                     ></path>
                   </svg>
                 </div>
-              </div>
-            ) : (
-              <div
-                className="market-enabled bg-none"
-                style={{
-                  backgroundColor: "transparent",
-                }}
-              >
-                <div className="market-enabled-inner"></div>
               </div>
             )}
           </div>

@@ -131,6 +131,8 @@ const Group = ({ data }) => {
                                           style={{
                                             display: "flex",
                                             justifyContent: "space-between",
+                                            marginBottom: "2px",
+                                            borderRadius: "25px",
                                           }}
                                           key={index}
                                           className="MuiTableRow-root bgc-white"
