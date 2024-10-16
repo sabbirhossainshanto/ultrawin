@@ -139,11 +139,11 @@ const Group = ({ data }) => {
                                         >
                                           <div
                                             className="MuiTableCell-root MuiTableCell-body teams-cell mob-et-b-c"
-                                            style={
-                                              {
-                                                // width: "30vh",
-                                              }
-                                            }
+                                            style={{
+                                              display: "flex",
+                                              flexDirection: "column",
+                                              justifyContent: "center",
+                                            }}
                                           >
                                             <div
                                               style={{
