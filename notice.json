@@ -29,6 +29,7 @@
     },
 
     "endpoint": {
+      "groupSportsBook": "https://cache.api7.live/api/exchange/diamond/group/sportsbook",
       "liveCasinoWolf": "https://api7.live/api/exchange/diamond/liveCasinoWolf",
       "slotsWolf": "https://api7.live/api/exchange/diamond/slotsWolf",
       "auraWolf": "https://api7.live/api/exchange/diamond/auraWolf",

@@ -11,6 +11,7 @@ export const getSetApis = (setNoticeLoaded, baseUrl) => {
         const endPoints = data?.result?.endpoint;
         const setting = data?.result?.settings;
         API.auraWolf = endPoints?.auraWolf;
+        API.groupSportsBook = endPoints?.groupSportsBook;
         API.exchangeGames = endPoints?.exchangeGames;
         API.banner = endPoints?.banner;
         API.uploadScreenshot = endPoints?.uploadScreenshot;

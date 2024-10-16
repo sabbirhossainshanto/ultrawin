@@ -1,13 +1,10 @@
 import { useSelector } from "react-redux";
 import HomeComponent from "../../components/ui/Home/Home";
 import Group from "../../components/ui/Home/Group";
-import { useGetAllGroupEventsQuery } from "../../redux/features/events/events";
-import isRefetchGroupData from "../../utils/isRefetchGroupData";
+import useSportsBook from "../../hooks/useSportsBook";
 const Home = () => {
   const { group } = useSelector((state) => state?.global);
-  const { data } = useGetAllGroupEventsQuery(group, {
-    pollingInterval: isRefetchGroupData(group) ? 1000 : null,
-  });
+  const { data } = useSportsBook(group);
 
   return (
     <>
