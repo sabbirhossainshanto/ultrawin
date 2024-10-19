@@ -18,6 +18,8 @@ import title from "./images/title.b1c13662.png";
 import live from "./images/liveEvent.1b77d1b4.gif";
 import lock from "./images/download.png";
 import multipin from "./images/multipin.404eca81.svg";
+import playStore from "./images/playstore.svg";
+import appStar from "./images/app-star.svg";
 
 export default {
   theme,
@@ -40,4 +42,6 @@ export default {
   lock,
   live,
   multipin,
+  playStore,
+  appStar,
 };
