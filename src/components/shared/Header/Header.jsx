@@ -1,11 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import assets from "../../../assets";
 import { setShowLeftSidebar } from "../../../redux/features/global/globalSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useBalance from "../../../hooks/useBalance";
 import useBonusBalance from "../../../hooks/useBonusBalance";
+import useContextState from "../../../hooks/useContextState";
 
 const Header = () => {
+  const { logo } = useContextState();
   const { balance } = useBalance();
   const { bonusBalance } = useBonusBalance();
   const { token, user } = useSelector((state) => state.auth);
@@ -103,16 +105,16 @@ const Header = () => {
           />
         </div>
       </div>
-      <div className="whatsapp-login-signup">
-        {/* <button className="new-whatsapp web-view">
+      <div className="whatsapp-login-signup ">
+        <button className="new-whatsapp mob-view">
           <img
-            src="data:image/png;base64"
-            height="28"
-            width="28"
-            alt="whatsapp"
+            style={{ objectFit: "contain", height: "30px", width: "50px" }}
+            src={logo}
           />
-        </button> */}
-
+        </button>
+        <Link to="/deposit" className="deposit-btn-wrapper mob-view">
+          <div className="deposit-btn">&nbsp;&nbsp;Deposit&nbsp;&nbsp;</div>
+        </Link>
         {!token ? (
           <>
             <button

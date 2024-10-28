@@ -279,7 +279,7 @@ const MatchOddsBookmaker = ({ data }) => {
                                             pnl > 0 ? "profit" : "loss"
                                           }`}
                                         >
-                                          {pnl || ""}
+                                          {pnl}
                                         </span>
                                       );
                                     })}

@@ -84,6 +84,7 @@ const MobileSidebar = () => {
                 className=" sh-btn"
                 onClick={() => {
                   dispatch(setGroupType(4));
+                  navigate("/");
                   dispatch(setShowLeftSidebar(false));
                 }}
               >
@@ -532,6 +533,7 @@ const MobileSidebar = () => {
               <button
                 onClick={() => {
                   dispatch(setGroupType(1));
+                  navigate("/");
                   dispatch(setShowLeftSidebar(false));
                 }}
                 className=" sh-btn"
@@ -621,6 +623,7 @@ const MobileSidebar = () => {
               <button
                 onClick={() => {
                   dispatch(setGroupType(2));
+                  navigate("/");
                   dispatch(setShowLeftSidebar(false));
                 }}
                 className=" sh-btn"

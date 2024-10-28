@@ -198,3 +198,568 @@
 .event-tab {
   padding: 0px 10px;
 }
+
+@media (max-width: 720px) {
+  .exch-betslip-ctn {
+    width: 100vw;
+  }
+  .eam-events-table-section {
+    display: none;
+  }
+}
+
+/* Deposit */
+
+.amountBox {
+  margin-top: 1.38rem;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 10px;
+  background: #fff;
+  gap: 1rem;
+  margin: 10px;
+}
+
+.diposit_form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.375rem;
+  align-self: stretch;
+}
+
+.deposit_form_input {
+  padding: 1px !important;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  display: block;
+  height: 2.67rem;
+  width: 100%;
+  letter-spacing: 1px;
+  margin: 0 auto;
+  position: relative;
+  text-decoration: none;
+  z-index: 2;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.deposit_form_input .inputBox {
+  align-items: center;
+  border-radius: 0.5rem;
+  color: #000;
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+  transition: background 0.5s ease;
+  width: 100%;
+  padding: 0.75rem 0.5rem;
+}
+
+.form-control-input-bc:not([name="phoneCode"]) {
+  padding-inline-end: 44px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.stack-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+  align-self: stretch;
+  height: 2.3125rem;
+}
+
+.btn_box {
+  align-items: center;
+  background: #313b3f;
+  border-radius: 1.38rem;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  transition: background 0.5s ease;
+  width: 100%;
+  color: #d5d9de;
+  text-align: center;
+  font-size: 0.8em;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.btnn.active {
+  opacity: 1;
+  border-radius: 0.5rem;
+  background: #ad1919;
+  /* box-shadow: 0 5px 21px #00cf5875; */
+}
+
+.btnn {
+  display: flex;
+  height: 2.5rem;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 0.5rem;
+  opacity: 0.5;
+  width: 100%;
+  background-color: #ad1919;
+  /* box-shadow: 0 0 5px #2db261; */
+  color: #fff;
+  font-family: "Inter";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.Modal-Background {
+  position: fixed;
+  display: flex;
+  align-items: flex-end;
+  inset: 0;
+  background: rgba(28, 28, 28, 0.7);
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+  z-index: 100;
+}
+
+.depositpop {
+  display: flex;
+  padding: 0.5rem 1.5rem 5.625rem;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+  border-radius: 1.5rem 1.5rem 0rem 0rem;
+  background: #ebedf4;
+  animation: slide-up 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  width: 100%;
+}
+
+.depositbreak {
+  display: flex;
+  height: 2.8125rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.depositbreak > p {
+  color: #040404;
+
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 0.01875rem;
+}
+
+.close-svg {
+  display: flex;
+  padding: 0.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 1.25rem;
+  background: #9ca3af;
+}
+
+.deposit-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  align-self: stretch;
+}
+
+.balancebox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  align-self: stretch;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  background: #fff;
+}
+
+.damount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+
+.balancetxt {
+  color: #040404;
+
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: 0.01875rem;
+}
+
+.amt {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.amt > p {
+  color: #040404;
+  text-align: center;
+
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: 0.01875rem;
+}
+
+.line {
+  background: rgba(255, 255, 255, 0.2);
+  border: 0.5px solid #ebedf4;
+  height: 0rem;
+  width: 100%;
+}
+
+.totalamt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  align-self: stretch;
+}
+
+.money {
+  color: #040404;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+.doll1 {
+  color: #22c55e;
+  text-align: center;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: 0.01875rem;
+}
+
+.giftbox {
+  display: flex;
+  position: relative;
+  margin-top: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  align-self: stretch;
+  border-radius: 0.5rem;
+  background: linear-gradient(
+    133deg,
+    rgba(8, 248, 255, 0.3) 0%,
+    rgba(59, 164, 253, 0.3) 51.04%,
+    rgba(132, 54, 250, 0.3) 100%
+  );
+}
+
+.star1 {
+  width: 1.5rem;
+  height: 1.5rem;
+  transform: rotate(-20.272deg);
+  position: absolute;
+  left: 0.14619rem;
+  top: 0.12419rem;
+}
+
+.star2 {
+  width: 1.5rem;
+  height: 1.5rem;
+  transform: rotate(-20.272deg);
+  position: absolute;
+  left: 11.67438rem;
+  top: -0.22994rem;
+  opacity: 0.73;
+}
+
+.gift-input {
+  display: flex;
+  align-items: center;
+  padding: 0px 1rem;
+
+  align-self: stretch;
+  justify-content: space-between;
+}
+
+.money {
+  color: #040404;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+.doll {
+  color: #040404;
+  text-align: center;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: 0.01875rem;
+}
+
+.star3 {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  left: 14.875rem;
+  top: 2.125rem;
+  transform: rotate(-20.272deg);
+  opacity: 0.73;
+}
+
+.makepayment {
+  animation: slide-in 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.makepayment {
+  margin-top: 1rem;
+  display: flex;
+  height: 2.5rem;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.375rem;
+  border-radius: 0.5rem;
+  background: #ad1919;
+}
+
+.makepayment > button,
+.madepay > button {
+  color: #fff;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+  letter-spacing: 0.01875rem;
+  border: none;
+  background: none;
+}
+
+.paymethod[_ngcontent-kdb-c159] {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 10px;
+}
+
+.make[_ngcontent-kdb-c159] {
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 1rem;
+}
+
+.accountdetailss[_ngcontent-kdb-c159] {
+  display: flex;
+  padding: 10px;
+  margin: 5px 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  color: #000c24;
+  border-radius: 0.75rem;
+  background: #fff;
+}
+
+.payment_container {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+.accountdetailss[_ngcontent-kdb-c159] {
+  display: flex;
+  padding: 10px;
+  margin: 5px 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  color: #000c24;
+  border-radius: 0.75rem;
+  background: #fff;
+}
+.accountnum[_ngcontent-kdb-c159] {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.utrbox {
+  animation: slide-in 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.utrbox {
+  margin: 10px;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  border-radius: 0.75rem;
+  background: #fff;
+  margin-top: 1rem;
+}
+
+.utrtxt {
+  color: #fff;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  align-self: stretch;
+}
+
+.u-i-p-control-item-holder-bc:last-child {
+  margin-bottom: 0;
+}
+
+.upload {
+  display: flex;
+  padding: 1rem;
+  margin: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 0.75rem;
+  border: 1px dashed rgba(255, 255, 255, 0.23);
+  background: #fff;
+  margin-top: 1rem;
+}
+
+.uploadimg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.875rem;
+  align-self: stretch;
+}
+
+.uploadsvg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.uploadtxt {
+  color: #040404;
+  text-align: center;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.frame {
+  align-items: center;
+  display: flex;
+  gap: 24px;
+  height: 46px;
+  padding: 8px 20px;
+  position: relative;
+}
+
+.uploadbtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  background: var(
+    --gradient-03,
+    linear-gradient(133deg, #36e2fa 0%, #ebffbf 100%)
+  );
+  padding: 0.4375rem 1.5rem;
+  cursor: pointer;
+  color: var(--greyscale-900, #111827);
+  font-size: 0.8125rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.utrbox {
+  animation: slide-in 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.utrbox {
+  margin: 10px;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  border-radius: 0.75rem;
+  background: #fff;
+  margin-top: 1rem;
+}
+
+.utrtxt {
+  color: #fff;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  align-self: stretch;
+}
+
+.u-i-p-control-item-holder-bc {
+  position: relative;
+}
+
+.u-i-p-control-item-holder-bc {
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+.utrinput > input {
+  margin-top: 1rem;
+  align-items: center;
+  background-color: #ebedf4;
+  display: flex;
+  gap: 24px;
+  height: 46px;
+  padding: 8px 20px;
+  position: relative;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  color: #000;
+}
+
+.animate-spin {
+  animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

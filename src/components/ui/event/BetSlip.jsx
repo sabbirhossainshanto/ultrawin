@@ -11,12 +11,14 @@ import { settings } from "../../../api";
 import toast from "react-hot-toast";
 import { handleIncreasePrice } from "../../../utils/handleIncreasePrice";
 import { handleDecreasePrice } from "../../../utils/handleDecreasePrice";
+import useCurrentBets from "../../../hooks/useCurrentBets";
 
 const BetSlip = ({ setSelectedRunner }) => {
   const dispatch = useDispatch();
   const { eventId } = useParams();
   const { refetchBalance } = useBalance();
   const { refetchExposure } = useExposer(eventId);
+  const { refetchCurrentBets } = useCurrentBets(eventId);
   const { placeBetValues, price, stake } = useSelector((state) => state?.event);
   const [createOrder] = useOrderMutation();
   const buttonValues = localStorage.getItem("buttonValue");
@@ -91,7 +93,7 @@ const BetSlip = ({ setSelectedRunner }) => {
       refetchExposure();
       refetchBalance();
       setSelectedRunner("");
-      // refetchCurrentBets();
+      refetchCurrentBets();
       setBetDelay("");
       toast.success(res?.result?.result?.placed?.[0]?.message);
     } else {
@@ -100,8 +102,8 @@ const BetSlip = ({ setSelectedRunner }) => {
       );
       setBetDelay("");
       setBetDelay(false);
-      refetchExposure();
-      refetchBalance();
+      // refetchExposure();
+      // refetchBalance();
       // refetchCurrentBets();
     }
   };
@@ -198,6 +200,7 @@ const BetSlip = ({ setSelectedRunner }) => {
                         <input
                           style={{
                             color: "black",
+                            width: "100%",
                           }}
                           onChange={(e) => dispatch(setPrice(e.target.value))}
                           className="native-input sc-ion-input-md"
@@ -277,7 +280,8 @@ const BetSlip = ({ setSelectedRunner }) => {
                       </button>
                     );
                   })}
-
+                </div>
+                <div className="quick-bet">
                   <button
                     className="MuiButtonBase-root MuiButton-root MuiButton-text qb-btn-allin"
                     type="button"

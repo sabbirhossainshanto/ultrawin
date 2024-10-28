@@ -44,6 +44,7 @@ export const API = {
   exchangeGames: "",
   auraWolf: "",
   groupSportsBook: "",
+  depositBreakdown: "",
 };
 
 export const settings = {

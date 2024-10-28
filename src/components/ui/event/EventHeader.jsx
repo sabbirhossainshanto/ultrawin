@@ -128,7 +128,7 @@ const EventHeader = ({ data }) => {
         {tab === "openBets" && <OpenBets myBets={myBets} />}
       </div>
 
-      <div className="hydrated md eam-events-table-section">
+      <div className="hydrated md eam-events-table-section ">
         <div className="hydrated md eam-info-header eam-info-header-name">
           <div className="eam-teams-name">
             <div className="eam-date-ctn">

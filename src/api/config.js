@@ -10,6 +10,7 @@ export const getSetApis = (setNoticeLoaded, baseUrl) => {
       if (data?.result?.endpoint) {
         const endPoints = data?.result?.endpoint;
         const setting = data?.result?.settings;
+        API.depositBreakdown = endPoints?.depositBreakdown;
         API.auraWolf = endPoints?.auraWolf;
         API.groupSportsBook = endPoints?.groupSportsBook;
         API.exchangeGames = endPoints?.exchangeGames;

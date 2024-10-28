@@ -94,7 +94,8 @@
       "uploadScreenshot": "https://b2c.bet/deposit/up.php",
       "withdrawBreakdown": "https://api7.live/api/exchange/diamond/withdrawBreakdown",
       "banner": "https://api7.live/api/exchange/diamond/banner",
-      "exchangeGames": "https://cache7.live/api/exchange/diamond/exchangeGames"
+      "exchangeGames": "https://cache7.live/api/exchange/diamond/exchangeGames",
+      "depositBreakdown": "https://api7.live/api/exchange/diamond/depositBreakdown"
     }
   },
   "success": true

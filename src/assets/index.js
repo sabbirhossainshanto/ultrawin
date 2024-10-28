@@ -20,6 +20,12 @@ import lock from "./images/download.png";
 import multipin from "./images/multipin.404eca81.svg";
 import playStore from "./images/playstore.svg";
 import appStar from "./images/app-star.svg";
+import star from "./images/star.svg";
+import upi from "./images/upi.png";
+import phonePe from "./images/PHONEPE_WEB.png";
+import paytm from "./images/paytm.webp";
+import gpay from "./images/GPAY_WEB.png";
+import bhim from "./images/BHIM_WEB.png";
 
 export default {
   theme,
@@ -44,4 +50,10 @@ export default {
   multipin,
   playStore,
   appStar,
+  star,
+  upi,
+  phonePe,
+  paytm,
+  gpay,
+  bhim,
 };

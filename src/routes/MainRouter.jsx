@@ -4,6 +4,7 @@ import App from "../App";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Event from "../pages/Event/Event";
+import Deposit from "../pages/Deposit/Deposit";
 
 const MainRouter = () => {
   const router = createBrowserRouter(
@@ -24,6 +25,10 @@ const MainRouter = () => {
           {
             path: "/:eventTypeId/:eventId",
             element: <Event />,
+          },
+          {
+            path: "/deposit",
+            element: <Deposit />,
           },
         ],
       },
