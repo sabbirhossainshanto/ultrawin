@@ -1,6 +1,6 @@
 const MobileHeader = () => {
   return (
-    <div className="mob-header">
+    <div className="mob-header" style={{ zIndex: 9999 }}>
       <div className="exch-mob-header-ctn">
         <a className="exch-mob-nav-link mob-link-btn" href="/login">
           <div className="exch-nav-item-ctn">

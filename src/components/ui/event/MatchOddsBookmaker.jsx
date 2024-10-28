@@ -126,7 +126,7 @@ const MatchOddsBookmaker = ({ data }) => {
       setTeamProfit([]);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data, eventId, exposer]);
+  }, [data, eventId]);
   return (
     <>
       {data?.map((games) => {

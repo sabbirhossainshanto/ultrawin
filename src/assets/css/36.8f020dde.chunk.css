@@ -7014,7 +7014,7 @@
     .matchodds-table
     .MuiTableRow-root
     .odds-cell {
-    width: 25%;
+    width: 19%;
   }
 }
 @media (min-width: 1201px) and (max-width: 1500px) {
@@ -7024,7 +7024,7 @@
     .matchodds-table
     .MuiTableRow-root
     .odds-cell {
-    width: 25%;
+    width: 19%;
   }
 }
 @media (min-width: 1501px) {
@@ -7034,7 +7034,7 @@
     .matchodds-table
     .MuiTableRow-root
     .odds-cell {
-    width: 21%;
+    width: 15%;
   }
 }
 @media (max-width: 720px) {
