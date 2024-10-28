@@ -6,6 +6,8 @@ import assets from "../../../assets";
 import isOddSuspended from "../../../utils/isOddSuspended";
 import BetSlip from "./BetSlip";
 import { handleDesktopBetSlip } from "../../../utils/handleDesktopBetSlip";
+import { settings } from "../../../api";
+import { handleCashoutBetMobile } from "../../../utils/handleCashoutBetMobile";
 
 const MatchOddsBookmaker = ({ data }) => {
   const { eventId } = useParams();
@@ -134,6 +136,11 @@ const MatchOddsBookmaker = ({ data }) => {
   return (
     <>
       {data?.map((games) => {
+        const teamProfitForGame = teamProfit?.find(
+          (profit) =>
+            profit?.gameId === games?.id && profit?.isOnePositiveExposure
+        );
+
         return (
           <div key={games?.id} className="hydrated md eam-table-section">
             <div className="matchodds-table-ctn">
@@ -163,18 +170,57 @@ const MatchOddsBookmaker = ({ data }) => {
                               {games?.name}
                               <span className="event-name" />
                             </span>
-                            <div className="cashout-option">
-                              <button
-                                className="Mui-disabled Mui-disabled MuiButton-root MuiButtonBase-root MuiButton-contained MuiButton-containedPrimary MuiButton-containedSizeSmall MuiButton-sizeSmall btn cashout-btn loss"
-                                tabIndex={-1}
-                                type="button"
-                                disabled
-                              >
-                                <span className="MuiButton-label">
-                                  Cashout : ₹0
-                                </span>
-                              </button>
-                            </div>
+                            {settings.betFairCashOut &&
+                              games?.runners?.length !== 3 &&
+                              games?.status === "OPEN" &&
+                              games?.btype !== "BOOKMAKER" && (
+                                <div className="cashout-option">
+                                  <button
+                                    style={{
+                                      cursor: `${
+                                        !teamProfitForGame
+                                          ? "not-allowed"
+                                          : "pointer"
+                                      }`,
+                                      opacity: `${
+                                        !teamProfitForGame ? "0.6" : "1"
+                                      }`,
+                                    }}
+                                    disabled={!teamProfitForGame}
+                                    onClick={() =>
+                                      handleCashoutBetMobile(
+                                        games,
+                                        "lay",
+                                        dispatch,
+                                        setSelectedRunner,
+                                        pnlBySelection,
+                                        token,
+                                        teamProfitForGame
+                                      )
+                                    }
+                                    className={`MuiButtonBase-root MuiButton-root MuiButton-contained btn cashout-btn   MuiButton-containedPrimary MuiButton-containedSizeSmall MuiButton-sizeSmall ${
+                                      teamProfitForGame?.profit > 0
+                                        ? "profit"
+                                        : "loss"
+                                    }`}
+                                    type="button"
+                                  >
+                                    <span className="MuiButton-label">
+                                      Cashout{" "}
+                                      {teamProfitForGame?.profit && (
+                                        <>
+                                          : ₹{" "}
+                                          {teamProfitForGame?.profit?.toFixed(
+                                            2
+                                          )}
+                                        </>
+                                      )}
+                                    </span>
+                                    <span className="MuiTouchRipple-root"></span>
+                                  </button>
+                                </div>
+                              )}
+
                             <span className="web-view bet-limits-section">
                               Min: 100 Max: 25K
                             </span>
@@ -208,6 +254,10 @@ const MatchOddsBookmaker = ({ data }) => {
                         </td>
                       </tr>
                       {games?.runners?.map((runner) => {
+                        const pnl =
+                          pnlBySelection?.filter(
+                            (pnl) => pnl?.RunnerId === runner?.id
+                          ) || [];
                         return (
                           <>
                             <tr key={runner?.id} className="MuiTableRow-root">
@@ -220,6 +270,19 @@ const MatchOddsBookmaker = ({ data }) => {
                                 >
                                   {" "}
                                   {runner?.name}
+                                  {pnl &&
+                                    pnl?.map(({ pnl }, i) => {
+                                      return (
+                                        <span
+                                          key={i}
+                                          className={` ${
+                                            pnl > 0 ? "profit" : "loss"
+                                          }`}
+                                        >
+                                          {pnl || ""}
+                                        </span>
+                                      );
+                                    })}
                                 </div>
                               </td>
                               <td className="MuiTableCell-root MuiTableCell-body odds-cell">

@@ -1,4 +1,12 @@
+import { useState } from "react";
+import OpenBets from "./OpenBets";
+import { useParams } from "react-router-dom";
+import useCurrentBets from "../../../hooks/useCurrentBets";
+
 const EventHeader = ({ data }) => {
+  const [tab, setTab] = useState("scorecard");
+  const { eventId } = useParams();
+  const { myBets } = useCurrentBets(eventId);
   return (
     <>
       <div className="hydrated md mob-stream-section">
@@ -9,8 +17,10 @@ const EventHeader = ({ data }) => {
           >
             <div className="MuiTabs-flexContainer" role="tablist">
               <button
-                className="MuiTab-root MuiButtonBase-root MuiTab-textColorInherit Mui-selected"
-                tabIndex={0}
+                onClick={() => setTab("scorecard")}
+                className={`MuiTab-root MuiButtonBase-root MuiTab-textColorInherit  event-tab ${
+                  tab === "scorecard" ? "Mui-selected" : ""
+                }`}
                 type="button"
                 aria-selected="true"
                 role="tab"
@@ -19,8 +29,10 @@ const EventHeader = ({ data }) => {
                 <span className="MuiTouchRipple-root" />
               </button>
               <button
-                className="MuiTab-root MuiButtonBase-root MuiTab-textColorInherit"
-                tabIndex={-1}
+                onClick={() => setTab("liveStream")}
+                className={`MuiTab-root MuiButtonBase-root MuiTab-textColorInherit  event-tab ${
+                  tab === "liveStream" ? "Mui-selected" : ""
+                }`}
                 type="button"
                 aria-selected="false"
                 role="tab"
@@ -29,13 +41,17 @@ const EventHeader = ({ data }) => {
                 <span className="MuiTouchRipple-root" />
               </button>
               <button
-                className="MuiTab-root MuiButtonBase-root MuiTab-textColorInherit"
-                tabIndex={-1}
+                onClick={() => setTab("openBets")}
+                className={`MuiTab-root MuiButtonBase-root MuiTab-textColorInherit  event-tab ${
+                  tab === "openBets" ? "Mui-selected" : ""
+                }`}
                 type="button"
                 aria-selected="false"
                 role="tab"
               >
-                <span className="MuiTab-wrapper">Open Bets (0)</span>
+                <span className="MuiTab-wrapper">
+                  Open Bets ({myBets?.length})
+                </span>
                 <span className="MuiTouchRipple-root" />
               </button>
             </div>
@@ -45,7 +61,7 @@ const EventHeader = ({ data }) => {
             />
           </div>
         </div>
-        <div
+        {/* <div
           className="event-stat-mobile-ctn"
           role="tabpanel"
           id="simple-tabpanel-0"
@@ -107,22 +123,11 @@ const EventHeader = ({ data }) => {
               </div>
             </div>
           </div>
-        </div>
-        <div
-          className="eam-header-tab-panel"
-          role="tabpanel"
-          id="simple-tabpanel-1"
-          aria-labelledby="simple-tab-1"
-          hidden
-        />
-        <div
-          className="event-stat-mobile-ctn"
-          role="tabpanel"
-          id="simple-tabpanel-2"
-          aria-labelledby="simple-tab-2"
-          hidden
-        />
+        </div> */}
+
+        {tab === "openBets" && <OpenBets myBets={myBets} />}
       </div>
+
       <div className="hydrated md eam-events-table-section">
         <div className="hydrated md eam-info-header eam-info-header-name">
           <div className="eam-teams-name">

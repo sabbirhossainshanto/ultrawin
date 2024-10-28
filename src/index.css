@@ -194,3 +194,7 @@
   text-align: center;
   cursor: not-allowed;
 }
+
+.event-tab {
+  padding: 0px 10px;
+}
