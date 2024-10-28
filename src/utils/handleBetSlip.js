@@ -1,5 +1,5 @@
 import { setPlaceBetValues } from "../redux/features/events/eventSlice";
-import { setShowLoginModal } from "../redux/features/stateSlice";
+import { setShowLoginModal } from "../redux/features/global/globalSlice";
 
 export const handleBetSlip = (
   setRunnerId,
@@ -41,7 +41,8 @@ export const handleBetSlip = (
     }
 
     if (games?.btype == "FANCY") {
-      price = betType === "back" ? runner?.back?.[0]?.line : runner?.lay?.[0]?.line;
+      price =
+        betType === "back" ? runner?.back?.[0]?.line : runner?.lay?.[0]?.line;
     } else {
       price = betType === "back" ? runner?.back[0].price : runner?.lay[0].price;
     }
@@ -70,7 +71,6 @@ export const handleBetSlip = (
       marketName: games?.name,
       eventId: games?.eventId,
       totalSize: 0,
-  
     };
     if (games?.btype == "FANCY") {
       setRunnerId(games?.id);

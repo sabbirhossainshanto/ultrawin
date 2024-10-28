@@ -9,8 +9,10 @@ import handleRandomToken from "../../../utils/handleRandomToken";
 import handleEncryptData from "../../../utils/handleEncryptData";
 import { settings } from "../../../api";
 import isOddSuspended from "../../../utils/isOddSuspended";
+import BetSlip from "./BetSlip";
 
 const Fancy = ({ fancy }) => {
+  const [selectedRunner, setSelectedRunner] = useState("");
   const token = useSelector(userToken);
   const [eventName, setEventName] = useState("");
   const [ladderData, setLadderData] = useState([]);
@@ -32,7 +34,8 @@ const Fancy = ({ fancy }) => {
       exposer,
       dispatch,
       price,
-      token
+      token,
+      setSelectedRunner
     );
   };
   const handleGetLadder = async (marketId, games) => {
@@ -154,103 +157,136 @@ const Fancy = ({ fancy }) => {
                       </tr>
                       {fancy?.map((games) => {
                         return (
-                          <tr key={games?.id} className="MuiTableRow-root">
-                            <td className="MuiTableCell-root MuiTableCell-body market-name-cell">
-                              <div className="market">{games?.name}</div>
-                            </td>
-                            <td className="MuiTableCell-root MuiTableCell-body odds-cell book-btn-cell">
-                              <button
-                                className="Mui-disabled Mui-disabled MuiButton-root MuiButtonBase-root MuiButton-text fancy-book-btn"
-                                tabIndex={-1}
-                                type="button"
-                                disabled
-                              >
-                                <span className="MuiButton-label">Book</span>
-                              </button>
-                            </td>
-                            <td className="MuiTableCell-root MuiTableCell-body odds-cell">
-                              <div className="odds-block">
-                                <div className="exch-odd-view">
-                                  <div
-                                    className={`exch-odd-button odds-no-cell ${
-                                      isOddSuspended(games) ? "disabled" : ""
-                                    }`}
-                                  >
-                                    {!isOddSuspended(games) ? (
-                                      <div className="exch-odd-button-content">
-                                        <div className="runs">
-                                          {" "}
-                                          {games?.runners?.[0]?.lay?.[0]
-                                            ?.line || "-"}
-                                        </div>
-                                        <div className="odds">
-                                          {" "}
-                                          {games?.runners?.[0]?.lay?.[0]?.price}
-                                        </div>
-                                      </div>
-                                    ) : (
-                                      <svg
-                                        className="MuiSvgIcon-root lock-icon"
-                                        viewBox="0 0 24 24"
-                                        aria-hidden="true"
-                                        focusable="false"
-                                      >
-                                        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
-                                      </svg>
-                                    )}
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                            <td className="MuiTableCell-root MuiTableCell-body odds-cell">
-                              <div className="odds-block">
-                                <div className="exch-odd-view">
-                                  <div
-                                    className={`exch-odd-button odds-yes-cell ${
-                                      isOddSuspended(games) ? "disabled" : ""
-                                    }`}
-                                  >
-                                    {!isOddSuspended(games) ? (
-                                      <div className="exch-odd-button-content">
-                                        <div className="runs">
-                                          {" "}
-                                          {games?.runners?.[0]?.back?.[0]?.line}
-                                        </div>
-                                        <div className="odds">
-                                          {" "}
-                                          {
-                                            games?.runners?.[0]?.back?.[0]
-                                              ?.price
+                          <>
+                            <tr key={games?.id} className="MuiTableRow-root">
+                              <td className="MuiTableCell-root MuiTableCell-body market-name-cell">
+                                <div className="market">{games?.name}</div>
+                              </td>
+                              <td className="MuiTableCell-root MuiTableCell-body odds-cell book-btn-cell">
+                                <button
+                                  className="Mui-disabled Mui-disabled MuiButton-root MuiButtonBase-root MuiButton-text fancy-book-btn"
+                                  tabIndex={-1}
+                                  type="button"
+                                  disabled
+                                >
+                                  <span className="MuiButton-label">Book</span>
+                                </button>
+                              </td>
+                              <td className="MuiTableCell-root MuiTableCell-body odds-cell">
+                                <div className="odds-block">
+                                  <div className="exch-odd-view">
+                                    <div
+                                      className={`exch-odd-button odds-no-cell ${
+                                        isOddSuspended(games) ? "disabled" : ""
+                                      }`}
+                                    >
+                                      {!isOddSuspended(games) ? (
+                                        <div
+                                          onClick={() =>
+                                            handleOpenBetSlip(
+                                              "lay",
+                                              games,
+                                              games?.runners?.[0],
+                                              games?.runners?.[0]?.lay?.[0]
+                                                ?.line
+                                            )
                                           }
+                                          className="exch-odd-button-content"
+                                        >
+                                          <div className="runs">
+                                            {" "}
+                                            {games?.runners?.[0]?.lay?.[0]
+                                              ?.line || "-"}
+                                          </div>
+                                          <div className="odds">
+                                            {" "}
+                                            {
+                                              games?.runners?.[0]?.lay?.[0]
+                                                ?.price
+                                            }
+                                          </div>
                                         </div>
-                                      </div>
-                                    ) : (
-                                      <svg
-                                        className="MuiSvgIcon-root lock-icon"
-                                        viewBox="0 0 24 24"
-                                        aria-hidden="true"
-                                        focusable="false"
-                                      >
-                                        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
-                                      </svg>
-                                    )}
+                                      ) : (
+                                        <svg
+                                          className="MuiSvgIcon-root lock-icon"
+                                          viewBox="0 0 24 24"
+                                          aria-hidden="true"
+                                          focusable="false"
+                                        >
+                                          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
+                                        </svg>
+                                      )}
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            </td>
-                            <td className="MuiTableCell-root MuiTableCell-body limits-cell">
-                              <div className="limits-data">
-                                <div className="row web-view">
-                                  <div>Min: {games?.minLiabilityPerBet}</div>
-                                  <div>Max: {games?.maxLiabilityPerBet}</div>
+                              </td>
+                              <td className="MuiTableCell-root MuiTableCell-body odds-cell">
+                                <div className="odds-block">
+                                  <div className="exch-odd-view">
+                                    <div
+                                      className={`exch-odd-button odds-yes-cell ${
+                                        isOddSuspended(games) ? "disabled" : ""
+                                      }`}
+                                    >
+                                      {!isOddSuspended(games) ? (
+                                        <div
+                                          onClick={() =>
+                                            handleOpenBetSlip(
+                                              "back",
+                                              games,
+                                              games?.runners?.[0],
+                                              games?.runners?.[0]?.back?.[0]
+                                                ?.line
+                                            )
+                                          }
+                                          className="exch-odd-button-content"
+                                        >
+                                          <div className="runs">
+                                            {" "}
+                                            {
+                                              games?.runners?.[0]?.back?.[0]
+                                                ?.line
+                                            }
+                                          </div>
+                                          <div className="odds">
+                                            {" "}
+                                            {
+                                              games?.runners?.[0]?.back?.[0]
+                                                ?.price
+                                            }
+                                          </div>
+                                        </div>
+                                      ) : (
+                                        <svg
+                                          className="MuiSvgIcon-root lock-icon"
+                                          viewBox="0 0 24 24"
+                                          aria-hidden="true"
+                                          focusable="false"
+                                        >
+                                          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
+                                        </svg>
+                                      )}
+                                    </div>
+                                  </div>
                                 </div>
-                                <div className="row mob-view">
-                                  <div>Min: {games?.minLiabilityPerBet}</div>
-                                  <div>Max: {games?.maxLiabilityPerBet}</div>
+                              </td>
+                              <td className="MuiTableCell-root MuiTableCell-body limits-cell">
+                                <div className="limits-data">
+                                  <div className="row web-view">
+                                    <div>Min: {games?.minLiabilityPerBet}</div>
+                                    <div>Max: {games?.maxLiabilityPerBet}</div>
+                                  </div>
+                                  <div className="row mob-view">
+                                    <div>Min: {games?.minLiabilityPerBet}</div>
+                                    <div>Max: {games?.maxLiabilityPerBet}</div>
+                                  </div>
                                 </div>
-                              </div>
-                            </td>
-                          </tr>
+                              </td>
+                            </tr>
+                            {games?.id === selectedRunner && (
+                              <BetSlip setSelectedRunner={setSelectedRunner} />
+                            )}
+                          </>
                         );
                       })}
                     </tbody>

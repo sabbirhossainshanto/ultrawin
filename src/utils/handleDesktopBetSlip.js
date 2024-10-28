@@ -10,7 +10,8 @@ export const handleDesktopBetSlip = (
   exposer,
   dispatch,
   price,
-  token
+  token,
+  setSelectedRunner
 ) => {
   if (token) {
     let pnlBySelection;
@@ -58,8 +59,13 @@ export const handleDesktopBetSlip = (
       pnl: updatedPnl,
       marketName: games?.name,
       eventId: games?.eventId,
+      eventName: games?.eventName,
     };
-
+    if (games?.btype == "FANCY") {
+      setSelectedRunner(games?.id);
+    } else {
+      setSelectedRunner(runner?.id);
+    }
     dispatch(setPlaceBetValues(betData));
     dispatch(setShowComponent(true));
   } else {

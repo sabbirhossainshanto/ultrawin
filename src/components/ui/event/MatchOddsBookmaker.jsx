@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import useExposer from "../../../hooks/useExposure";
-import { handleDesktopBetSlip } from "../../../utils/handleDesktopBetSlip";
 import assets from "../../../assets";
 import isOddSuspended from "../../../utils/isOddSuspended";
+import BetSlip from "./BetSlip";
+import { handleDesktopBetSlip } from "../../../utils/handleDesktopBetSlip";
 
 const MatchOddsBookmaker = ({ data }) => {
   const { eventId } = useParams();
+  const [selectedRunner, setSelectedRunner] = useState("");
   const { exposer } = useExposer(eventId);
   const { predictOdd, stake } = useSelector((state) => state?.event);
   const { token } = useSelector((state) => state?.auth);
@@ -28,7 +30,8 @@ const MatchOddsBookmaker = ({ data }) => {
       exposer,
       dispatch,
       price,
-      token
+      token,
+      setSelectedRunner
     );
   };
 
@@ -127,6 +130,7 @@ const MatchOddsBookmaker = ({ data }) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, eventId]);
+
   return (
     <>
       {data?.map((games) => {
@@ -205,263 +209,348 @@ const MatchOddsBookmaker = ({ data }) => {
                       </tr>
                       {games?.runners?.map((runner) => {
                         return (
-                          <tr key={runner?.id} className="MuiTableRow-root">
-                            <td className="MuiTableCell-root MuiTableCell-body team-name-cell">
-                              <div
-                                className="team"
-                                style={{
-                                  marginLeft: "10px",
-                                }}
-                              >
-                                {" "}
-                                {runner?.name}
-                              </div>
-                            </td>
-                            <td className="MuiTableCell-root MuiTableCell-body odds-cell">
-                              <div className="odds-block web-view back-odds-block">
-                                <div className="exch-odd-view">
-                                  <div
-                                    className={`exch-odd-button back-odd ${
-                                      isOddSuspended(runner) ? "disabled" : ""
-                                    }`}
-                                  >
-                                    {isOddSuspended(runner) ? (
-                                      <svg
-                                        className="MuiSvgIcon-root lock-icon"
-                                        viewBox="0 0 24 24"
-                                        aria-hidden="true"
-                                        focusable="false"
-                                      >
-                                        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
-                                      </svg>
-                                    ) : (
-                                      <div className="exch-odd-button-content">
-                                        <div className="price">
-                                          {" "}
-                                          {runner?.back?.[0]?.price || "-"}
+                          <>
+                            <tr key={runner?.id} className="MuiTableRow-root">
+                              <td className="MuiTableCell-root MuiTableCell-body team-name-cell">
+                                <div
+                                  className="team"
+                                  style={{
+                                    marginLeft: "10px",
+                                  }}
+                                >
+                                  {" "}
+                                  {runner?.name}
+                                </div>
+                              </td>
+                              <td className="MuiTableCell-root MuiTableCell-body odds-cell">
+                                <div className="odds-block web-view back-odds-block">
+                                  <div className="exch-odd-view">
+                                    <div
+                                      className={`exch-odd-button back-odd ${
+                                        isOddSuspended(runner) ? "disabled" : ""
+                                      }`}
+                                    >
+                                      {isOddSuspended(runner) ? (
+                                        <svg
+                                          className="MuiSvgIcon-root lock-icon"
+                                          viewBox="0 0 24 24"
+                                          aria-hidden="true"
+                                          focusable="false"
+                                        >
+                                          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
+                                        </svg>
+                                      ) : (
+                                        <div
+                                          onClick={() =>
+                                            handleOpenBetSlip(
+                                              "back",
+                                              games,
+                                              runner,
+                                              runner?.back?.[0]?.price
+                                            )
+                                          }
+                                          className="exch-odd-button-content"
+                                        >
+                                          <div className="price">
+                                            {" "}
+                                            {runner?.back?.[0]?.price || "-"}
+                                          </div>
+                                          <div className="size">
+                                            {" "}
+                                            {runner?.back?.[0]?.size || "-"}
+                                          </div>
                                         </div>
-                                        <div className="size">
-                                          {" "}
-                                          {runner?.back?.[0]?.size || "-"}
+                                      )}
+                                    </div>
+                                  </div>
+                                  <div className="exch-odd-view">
+                                    <div
+                                      className={`exch-odd-button back-odd ${
+                                        isOddSuspended(runner) ? "disabled" : ""
+                                      }`}
+                                    >
+                                      {isOddSuspended(runner) ? (
+                                        <svg
+                                          className="MuiSvgIcon-root lock-icon"
+                                          viewBox="0 0 24 24"
+                                          aria-hidden="true"
+                                          focusable="false"
+                                        >
+                                          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
+                                        </svg>
+                                      ) : (
+                                        <div
+                                          onClick={() =>
+                                            handleOpenBetSlip(
+                                              "back",
+                                              games,
+                                              runner,
+                                              runner?.back?.[1]?.price
+                                            )
+                                          }
+                                          className="exch-odd-button-content"
+                                        >
+                                          <div className="price">
+                                            {" "}
+                                            {runner?.back?.[1]?.price || "-"}
+                                          </div>
+                                          <div className="size">
+                                            {" "}
+                                            {runner?.back?.[1]?.size || "-"}
+                                          </div>
                                         </div>
-                                      </div>
-                                    )}
+                                      )}
+                                    </div>
+                                  </div>
+                                  <div className="exch-odd-view">
+                                    <div
+                                      className={`exch-odd-button back-odd ${
+                                        isOddSuspended(runner) ? "disabled" : ""
+                                      }`}
+                                    >
+                                      {isOddSuspended(runner) ? (
+                                        <svg
+                                          className="MuiSvgIcon-root lock-icon"
+                                          viewBox="0 0 24 24"
+                                          aria-hidden="true"
+                                          focusable="false"
+                                        >
+                                          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
+                                        </svg>
+                                      ) : (
+                                        <div
+                                          onClick={() =>
+                                            handleOpenBetSlip(
+                                              "back",
+                                              games,
+                                              runner,
+                                              runner?.back?.[2]?.price
+                                            )
+                                          }
+                                          className="exch-odd-button-content"
+                                        >
+                                          <div className="price">
+                                            {" "}
+                                            {runner?.back?.[2]?.price || "-"}
+                                          </div>
+                                          <div className="size">
+                                            {" "}
+                                            {runner?.back?.[2]?.size || "-"}
+                                          </div>
+                                        </div>
+                                      )}
+                                    </div>
                                   </div>
                                 </div>
-                                <div className="exch-odd-view">
-                                  <div
-                                    className={`exch-odd-button back-odd ${
-                                      isOddSuspended(runner) ? "disabled" : ""
-                                    }`}
-                                  >
-                                    {isOddSuspended(runner) ? (
-                                      <svg
-                                        className="MuiSvgIcon-root lock-icon"
-                                        viewBox="0 0 24 24"
-                                        aria-hidden="true"
-                                        focusable="false"
-                                      >
-                                        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
-                                      </svg>
-                                    ) : (
-                                      <div className="exch-odd-button-content">
-                                        <div className="price">
-                                          {" "}
-                                          {runner?.back?.[1]?.price || "-"}
+                                <div className="odds-block mob-view">
+                                  <div className="exch-odd-view">
+                                    <div
+                                      className={`exch-odd-button back-odd ${
+                                        isOddSuspended(runner) ? "disabled" : ""
+                                      }`}
+                                    >
+                                      {isOddSuspended(runner) ? (
+                                        <svg
+                                          className="MuiSvgIcon-root lock-icon"
+                                          viewBox="0 0 24 24"
+                                          aria-hidden="true"
+                                          focusable="false"
+                                        >
+                                          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
+                                        </svg>
+                                      ) : (
+                                        <div
+                                          onClick={() =>
+                                            handleOpenBetSlip(
+                                              "back",
+                                              games,
+                                              runner,
+                                              runner?.back?.[0]?.price
+                                            )
+                                          }
+                                          className="exch-odd-button-content"
+                                        >
+                                          <div className="price">
+                                            {" "}
+                                            {runner?.back?.[0]?.price || "-"}
+                                          </div>
+                                          <div className="size">
+                                            {" "}
+                                            {runner?.back?.[0]?.size || "-"}
+                                          </div>
                                         </div>
-                                        <div className="size">
-                                          {" "}
-                                          {runner?.back?.[1]?.size || "-"}
-                                        </div>
-                                      </div>
-                                    )}
+                                      )}
+                                    </div>
                                   </div>
                                 </div>
-                                <div className="exch-odd-view">
-                                  <div
-                                    className={`exch-odd-button back-odd ${
-                                      isOddSuspended(runner) ? "disabled" : ""
-                                    }`}
-                                  >
-                                    {isOddSuspended(runner) ? (
-                                      <svg
-                                        className="MuiSvgIcon-root lock-icon"
-                                        viewBox="0 0 24 24"
-                                        aria-hidden="true"
-                                        focusable="false"
-                                      >
-                                        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
-                                      </svg>
-                                    ) : (
-                                      <div className="exch-odd-button-content">
-                                        <div className="price">
-                                          {" "}
-                                          {runner?.back?.[2]?.price || "-"}
+                              </td>
+                              <td className="MuiTableCell-root MuiTableCell-body odds-cell">
+                                <div className="odds-block web-view">
+                                  <div className="exch-odd-view">
+                                    <div
+                                      className={`exch-odd-button lay-odd ${
+                                        isOddSuspended(runner) ? "disabled" : ""
+                                      }`}
+                                    >
+                                      {isOddSuspended(runner) ? (
+                                        <svg
+                                          className="MuiSvgIcon-root lock-icon"
+                                          viewBox="0 0 24 24"
+                                          aria-hidden="true"
+                                          focusable="false"
+                                        >
+                                          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
+                                        </svg>
+                                      ) : (
+                                        <div
+                                          onClick={() =>
+                                            handleOpenBetSlip(
+                                              "lay",
+                                              games,
+                                              runner,
+                                              runner?.lay?.[0]?.price
+                                            )
+                                          }
+                                          className="exch-odd-button-content"
+                                        >
+                                          <div className="price">
+                                            {" "}
+                                            {runner?.lay?.[0]?.price || "-"}
+                                          </div>
+                                          <div className="size">
+                                            {" "}
+                                            {runner?.lay?.[0]?.size || "-"}
+                                          </div>
                                         </div>
-                                        <div className="size">
-                                          {" "}
-                                          {runner?.back?.[2]?.size || "-"}
+                                      )}
+                                    </div>
+                                  </div>
+                                  <div className="exch-odd-view">
+                                    <div
+                                      className={`exch-odd-button lay-odd ${
+                                        isOddSuspended(runner) ? "disabled" : ""
+                                      }`}
+                                    >
+                                      {isOddSuspended(runner) ? (
+                                        <svg
+                                          className="MuiSvgIcon-root lock-icon"
+                                          viewBox="0 0 24 24"
+                                          aria-hidden="true"
+                                          focusable="false"
+                                        >
+                                          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
+                                        </svg>
+                                      ) : (
+                                        <div
+                                          onClick={() =>
+                                            handleOpenBetSlip(
+                                              "lay",
+                                              games,
+                                              runner,
+                                              runner?.lay?.[1]?.price
+                                            )
+                                          }
+                                          className="exch-odd-button-content"
+                                        >
+                                          <div className="price">
+                                            {" "}
+                                            {runner?.lay?.[1]?.price || "-"}
+                                          </div>
+                                          <div className="size">
+                                            {" "}
+                                            {runner?.lay?.[1]?.size || "-"}
+                                          </div>
                                         </div>
-                                      </div>
-                                    )}
+                                      )}
+                                    </div>
+                                  </div>
+                                  <div className="exch-odd-view">
+                                    <div
+                                      className={`exch-odd-button lay-odd ${
+                                        isOddSuspended(runner) ? "disabled" : ""
+                                      }`}
+                                    >
+                                      {isOddSuspended(runner) ? (
+                                        <svg
+                                          className="MuiSvgIcon-root lock-icon"
+                                          viewBox="0 0 24 24"
+                                          aria-hidden="true"
+                                          focusable="false"
+                                        >
+                                          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
+                                        </svg>
+                                      ) : (
+                                        <div
+                                          onClick={() =>
+                                            handleOpenBetSlip(
+                                              "lay",
+                                              games,
+                                              runner,
+                                              runner?.lay?.[2]?.price
+                                            )
+                                          }
+                                          className="exch-odd-button-content"
+                                        >
+                                          <div className="price">
+                                            {" "}
+                                            {runner?.lay?.[2]?.price || "-"}
+                                          </div>
+                                          <div className="size">
+                                            {" "}
+                                            {runner?.lay?.[2]?.size || "-"}
+                                          </div>
+                                        </div>
+                                      )}
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                              <div className="odds-block mob-view">
-                                <div className="exch-odd-view">
-                                  <div
-                                    className={`exch-odd-button back-odd ${
-                                      isOddSuspended(runner) ? "disabled" : ""
-                                    }`}
-                                  >
-                                    {isOddSuspended(runner) ? (
-                                      <svg
-                                        className="MuiSvgIcon-root lock-icon"
-                                        viewBox="0 0 24 24"
-                                        aria-hidden="true"
-                                        focusable="false"
-                                      >
-                                        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
-                                      </svg>
-                                    ) : (
-                                      <div className="exch-odd-button-content">
-                                        <div className="price">
-                                          {" "}
-                                          {runner?.back?.[0]?.price || "-"}
+                                <div className="odds-block mob-view">
+                                  <div className="exch-odd-view">
+                                    <div
+                                      className={`exch-odd-button lay-odd ${
+                                        isOddSuspended(runner) ? "disabled" : ""
+                                      }`}
+                                    >
+                                      {isOddSuspended(runner) ? (
+                                        <svg
+                                          className="MuiSvgIcon-root lock-icon"
+                                          viewBox="0 0 24 24"
+                                          aria-hidden="true"
+                                          focusable="false"
+                                        >
+                                          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
+                                        </svg>
+                                      ) : (
+                                        <div
+                                          onClick={() =>
+                                            handleOpenBetSlip(
+                                              "lay",
+                                              games,
+                                              runner,
+                                              runner?.lay?.[0]?.price
+                                            )
+                                          }
+                                          className="exch-odd-button-content"
+                                        >
+                                          <div className="price">
+                                            {" "}
+                                            {runner?.lay?.[0]?.price || "-"}
+                                          </div>
+                                          <div className="size">
+                                            {" "}
+                                            {runner?.lay?.[0]?.size || "-"}
+                                          </div>
                                         </div>
-                                        <div className="size">
-                                          {" "}
-                                          {runner?.back?.[0]?.size || "-"}
-                                        </div>
-                                      </div>
-                                    )}
+                                      )}
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            </td>
-                            <td className="MuiTableCell-root MuiTableCell-body odds-cell">
-                              <div className="odds-block web-view">
-                                <div className="exch-odd-view">
-                                  <div
-                                    className={`exch-odd-button lay-odd ${
-                                      isOddSuspended(runner) ? "disabled" : ""
-                                    }`}
-                                  >
-                                    {isOddSuspended(runner) ? (
-                                      <svg
-                                        className="MuiSvgIcon-root lock-icon"
-                                        viewBox="0 0 24 24"
-                                        aria-hidden="true"
-                                        focusable="false"
-                                      >
-                                        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
-                                      </svg>
-                                    ) : (
-                                      <div className="exch-odd-button-content">
-                                        <div className="price">
-                                          {" "}
-                                          {runner?.lay?.[0]?.price || "-"}
-                                        </div>
-                                        <div className="size">
-                                          {" "}
-                                          {runner?.lay?.[0]?.size || "-"}
-                                        </div>
-                                      </div>
-                                    )}
-                                  </div>
-                                </div>
-                                <div className="exch-odd-view">
-                                  <div
-                                    className={`exch-odd-button lay-odd ${
-                                      isOddSuspended(runner) ? "disabled" : ""
-                                    }`}
-                                  >
-                                    {isOddSuspended(runner) ? (
-                                      <svg
-                                        className="MuiSvgIcon-root lock-icon"
-                                        viewBox="0 0 24 24"
-                                        aria-hidden="true"
-                                        focusable="false"
-                                      >
-                                        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
-                                      </svg>
-                                    ) : (
-                                      <div className="exch-odd-button-content">
-                                        <div className="price">
-                                          {" "}
-                                          {runner?.lay?.[1]?.price || "-"}
-                                        </div>
-                                        <div className="size">
-                                          {" "}
-                                          {runner?.lay?.[1]?.size || "-"}
-                                        </div>
-                                      </div>
-                                    )}
-                                  </div>
-                                </div>
-                                <div className="exch-odd-view">
-                                  <div
-                                    className={`exch-odd-button lay-odd ${
-                                      isOddSuspended(runner) ? "disabled" : ""
-                                    }`}
-                                  >
-                                    {isOddSuspended(runner) ? (
-                                      <svg
-                                        className="MuiSvgIcon-root lock-icon"
-                                        viewBox="0 0 24 24"
-                                        aria-hidden="true"
-                                        focusable="false"
-                                      >
-                                        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
-                                      </svg>
-                                    ) : (
-                                      <div className="exch-odd-button-content">
-                                        <div className="price">
-                                          {" "}
-                                          {runner?.lay?.[2]?.price || "-"}
-                                        </div>
-                                        <div className="size">
-                                          {" "}
-                                          {runner?.lay?.[2]?.size || "-"}
-                                        </div>
-                                      </div>
-                                    )}
-                                  </div>
-                                </div>
-                              </div>
-                              <div className="odds-block mob-view">
-                                <div className="exch-odd-view">
-                                  <div
-                                    className={`exch-odd-button lay-odd ${
-                                      isOddSuspended(runner) ? "disabled" : ""
-                                    }`}
-                                  >
-                                    {isOddSuspended(runner) ? (
-                                      <svg
-                                        className="MuiSvgIcon-root lock-icon"
-                                        viewBox="0 0 24 24"
-                                        aria-hidden="true"
-                                        focusable="false"
-                                      >
-                                        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
-                                      </svg>
-                                    ) : (
-                                      <div className="exch-odd-button-content">
-                                        <div className="price">
-                                          {" "}
-                                          {runner?.lay?.[0]?.price || "-"}
-                                        </div>
-                                        <div className="size">
-                                          {" "}
-                                          {runner?.lay?.[0]?.size || "-"}
-                                        </div>
-                                      </div>
-                                    )}
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
+                              </td>
+                            </tr>
+                            {runner?.id === selectedRunner && (
+                              <BetSlip setSelectedRunner={setSelectedRunner} />
+                            )}
+                          </>
                         );
                       })}
                     </tbody>

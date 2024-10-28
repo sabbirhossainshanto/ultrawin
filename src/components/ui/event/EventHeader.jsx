@@ -1,5 +1,4 @@
 const EventHeader = ({ data }) => {
-  console.log(data);
   return (
     <>
       <div className="hydrated md mob-stream-section">
