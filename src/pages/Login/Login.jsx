@@ -8,9 +8,12 @@ import handleEncryptData from "../../utils/handleEncryptData";
 import { setUser } from "../../redux/features/auth/authSlice";
 
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useGetSocialLink from "../../hooks/useGetSocialLink";
+import { navigateTelegramInstagram } from "../../utils/navigateTelegramInstagram";
 
 const Login = () => {
+  const { socialLink } = useGetSocialLink();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [handleLogin] = useLoginMutation();
@@ -49,6 +52,35 @@ const Login = () => {
       toast.error(result?.error);
     }
   };
+
+  const loginWithDemo = async () => {
+    /* Random token generator */
+    const generatedToken = handleRandomToken();
+    /* Encrypted the post data */
+    const loginData = handleEncryptData({
+      username: "demo",
+      password: "",
+      token: generatedToken,
+      site: settings.siteUrl,
+      b2c: true,
+    });
+    const result = await handleLogin(loginData).unwrap();
+    if (result.success) {
+      const token = result?.result?.token;
+      const bonusToken = result?.result?.bonusToken;
+      const user = result?.result?.loginName;
+      const game = result?.result?.buttonValue?.game;
+      dispatch(setUser({ user, token }));
+      localStorage.setItem("buttonValue", JSON.stringify(game));
+      localStorage.setItem("bonusToken", bonusToken);
+      if (token && user) {
+        toast.success("Login successful");
+        navigate("/");
+      }
+    } else {
+      toast.error(result?.error);
+    }
+  };
   return (
     <div className="login-ctn">
       <div className="title-row">
@@ -75,6 +107,7 @@ const Login = () => {
               </div>
               <div className="demo">
                 <button
+                  onClick={loginWithDemo}
                   className="MuiButtonBase-root MuiButton-root MuiButton-contained login-form-btn-demo MuiButton-containedPrimary"
                   type="button"
                 >
@@ -92,8 +125,12 @@ const Login = () => {
                 Username <span className="red-text">*</span>
               </span>
               <div className="MuiFormControl-root MuiTextField-root login-input-field user-name">
-                <div className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl">
+                <div
+                  style={{ padding: "0px", height: "100%" }}
+                  className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+                >
                   <input
+                    style={{ padding: "0px", width: "100%", height: "100%" }}
                     {...register("username", { required: true })}
                     aria-invalid="false"
                     name="username"
@@ -109,8 +146,12 @@ const Login = () => {
                 Password <span className="red-text">*</span>
               </span>
               <div className="MuiFormControl-root login-input-field pwd-field">
-                <div className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd">
+                <div
+                  style={{ padding: "0px", height: "100%" }}
+                  className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+                >
                   <input
+                    style={{ padding: "0px", width: "100%", height: "100%" }}
                     {...register("password", { required: true })}
                     aria-invalid="false"
                     id="standard-adornment-password"
@@ -142,7 +183,7 @@ const Login = () => {
               </div>
             </div>
             <div className="forgot-pwd">
-              <a href="/forgot-password">Forgot Username/Password?</a>
+              <Link to="/forgot-password">Forgot Username/Password?</Link>
             </div>
             <div className="login-demologin-btns">
               <button
@@ -156,27 +197,47 @@ const Login = () => {
           </form>
           <div className="account-SignUp">
             <div className="account-dontHaveAccount">Don’t have account?</div>
-            <span className="back-to-SignUp">Sign Up</span>
+            <span
+              style={{ cursor: "pointer" }}
+              onClick={() => navigate("/register")}
+              className="back-to-SignUp"
+            >
+              Sign Up
+            </span>
           </div>
           <div className="socialMedia-login">
             <div className="sm-new-ctn">
               <div className="sm-new-links">
-                <button className="sm-new-link">
-                  <img
-                    src={assets.telegram}
-                    alt="TELEGRAM_NUMBER"
-                    className="sm-new-img"
-                  />
-                  <div className="sm-text">Follow on Telegram</div>
-                </button>
-                <button className="sm-new-link">
-                  <img
-                    src={assets.instagram}
-                    alt="INSTAGRAM_LINK"
-                    className="sm-new-img"
-                  />
-                  <div className="sm-text">Follow on Instagram</div>
-                </button>
+                {socialLink?.telegramLink && (
+                  <button
+                    onClick={() =>
+                      navigateTelegramInstagram(socialLink?.telegramLink)
+                    }
+                    className="sm-new-link"
+                  >
+                    <img
+                      src={assets.telegram}
+                      alt="TELEGRAM_NUMBER"
+                      className="sm-new-img"
+                    />
+                    <div className="sm-text">Follow on Telegram</div>
+                  </button>
+                )}
+                {socialLink?.instagramLink && (
+                  <button
+                    onClick={() =>
+                      navigateTelegramInstagram(socialLink?.instagramLink)
+                    }
+                    className="sm-new-link"
+                  >
+                    <img
+                      src={assets.instagram}
+                      alt="INSTAGRAM_LINK"
+                      className="sm-new-img"
+                    />
+                    <div className="sm-text">Follow on Instagram</div>
+                  </button>
+                )}
               </div>
             </div>
           </div>

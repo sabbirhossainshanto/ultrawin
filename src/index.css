@@ -1,3 +1,17 @@
+@media screen and (max-width: 720px) {
+  .whatsapp-position {
+    left: 5%;
+    bottom: 80px;
+  }
+}
+
+@media screen and (min-width: 721px) {
+  .whatsapp-position {
+    left: 22%;
+    bottom: 10%;
+  }
+}
+
 .hydrated {
   visibility: inherit;
 }
@@ -51,7 +65,6 @@
 /* App pop up */
 .android-popup {
   width: 100%;
-  font-family: "Inter";
   background: #000c24;
   padding: 16px;
   display: flex;
@@ -97,7 +110,6 @@
 }
 
 .android-card {
-  font-family: "Inter";
   display: flex;
   width: 282px;
   align-items: center;
@@ -135,7 +147,6 @@
 }
 .app-text h2 {
   color: #fff;
-  font-family: "Inter";
   font-size: 11px;
   font-style: normal;
   font-weight: 700;
@@ -145,7 +156,6 @@
 
 .app-text span {
   color: #6b7280;
-  font-family: "Inter";
   font-size: 10px;
   font-style: normal;
   font-weight: 400;
@@ -172,7 +182,6 @@
 
 .install-btn button {
   color: #fff;
-  font-family: "Inter";
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
@@ -311,9 +320,7 @@
   opacity: 0.5;
   width: 100%;
   background-color: #ad1919;
-  /* box-shadow: 0 0 5px #2db261; */
   color: #fff;
-  font-family: "Inter";
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
@@ -762,4 +769,359 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Withdraw  css*/
+.dep-w-info-bc {
+  display: flex;
+  flex-direction: column;
+  will-change: scroll-position;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.dep-w-info-bc {
+  margin: 0 10px;
+  position: relative;
+  z-index: 1;
+}
+.withdraw-section {
+  animation: slide-in 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.withdraw-section {
+  display: inline-flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 1.38rem;
+  position: relative;
+}
+.bonus-amount {
+  position: relative;
+  display: flex;
+  width: 100%;
+  padding: 1.5rem;
+  height: 4.625rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  border-radius: 0.75rem;
+  background: #fff;
+}
+.bonus-star1 {
+  width: 1.5rem;
+  height: 1.5rem;
+  transform: rotate(-20.272deg);
+  position: absolute;
+  left: 0.11763rem;
+  top: 0.01525rem;
+}
+.bonus-star2 {
+  width: 1.5rem;
+  height: 1.5rem;
+  transform: rotate(-20.272deg);
+  position: absolute;
+  top: 0.2rem;
+  right: 0.1rem;
+}
+.bonus-star3 {
+  width: 1.5rem;
+  height: 1.5rem;
+  transform: rotate(-20.272deg);
+  position: absolute;
+  top: 3.5rem;
+}
+.wallet-logo {
+  position: absolute;
+  left: 7.6875rem;
+  top: 0.1rem;
+}
+.wallet-3D-frame {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 6.25rem;
+  height: 100%;
+  overflow: hidden;
+}
+
+.wallet-3d {
+  width: 4.875rem;
+  height: 4.625rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.wallet-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.375rem;
+  align-self: stretch;
+  position: absolute;
+  top: 0.38rem;
+  height: 3.38rem;
+  width: 100%;
+}
+.wallet-amount {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #040404;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+  letter-spacing: 0.01875rem;
+}
+
+.wallet-txt {
+  width: 100%;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.wallet-txt > p {
+  color: #040404;
+
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.01875rem;
+}
+
+.with-any {
+  display: flex;
+  margin-left: 0.5rem;
+  height: 20px;
+  padding: 0.1875rem 0.5rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.375rem;
+  background: rgb(243 243 243);
+}
+
+.with-any > p {
+  color: #22c55e;
+  text-align: center;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.active-bonus-card {
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  border-radius: 0.75rem;
+  background: #fff;
+}
+
+.active-bonus-inner-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.money-text {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  align-self: stretch;
+}
+
+.money-text > p {
+  flex: 1 0 0;
+  color: #040404;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: 0.01875rem;
+}
+
+.money-text {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  align-self: stretch;
+}
+
+.progressbar {
+  width: 100%;
+  height: 10px;
+  border-radius: 20px;
+  background: #535b6b;
+  margin: 4px 0;
+}
+
+.progressbg {
+  width: 6%;
+  height: 10px;
+  border-radius: 20px;
+  background: linear-gradient(90deg, rgb(72, 205, 131) 0%, rgb(10, 116, 58));
+  border: 1px solid #fff;
+}
+
+.progressdot {
+  height: 2px;
+  width: 2px;
+  border-radius: 50%;
+  border: 2px solid white;
+  float: right;
+  margin: 2px;
+}
+
+.wallet-msg {
+  background-color: #4e3438;
+  display: flex;
+  padding: 0.375rem;
+  align-items: flex-start;
+  gap: 0.375rem;
+  flex: 1 0 0;
+  align-self: stretch;
+  border-radius: 0.5rem;
+}
+
+.wallet-msg > p {
+  color: #ffe9e9;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.01875rem;
+  flex: 1 0 0;
+}
+
+.amount-input {
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  border-radius: 0.75rem;
+  background: #fff;
+}
+.amount-text {
+  color: #040404;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+  letter-spacing: 0.01875rem;
+  align-self: stretch;
+}
+
+.diposit_form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.375rem;
+  align-self: stretch;
+}
+
+.deposit_form_input {
+  padding: 1px !important;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  display: block;
+  height: 2.67rem;
+  width: 100%;
+  letter-spacing: 1px;
+  margin: 0 auto;
+  position: relative;
+  text-decoration: none;
+  z-index: 2;
+}
+
+.deposit_form_input {
+  padding: 1px !important;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  display: block;
+  height: 2.67rem;
+  width: 100%;
+  letter-spacing: 1px;
+  margin: 0 auto;
+  position: relative;
+  text-decoration: none;
+  z-index: 2;
+}
+
+.deposit_form_input .inputBox2 {
+  align-items: center;
+  background: #ebedf4;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+  transition: background 0.5s ease;
+  width: 100%;
+  padding: 0.75rem 0.5rem;
+}
+.inputBox2 input {
+  background: none;
+  border: none;
+  text-align: start;
+  color: #6b7280;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.deposit_form_input {
+  padding: 1px !important;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  display: block;
+  height: 2.67rem;
+  width: 100%;
+  letter-spacing: 1px;
+  margin: 0 auto;
+  position: relative;
+  text-decoration: none;
+  z-index: 2;
+}
+.deposit-input-min-text {
+  display: flex;
+  width: 21.4375rem;
+  padding: 1rem 0;
+  font-size: 12px;
+  color: #6b7280;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+.btnn1 {
+  display: flex;
+  margin-top: 1rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.375rem;
+  flex-shrink: 0;
+  border-radius: 0.5rem;
+  width: 100%;
+  background-color: #ad1919;
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }

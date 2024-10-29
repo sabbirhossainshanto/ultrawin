@@ -26,6 +26,10 @@ import phonePe from "./images/PHONEPE_WEB.png";
 import paytm from "./images/paytm.webp";
 import gpay from "./images/GPAY_WEB.png";
 import bhim from "./images/BHIM_WEB.png";
+import backArrow from "./images/back-arrow.svg";
+import deleteIcon from "./images/delete-icon.svg";
+import bankPicture from "./images/bankPicture.svg";
+import edit from "./images/edit.svg";
 
 export default {
   theme,
@@ -56,4 +60,8 @@ export default {
   paytm,
   gpay,
   bhim,
+  backArrow,
+  deleteIcon,
+  bankPicture,
+  edit,
 };

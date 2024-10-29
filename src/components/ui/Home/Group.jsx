@@ -36,10 +36,7 @@ const Group = ({ data }) => {
 
   return (
     <>
-      <div
-        className="md hydrated"
-        style={{ "-offsetTop": "0px", "-offsetBottom": "0px" }}
-      >
+      <div className="md hydrated">
         <div className="router-ctn">
           <div className="ds-view-ctn">
             <div className="punter-view" id="main-content">

@@ -6,6 +6,7 @@ export const ApiContext = createContext(null);
 const ApiProvider = ({ children }) => {
   const [noticeLoaded, setNoticeLoaded] = useState(false);
   const [logo, setLogo] = useState("");
+  const [addBank, setAddBank] = useState(false);
   const baseUrl = notice?.result?.settings?.baseUrl;
   useEffect(() => {
     getSetApis(setNoticeLoaded, baseUrl);
@@ -37,7 +38,7 @@ const ApiProvider = ({ children }) => {
     return;
   }
 
-  const stateInfo = { logo };
+  const stateInfo = { logo, addBank, setAddBank };
   return (
     <ApiContext.Provider value={stateInfo}>{children}</ApiContext.Provider>
   );

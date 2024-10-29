@@ -1,6 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import assets from "../../../assets";
-import { setShowLeftSidebar } from "../../../redux/features/global/globalSlice";
+import {
+  setGroupType,
+  setShowLeftSidebar,
+} from "../../../redux/features/global/globalSlice";
 import { Link, useNavigate } from "react-router-dom";
 import useBalance from "../../../hooks/useBalance";
 import useBonusBalance from "../../../hooks/useBonusBalance";
@@ -101,15 +104,23 @@ const Header = () => {
         </div>
       </div>
       <div className="whatsapp-login-signup ">
-        <button className="new-whatsapp mob-view">
+        <div
+          onClick={() => {
+            navigate("/");
+            dispatch(setGroupType(0));
+          }}
+          className="new-whatsapp mob-view"
+        >
           <img
-            style={{ objectFit: "contain", height: "30px", width: "50px" }}
+            style={{ height: "100%", width: "100px", objectFit: "contain" }}
             src={logo}
           />
-        </button>
-        <Link to="/deposit" className="deposit-btn-wrapper mob-view">
-          <div className="deposit-btn">&nbsp;&nbsp;Deposit&nbsp;&nbsp;</div>
-        </Link>
+        </div>
+        {token && (
+          <Link to="/deposit" className="deposit-btn-wrapper mob-view">
+            <div className="deposit-btn">&nbsp;&nbsp;Deposit&nbsp;&nbsp;</div>
+          </Link>
+        )}
         {!token ? (
           <>
             <button
@@ -118,7 +129,12 @@ const Header = () => {
             >
               login
             </button>
-            <button className="cb cb-variant-2 sh-new-btn">signup</button>
+            <button
+              onClick={() => navigate("/register")}
+              className="cb cb-variant-2 sh-new-btn"
+            >
+              signup
+            </button>
           </>
         ) : (
           <>
@@ -154,7 +170,7 @@ const Header = () => {
           }}
         >
           <button
-            className="MuiButtonBase-root MuiButton-root MuiButton-text jss41"
+            className="MuiButtonBase-root MuiButton-root MuiButton-text jss41 web-view"
             type="button"
             aria-controls="theme-menu"
             aria-haspopup="true"

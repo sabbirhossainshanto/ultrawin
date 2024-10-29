@@ -5,6 +5,10 @@ import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Event from "../pages/Event/Event";
 import Deposit from "../pages/Deposit/Deposit";
+import Register from "../pages/Register/Register";
+import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
+import Account from "../pages/Account/Account";
+import Withdraw from "../pages/Withdraw/Withdraw";
 
 const MainRouter = () => {
   const router = createBrowserRouter(
@@ -26,15 +30,32 @@ const MainRouter = () => {
             path: "/:eventTypeId/:eventId",
             element: <Event />,
           },
+
+          {
+            path: "/account",
+            element: <Account />,
+          },
           {
             path: "/deposit",
             element: <Deposit />,
+          },
+          {
+            path: "/withdraw",
+            element: <Withdraw />,
           },
         ],
       },
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: "/forgot-password",
+        element: <ForgotPassword />,
       },
     ],
     {

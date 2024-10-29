@@ -419,7 +419,7 @@ ion-icon {
   padding: 4px;
 }
 .app-sub-header .whatsapp-login-signup .new-whatsapp img {
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 .app-sub-header .whatsapp-login-signup .sh-new-btn {
   font-size: 14px;
@@ -579,7 +579,7 @@ ion-icon {
     width: unset;
   }
   .app-sub-header .whatsapp-login-signup .new-whatsapp img {
-    border-radius: 50%;
+    /* border-radius: 50%; */
   }
 }
 .theme-optionslist {

@@ -9,10 +9,12 @@ import {
 import useContextState from "../../../hooks/useContextState";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../../../redux/features/auth/authSlice";
+import useGetSocialLink from "../../../hooks/useGetSocialLink";
+import { navigateTelegramInstagram } from "../../../utils/navigateTelegramInstagram";
 
 const MobileSidebar = () => {
   const navigate = useNavigate();
-  // const { group } = useSelector((state) => state.global);
+  const { socialLink } = useGetSocialLink();
   const { showLeftSidebar } = useSelector((state) => state.global);
   const { token } = useSelector((state) => state.auth);
   const { logo } = useContextState();
@@ -1575,28 +1577,45 @@ const MobileSidebar = () => {
               )}
             </div>
           </div>
-          <div className="social-media-side-bar">
-            <div className="sm-new-ctn">
-              <div className="sm-new-links">
-                <button className="sm-new-link">
-                  <img
-                    src={assets.telegram}
-                    alt="TELEGRAM_NUMBER"
-                    className="sm-new-img"
-                  />
-                  <div className="sm-text">Follow on Telegram</div>
-                </button>
-                <button className="sm-new-link">
-                  <img
-                    src={assets.instagram}
-                    alt="INSTAGRAM_LINK"
-                    className="sm-new-img"
-                  />
-                  <div className="sm-text">Follow on Instagram</div>
-                </button>
+          {socialLink?.instagramLink || socialLink?.telegramLink ? (
+            <div className="social-media-side-bar">
+              <div className="sm-new-ctn">
+                <div className="sm-new-links">
+                  {socialLink?.telegramLink && (
+                    <button
+                      onClick={() =>
+                        navigateTelegramInstagram(socialLink?.telegramLink)
+                      }
+                      className="sm-new-link"
+                    >
+                      <img
+                        src={assets.telegram}
+                        alt="TELEGRAM_NUMBER"
+                        className="sm-new-img"
+                      />
+                      <div className="sm-text">Follow on Telegram</div>
+                    </button>
+                  )}
+
+                  {socialLink?.instagramLink && (
+                    <button
+                      onClick={() =>
+                        navigateTelegramInstagram(socialLink?.instagramLink)
+                      }
+                      className="sm-new-link"
+                    >
+                      <img
+                        src={assets.instagram}
+                        alt="INSTAGRAM_LINK"
+                        className="sm-new-img"
+                      />
+                      <div className="sm-text">Follow on Instagram</div>
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
+          ) : null}
         </div>
       </div>
       <div tabIndex={0} data-test="sentinelEnd" />

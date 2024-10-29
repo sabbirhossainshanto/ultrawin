@@ -1,55 +1,55 @@
 .exch-mob-header-ctn {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    background-color: var(--mob-header-bg);
-    font-size: 12px;
-    height: 70px;
-    border-radius: 20px 20px 0 0;
-    overflow: hidden
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: var(--mob-header-bg);
+  font-size: 12px;
+  height: 70px;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
 }
 
 .exch-mob-header-ctn .exch-mob-nav-link {
-    height: inherit;
-    text-decoration: none;
-    color: unset
+  height: inherit;
+  text-decoration: none;
+  color: unset;
 }
 
 .exch-mob-header-ctn .exch-mob-nav-link .exch-nav-item-ctn {
-    width: 70px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center
+  width: 70px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .exch-mob-header-ctn .exch-mob-nav-link .exch-nav-item-ctn .mh-img {
-    -webkit-filter: var(--mob-header-icon);
-    filter: var(--mob-header-icon)
+  -webkit-filter: var(--mob-header-icon);
+  filter: var(--mob-header-icon);
 }
 
 .exch-mob-header-ctn .active {
-    background: var(--mob-header-active-bg);
-    border-top: 4px solid var(--mob-header-border)
+  background: var(--mob-header-active-bg);
+  border-top: 4px solid var(--mob-header-border);
 }
 
 .exch-mob-header-ctn .active .mh-img {
-    -webkit-filter: var(--mob-header-active-icon) !important;
-    filter: var(--mob-header-active-icon) !important
+  -webkit-filter: var(--mob-header-active-icon) !important;
+  filter: var(--mob-header-active-icon) !important;
 }
 
 .exch-mob-header-ctn .active .exch-nav-item-label {
-    color: var(--mob-header-active-text)
+  color: var(--mob-header-active-text);
 }
 
 .exch-mob-header-ctn .exch-nav-item-label {
-    color: var(--mob-header-text);
-    font-family: var(--headers-font-family);
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 18px;
-    text-align: center
+  color: var(--mob-header-text);
+  font-family: var(--headers-font-family);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
 }
 
 /*# sourceMappingURL=83.bf686018.chunk.css.map */
