@@ -135,13 +135,26 @@ const PaymentMethods = ({
   };
 
   return (
-    <div style={{ backgroundColor: "#ebedf4", minHeight: "100vh" }}>
+    <div
+      style={{
+        backgroundColor: "#ebedf4",
+        minHeight: "50vh",
+        height: "100%",
+        paddingBottom: "20px",
+        // paddingTop: "
+        borderRadius: "4px",
+      }}
+    >
       <div _ngcontent-kdb-c159="" className="paymethod ng-tns-c159-13">
         <div _ngcontent-kdb-c159="" className="accountdetail ng-tns-c159-13">
           <p
             _ngcontent-kdb-c159=""
             className="make ng-tns-c159-13"
-            style={{ marginBottom: "0.75rem", color: "black" }}
+            style={{
+              marginBottom: "0.75rem",
+              color: "black",
+              paddingTop: "5px",
+            }}
           >
             Payment Methods
           </p>
@@ -588,7 +601,11 @@ const PaymentMethods = ({
         </div>
       )}
       {tabs === "qr" && (
-        <div _ngcontent-kdb-c159="" className="paymethod ng-tns-c159-13">
+        <div
+          _ngcontent-kdb-c159=""
+          className="paymethod ng-tns-c159-13"
+          style={{ height: "100%" }}
+        >
           <div _ngcontent-kdb-c159="" className="accountdetail ng-tns-c159-13">
             <p
               _ngcontent-kdb-c159=""
@@ -612,7 +629,7 @@ const PaymentMethods = ({
             >
               <div
                 _ngcontent-kdb-c159=""
-                className="accountnum ng-tns-c159-13"
+                // className="accountnum ng-tns-c159-13"
                 style={{ width: "100%", justifyContent: "center" }}
               >
                 <div
@@ -633,6 +650,7 @@ const PaymentMethods = ({
                     className="ng-tns-c159-13"
                   />
                 </div>
+
                 {depositData?.qrDisplayName && (
                   <div
                     _ngcontent-kdb-c159=""
@@ -682,20 +700,20 @@ const PaymentMethods = ({
                 )}
               </div>
             </div>
-            <div
-              onClick={() => {
-                setPaymentMethods(false);
-                setUploadTransaction(true);
-              }}
-              _ngcontent-kdb-c159=""
-              className="makepayment ng-tns-c159-13"
-              style={{ marginTop: "10px" }}
-            >
-              <div _ngcontent-kdb-c159="" className="madepay ng-tns-c159-13">
-                <button _ngcontent-kdb-c159="" className="ng-tns-c159-13">
-                  I have Made The Payment
-                </button>
-              </div>
+          </div>
+          <div
+            onClick={() => {
+              setPaymentMethods(false);
+              setUploadTransaction(true);
+            }}
+            _ngcontent-kdb-c159=""
+            className="makepayment ng-tns-c159-13"
+            style={{ marginTop: "10px" }}
+          >
+            <div _ngcontent-kdb-c159="" className="madepay ng-tns-c159-13">
+              <button _ngcontent-kdb-c159="" className="ng-tns-c159-13">
+                I have Made The Payment
+              </button>
             </div>
           </div>
         </div>

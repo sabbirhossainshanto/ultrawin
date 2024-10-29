@@ -31,7 +31,7 @@ const MainLayout = () => {
           )}
           <Header />
           <Outlet />
-          <MobileHeader />
+          {/* <MobileHeader /> */}
         </div>
       </div>
       {<MobileSidebar />}

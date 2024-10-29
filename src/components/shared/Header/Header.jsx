@@ -31,12 +31,7 @@ const Header = () => {
           style={{ marginBottom: "0px" }}
         >
           <div className="MuiTabs-flexContainer" role="tablist">
-            <a
-              aria-current="page"
-              className="nav-link active"
-              value="0"
-              href="/home"
-            >
+            <Link aria-current="page" className="nav-link active" to="/">
               <button
                 className="MuiButtonBase-root MuiButton-root MuiButton-text nav-link-btn"
                 type="button"
@@ -44,7 +39,7 @@ const Header = () => {
                 <span className="MuiButton-label">home</span>
                 <span className="MuiTouchRipple-root"></span>
               </button>
-            </a>
+            </Link>
             <a className="nav-link" value="1" href="/exchange_sports/inplay">
               <button
                 className="MuiButtonBase-root MuiButton-root MuiButton-text nav-link-btn"

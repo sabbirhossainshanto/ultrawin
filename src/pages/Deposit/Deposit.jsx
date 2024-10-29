@@ -13,33 +13,39 @@ const Deposit = () => {
   const [paymentId, setPaymentId] = useState("");
 
   return (
-    <>
-      {!paymentMethods && !uploadTransaction && (
-        <AmountBox
-          amount={amount}
-          setAmount={setAmount}
-          setShowModal={setShowModal}
-        />
-      )}
-      {uploadTransaction && (
-        <UploadTransaction paymentId={paymentId} amount={amount} />
-      )}
-      {paymentMethods && (
-        <PaymentMethods
-          setUploadTransaction={setUploadTransaction}
-          setPaymentMethods={setPaymentMethods}
-          setPaymentId={setPaymentId}
-          amount={amount}
-        />
-      )}
-      {showModal && (
-        <DepositModal
-          amount={amount}
-          setShowModal={setShowModal}
-          setPaymentMethods={setPaymentMethods}
-        />
-      )}
-    </>
+    <div className="router-ctn">
+      <div className="ds-view-ctn">
+        <div className="punter-view" id="main-content">
+          <div className="sports-view-ctn">
+            {!paymentMethods && !uploadTransaction && (
+              <AmountBox
+                amount={amount}
+                setAmount={setAmount}
+                setShowModal={setShowModal}
+              />
+            )}
+            {uploadTransaction && (
+              <UploadTransaction paymentId={paymentId} amount={amount} />
+            )}
+            {paymentMethods && (
+              <PaymentMethods
+                setUploadTransaction={setUploadTransaction}
+                setPaymentMethods={setPaymentMethods}
+                setPaymentId={setPaymentId}
+                amount={amount}
+              />
+            )}
+            {showModal && (
+              <DepositModal
+                amount={amount}
+                setShowModal={setShowModal}
+                setPaymentMethods={setPaymentMethods}
+              />
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

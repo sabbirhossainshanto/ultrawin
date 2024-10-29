@@ -94,7 +94,11 @@ const UploadTransaction = ({ paymentId, amount }) => {
   };
 
   return (
-    <>
+    <div
+      style={{
+        paddingBottom: "20px",
+      }}
+    >
       {!filePath && !loading && (
         <div className="utrbox ng-tns-c159-0">
           <div className="utrtxt ng-tns-c159-0">
@@ -267,7 +271,7 @@ const UploadTransaction = ({ paymentId, amount }) => {
           <button className="ng-tns-c159-2">I have Made The Payment</button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
