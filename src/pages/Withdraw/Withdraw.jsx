@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "../../assets/css/style.css";
 import SelectAmount from "./SelectAmount";
 import BankAccounts from "./BankAccounts";
 import useBankAccount from "../../hooks/useBankAccount";

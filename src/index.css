@@ -3,12 +3,18 @@
     left: 5%;
     bottom: 80px;
   }
+  .card-add-bank-position {
+    bottom: 70px;
+  }
 }
 
 @media screen and (min-width: 721px) {
   .whatsapp-position {
     left: 22%;
     bottom: 10%;
+  }
+  .card-add-bank-position {
+    bottom: 0;
   }
 }
 
@@ -219,7 +225,7 @@
 
 /* Deposit */
 
-.amountBox {
+/* .amountBox {
   margin-top: 1.38rem;
   display: flex;
   padding: 1rem;
@@ -307,9 +313,9 @@
   border-radius: 0.5rem;
   background: #ad1919;
   /* box-shadow: 0 5px 21px #00cf5875; */
-}
+/* } */
 
-.btnn {
+/* .btnn {
   display: flex;
   height: 2.5rem;
   padding: 0.5rem;
@@ -365,9 +371,9 @@
   font-weight: 700;
   line-height: 150%;
   letter-spacing: 0.01875rem;
-}
+} */
 
-.close-svg {
+/* .close-svg {
   display: flex;
   padding: 0.25rem;
   justify-content: center;
@@ -513,9 +519,9 @@
   font-style: normal;
   font-weight: 500;
   line-height: 150%;
-}
+} */
 
-.doll {
+/* .doll {
   color: #040404;
   text-align: center;
   font-size: 0.875rem;
@@ -653,9 +659,9 @@
   border: 1px dashed rgba(255, 255, 255, 0.23);
   background: #fff;
   margin-top: 1rem;
-}
+} */
 
-.uploadimg {
+/* .uploadimg {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -756,7 +762,7 @@
   border: none;
   outline: none;
   color: #000;
-}
+}  */
 
 .animate-spin {
   animation: spinner 1s linear infinite;
@@ -772,7 +778,7 @@
 }
 
 /* Withdraw  css*/
-.dep-w-info-bc {
+/* .dep-w-info-bc {
   display: flex;
   flex-direction: column;
   will-change: scroll-position;
@@ -1124,4 +1130,4 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-}
+} */

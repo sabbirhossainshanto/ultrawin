@@ -48,7 +48,10 @@ const WithdrawConfirm = ({
   };
   return (
     <>
-      <div className="withdraw-account">
+      <div
+        className="withdraw-account"
+        style={{ backgroundColor: "white", padding: "10px", margin: "0px" }}
+      >
         <div
           onClick={() => {
             setShowBankAccount(true);

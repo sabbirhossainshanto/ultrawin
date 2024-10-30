@@ -70,7 +70,7 @@ const AddBank = ({ setAddBank, refetchBankData }) => {
   }, [bankDetails]);
   return (
     <div className="Modal-Background  ">
-      <div className="card-add-bank" ref={addBankRef}>
+      <div className="card-add-bank card-add-bank-position" ref={addBankRef}>
         <div className="card-header">
           <h2>Add Bank Account</h2>
           <div className="close-btn">

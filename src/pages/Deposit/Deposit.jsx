@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "../../assets/css/style.css";
 import AmountBox from "./AmountBox";
 import PaymentMethods from "./PaymentMethods";
 import UploadTransaction from "./UploadTransaction";
