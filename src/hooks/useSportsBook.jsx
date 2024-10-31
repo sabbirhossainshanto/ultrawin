@@ -6,8 +6,9 @@ import handleDecryptData from "../utils/handleDecryptData";
 const useSportsBook = (group) => {
   const { data, refetch: refetchSports } = useQuery({
     queryKey: ["sports"],
+    enabled: group !== null ? true : false,
     queryFn: async () => {
-      const res = await axios.post(`${API.groupSportsBook}/${group || 0}`);
+      const res = await axios.post(`${API.groupSportsBook}/${group}`);
       const data = res.data;
       const decryptionData = await handleDecryptData(JSON.stringify(data));
       return decryptionData;

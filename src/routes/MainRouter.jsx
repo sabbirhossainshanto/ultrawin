@@ -9,6 +9,7 @@ import Register from "../pages/Register/Register";
 import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 import Account from "../pages/Account/Account";
 import Withdraw from "../pages/Withdraw/Withdraw";
+import InPlay from "../pages/InPlay/InPlay";
 
 const MainRouter = () => {
   const router = createBrowserRouter(
@@ -29,6 +30,10 @@ const MainRouter = () => {
           {
             path: "/:eventTypeId/:eventId",
             element: <Event />,
+          },
+          {
+            path: "/in-play",
+            element: <InPlay />,
           },
 
           {

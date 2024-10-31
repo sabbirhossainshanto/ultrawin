@@ -30,6 +30,10 @@ import backArrow from "./images/back-arrow.svg";
 import deleteIcon from "./images/delete-icon.svg";
 import bankPicture from "./images/bankPicture.svg";
 import edit from "./images/edit.svg";
+import cricket from "./images/cricket.svg";
+import football from "./images/football.svg";
+import tennis from "./images/tennis.svg";
+import notify from "./images/notifi-scroll-icon.d1d3e573.svg";
 
 export default {
   theme,
@@ -64,4 +68,8 @@ export default {
   deleteIcon,
   bankPicture,
   edit,
+  cricket,
+  football,
+  tennis,
+  notify,
 };

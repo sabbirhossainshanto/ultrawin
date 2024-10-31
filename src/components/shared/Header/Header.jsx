@@ -90,24 +90,21 @@ const Header = () => {
           ></span>
         </div>
       </div>
-      <div
-        onClick={() => dispatch(setShowLeftSidebar(true))}
-        className="logo-wrapper"
-        style={{ cursor: "pointer" }}
-      >
-        <div className="side-bar-icon-div mob-view">
+      <div className="logo-wrapper" style={{ gap: "5px" }}>
+        <div
+          onClick={() => dispatch(setShowLeftSidebar(true))}
+          className="side-bar-icon-div mob-view"
+        >
           <img
             src={assets.sidebarIcon}
             alt="sidebar-icon"
             className="sb-menu-bar-icon"
           />
         </div>
-      </div>
-      <div className="whatsapp-login-signup ">
         <div
           onClick={() => {
             navigate("/");
-            dispatch(setGroupType(0));
+            dispatch(setGroupType(null));
           }}
           className="new-whatsapp mob-view"
         >
@@ -116,6 +113,8 @@ const Header = () => {
             src={logo}
           />
         </div>
+      </div>
+      <div className="whatsapp-login-signup ">
         {token && (
           <Link to="/deposit" className="deposit-btn-wrapper mob-view">
             <div className="deposit-btn">&nbsp;&nbsp;Deposit&nbsp;&nbsp;</div>

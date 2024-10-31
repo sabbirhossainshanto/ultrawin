@@ -71,7 +71,7 @@ const MobileSidebar = () => {
           <div
             className="sh-title"
             onClick={() => {
-              dispatch(setGroupType(0));
+              dispatch(setGroupType(null));
               dispatch(setShowLeftSidebar(false));
               navigate("/");
             }}

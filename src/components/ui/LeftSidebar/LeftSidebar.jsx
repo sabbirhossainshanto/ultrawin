@@ -19,21 +19,13 @@ const LeftSidebar = () => {
     dispatch(logout());
   };
 
-  const navigateWhatsApp = () => {
-    if (token && socialLink?.branchWhatsapplink) {
-      window.open(socialLink?.branchWhatsapplink, "_blank");
-    } else {
-      window.open(socialLink?.whatsapplink, "_blank");
-    }
-  };
-
   return (
     <div className="web-view">
       <div className="side-header">
         <div
           className="sh-title"
           onClick={() => {
-            dispatch(setGroupType(0));
+            dispatch(setGroupType(null));
             navigate("/");
           }}
         >

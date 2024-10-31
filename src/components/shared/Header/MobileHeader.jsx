@@ -57,8 +57,10 @@ const MobileHeader = () => {
           </div>{" "}
         </Link>
         <Link
-          className="exch-mob-nav-link mob-link-btn"
-          to="/exchange_sports/inplay"
+          className={`exch-mob-nav-link mob-link-btn ${
+            pathname === "/in-play" ? "active" : ""
+          }`}
+          to="/in-play"
         >
           <div className="exch-nav-item-ctn">
             <div className="exch-nav-item-icon inplay-icon">
