@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { logout } from "../../../redux/features/auth/authSlice";
 import useGetSocialLink from "../../../hooks/useGetSocialLink";
 import { navigateTelegramInstagram } from "../../../utils/navigateTelegramInstagram";
-import WhatsApp from "../WhatsApp/WhatsApp";
 
 const LeftSidebar = () => {
   const { socialLink } = useGetSocialLink();
@@ -1826,7 +1825,6 @@ const LeftSidebar = () => {
           </div>
         ) : null}
       </div>
-      <WhatsApp />
     </div>
   );
 };
