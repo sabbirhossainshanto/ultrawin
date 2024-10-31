@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <>
       {group === null && <HomeComponent />}
-      {group !== 0 && <Group data={data} />}
+      {group !== null && <Group data={data} />}
     </>
   );
 };
