@@ -34,6 +34,9 @@ import cricket from "./images/cricket.svg";
 import football from "./images/football.svg";
 import tennis from "./images/tennis.svg";
 import notify from "./images/notifi-scroll-icon.d1d3e573.svg";
+import plus from "./images/plus.d8a64e14.svg";
+import minus from "./images/minus.4b583620.svg";
+import whatsapp from "./images/whatsapp.png";
 
 export default {
   theme,
@@ -72,4 +75,7 @@ export default {
   football,
   tennis,
   notify,
+  plus,
+  minus,
+  whatsapp,
 };

@@ -7,7 +7,6 @@ import { settings } from "../../api";
 import { AndroidView } from "react-device-detect";
 import AppPopup from "../shared/Header/AppPopUp";
 import { useEffect, useState } from "react";
-import WhatsApp from "../ui/WhatsApp/WhatsApp";
 
 const MainLayout = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -31,7 +30,7 @@ const MainLayout = () => {
             </AndroidView>
           )}
           <Header />
-          <WhatsApp />
+
           <div
             style={{
               marginBottom: "75px",
@@ -42,7 +41,7 @@ const MainLayout = () => {
           <MobileHeader />
         </div>
       </div>
-      {<MobileSidebar />}
+      <MobileSidebar />
     </>
   );
 };

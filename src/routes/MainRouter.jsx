@@ -10,6 +10,7 @@ import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 import Account from "../pages/Account/Account";
 import Withdraw from "../pages/Withdraw/Withdraw";
 import InPlay from "../pages/InPlay/InPlay";
+import StakeSetting from "../pages/StakeSetting/StakeSetting";
 
 const MainRouter = () => {
   const router = createBrowserRouter(
@@ -34,6 +35,10 @@ const MainRouter = () => {
           {
             path: "/in-play",
             element: <InPlay />,
+          },
+          {
+            path: "/stake-setting",
+            element: <StakeSetting />,
           },
 
           {
