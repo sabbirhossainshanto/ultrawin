@@ -182,9 +182,11 @@ const Login = () => {
                 </div>
               </div>
             </div>
-            <div className="forgot-pwd">
-              <Link to="/forgot-password">Forgot Username/Password?</Link>
-            </div>
+            {settings.registration && (
+              <div className="forgot-pwd">
+                <Link to="/forgot-password">Forgot Username/Password?</Link>
+              </div>
+            )}
             <div className="login-demologin-btns">
               <button
                 className="MuiButtonBase-root MuiButton-root MuiButton-contained login-form-btn MuiButton-containedPrimary"

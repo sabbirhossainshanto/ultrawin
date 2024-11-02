@@ -5,9 +5,7 @@ const MobileHeader = () => {
   const { pathname } = useLocation();
   return (
     <>
-      <div className="whatsapp-mobile-view">
-        <WhatsApp />
-      </div>
+      <WhatsApp />
       <div className="mob-header" style={{ zIndex: 9 }}>
         <div className="exch-mob-header-ctn">
           <Link className="exch-mob-nav-link mob-link-btn" to="/login">
