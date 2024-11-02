@@ -6,7 +6,7 @@ import MatchOddsBookmaker from "../../components/ui/event/MatchOddsBookmaker";
 import Fancy from "../../components/ui/event/Fancy";
 import { useDispatch, useSelector } from "react-redux";
 import useBalance from "../../hooks/useBalance";
-import useIFrame from "../../hooks/useIFrame";
+
 import { useEffect, useState } from "react";
 import {
   setFirstOdd,
@@ -14,9 +14,12 @@ import {
   setSecondOdd,
   setThirdOdd,
 } from "../../redux/features/events/eventSlice";
+import IFrame from "../../components/ui/event/IFrame";
+import ScoreCard from "../../components/ui/event/ScoreCard";
 
 const Event = () => {
   const dispatch = useDispatch();
+  const [tab, setTab] = useState("scorecard");
   const { placeBetValues, price, stake } = useSelector((state) => state.event);
   const { refetchBalance } = useBalance();
   const { eventTypeId, eventId } = useParams();
@@ -24,7 +27,6 @@ const Event = () => {
     eventTypeId,
     eventId,
   };
-  const { iFrameUrl } = useIFrame(eventTypeId, eventId);
   const [match_odds, setMatch_odds] = useState([]);
   const [bookmaker, setBookmaker] = useState([]);
   // const [bookmaker2, setBookmaker2] = useState([]);
@@ -263,8 +265,13 @@ const Event = () => {
             <div className="sports-view-ctn">
               <div>
                 <div className="hydrated md eam-ctn">
-                  <EventHeader data={data} />
-
+                  <EventHeader setTab={setTab} tab={tab} data={data} />
+                  <IFrame tab={tab} setTab={setTab} score={data?.score} />
+                  {match_odds?.[0]?.score?.length > 0 &&
+                    eventTypeId == 4 &&
+                    tab === "scorecard" && (
+                      <ScoreCard match_odds={match_odds} />
+                    )}
                   {match_odds?.length > 0 && (
                     <MatchOddsBookmaker data={match_odds} />
                   )}

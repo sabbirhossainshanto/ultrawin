@@ -226,7 +226,7 @@
   }
 
   .dashboard-ctn .dashboard-cards-ctn .dashboard-sign-out-btn {
-    background-color: var(--custom-btn-bg-variant-2);
+    background-color: #07d7e4;
     padding: 15px;
     width: 100%;
     border-radius: 8px;

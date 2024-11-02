@@ -1,15 +1,48 @@
-import { useState } from "react";
 import OpenBets from "./OpenBets";
 import { useParams } from "react-router-dom";
 import useCurrentBets from "../../../hooks/useCurrentBets";
 
-const EventHeader = ({ data }) => {
-  const [tab, setTab] = useState("scorecard");
+const EventHeader = ({ data, tab, setTab }) => {
   const { eventId } = useParams();
   const { myBets } = useCurrentBets(eventId);
   return (
     <>
       <div className="hydrated md mob-stream-section">
+        <div className="hydrated md eam-info-header eam-info-header-name">
+          <div className="eam-teams-name">
+            <div className="eam-date-ctn">
+              <div className="eam-date">
+                <div className="eam-dates">
+                  <div className="eam-date-time">
+                    <span>
+                      {" "}
+                      {data?.result?.length > 0 &&
+                        data?.result?.[0]?.openDate?.split(" ")[1]}
+                    </span>
+                  </div>
+                  <div className="eam-date-text">
+                    {" "}
+                    {data?.result?.length > 0 &&
+                      data?.result?.[0]?.openDate?.split(" ")[0]}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="eam-teams-name-ctn">
+              <div className="eam-team-1">
+                {data?.result?.length > 0 &&
+                  data?.result?.[0]?.eventName?.split("v")[0]}
+              </div>
+
+              <span>V</span>
+              <div className="eam-team-2">
+                {" "}
+                {data?.result?.length > 0 &&
+                  data?.result?.[0]?.eventName?.split("v")[1]}
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="MuiTabs-root eam-all-markets-header-tabs">
           <div
             className="MuiTabs-scroller MuiTabs-fixed"
