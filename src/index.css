@@ -1,21 +1,18 @@
 @media screen and (max-width: 720px) {
-  .whatsapp-position {
-    left: 30px;
-    bottom: 90px;
-  }
   .card-add-bank-position {
     bottom: 70px;
   }
 }
 
 @media screen and (min-width: 720px) {
-  .whatsapp-position {
-    left: 255px;
-    bottom: 15%;
-  }
   .card-add-bank-position {
     bottom: 0;
   }
+}
+
+.whatsapp-position {
+  left: 30px;
+  bottom: 90px;
 }
 
 .hydrated {
