@@ -114,7 +114,7 @@ const BetSlip = ({ setSelectedRunner }) => {
     <tr className="MuiTableRow-root inline-betslip">
       <td
         className="MuiTableCell-root MuiTableCell-body"
-        colSpan="3"
+        colSpan="4"
         style={{ width: "100vw" }}
       >
         <div className="exch-betslip-ctn">
