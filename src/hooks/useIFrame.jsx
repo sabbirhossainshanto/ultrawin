@@ -1,13 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import useContextState from "./useContextState";
 import axios from "axios";
-
 import { API, settings } from "../api";
 import handleRandomToken from "../utils/handleRandomToken";
 import handleEncryptData from "../utils/handleEncryptData";
+import { useSelector } from "react-redux";
+import { userToken } from "../redux/features/auth/authSlice";
 /* Iframe  api  */
 const useIFrame = (eventTypeId, eventId) => {
-  const { token } = useContextState();
+  const token = useSelector(userToken);
   const { data: iFrameUrl, refetch: refetchIFrameUrl } = useQuery({
     queryKey: ["iframeVideo"],
     /* match odds hasvideo = true then enable */

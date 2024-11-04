@@ -168,58 +168,57 @@ const MatchOddsBookmaker = ({ data }) => {
                                 title="Add To Multi Markets "
                               />{" "}
                               {games?.name}
-                              <span className="event-name" />
+                              {settings.betFairCashOut &&
+                                games?.runners?.length !== 3 &&
+                                games?.status === "OPEN" &&
+                                games?.btype !== "BOOKMAKER" && (
+                                  <div className="cashout-option">
+                                    <button
+                                      style={{
+                                        cursor: `${
+                                          !teamProfitForGame
+                                            ? "not-allowed"
+                                            : "pointer"
+                                        }`,
+                                        opacity: `${
+                                          !teamProfitForGame ? "0.6" : "1"
+                                        }`,
+                                      }}
+                                      disabled={!teamProfitForGame}
+                                      onClick={() =>
+                                        handleCashoutBetMobile(
+                                          games,
+                                          "lay",
+                                          dispatch,
+                                          setSelectedRunner,
+                                          pnlBySelection,
+                                          token,
+                                          teamProfitForGame
+                                        )
+                                      }
+                                      className={`MuiButtonBase-root MuiButton-root MuiButton-contained btn cashout-btn   MuiButton-containedPrimary MuiButton-containedSizeSmall MuiButton-sizeSmall ${
+                                        teamProfitForGame?.profit > 0
+                                          ? "profit"
+                                          : "loss"
+                                      }`}
+                                      type="button"
+                                    >
+                                      <span className="MuiButton-label">
+                                        Cashout{" "}
+                                        {teamProfitForGame?.profit && (
+                                          <>
+                                            : ₹{" "}
+                                            {teamProfitForGame?.profit?.toFixed(
+                                              2
+                                            )}
+                                          </>
+                                        )}
+                                      </span>
+                                      <span className="MuiTouchRipple-root"></span>
+                                    </button>
+                                  </div>
+                                )}
                             </span>
-                            {settings.betFairCashOut &&
-                              games?.runners?.length !== 3 &&
-                              games?.status === "OPEN" &&
-                              games?.btype !== "BOOKMAKER" && (
-                                <div className="cashout-option">
-                                  <button
-                                    style={{
-                                      cursor: `${
-                                        !teamProfitForGame
-                                          ? "not-allowed"
-                                          : "pointer"
-                                      }`,
-                                      opacity: `${
-                                        !teamProfitForGame ? "0.6" : "1"
-                                      }`,
-                                    }}
-                                    disabled={!teamProfitForGame}
-                                    onClick={() =>
-                                      handleCashoutBetMobile(
-                                        games,
-                                        "lay",
-                                        dispatch,
-                                        setSelectedRunner,
-                                        pnlBySelection,
-                                        token,
-                                        teamProfitForGame
-                                      )
-                                    }
-                                    className={`MuiButtonBase-root MuiButton-root MuiButton-contained btn cashout-btn   MuiButton-containedPrimary MuiButton-containedSizeSmall MuiButton-sizeSmall ${
-                                      teamProfitForGame?.profit > 0
-                                        ? "profit"
-                                        : "loss"
-                                    }`}
-                                    type="button"
-                                  >
-                                    <span className="MuiButton-label">
-                                      Cashout{" "}
-                                      {teamProfitForGame?.profit && (
-                                        <>
-                                          : ₹{" "}
-                                          {teamProfitForGame?.profit?.toFixed(
-                                            2
-                                          )}
-                                        </>
-                                      )}
-                                    </span>
-                                    <span className="MuiTouchRipple-root"></span>
-                                  </button>
-                                </div>
-                              )}
 
                             <span className="web-view bet-limits-section">
                               Min: 100 Max: 25K

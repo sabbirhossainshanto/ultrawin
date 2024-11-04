@@ -10,6 +10,26 @@ const IFrame = ({ score, tab }) => {
     refetchIFrameUrl();
   }, [eventId, eventTypeId, refetchIFrameUrl]);
 
+  const style = {
+    width: "100%",
+    maxHeight: "309px",
+    height: "55vw",
+    backgroundColor: "transparent",
+    overflow: "hidden",
+    position: "relative",
+  };
+
+  if (window.innerWidth >= 640) {
+    // sm breakpoint
+    style.maxHeight = "144px";
+    style.height = "58vw";
+  }
+
+  if (window.innerWidth >= 1024) {
+    // lg breakpoint
+    style.maxHeight = "309px";
+  }
+
   return (
     <>
       {iFrameUrl?.url && tab === "liveStream" && (
@@ -24,9 +44,10 @@ const IFrame = ({ score, tab }) => {
               <div className="live-stream-ctn">
                 <div className="cricket-live-stream-ctn">
                   <iframe
-                    title="mob-live-stream"
+                    style={style}
+                    width="100%"
+                    allowFullScreen
                     src={iFrameUrl?.url}
-                    sandbox="allow-same-origin allow-forms allow-scripts allow-top-navigation allow-popups"
                   ></iframe>
                 </div>
               </div>

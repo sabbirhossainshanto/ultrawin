@@ -11,6 +11,7 @@ import { settings } from "../../../api";
 import isOddSuspended from "../../../utils/isOddSuspended";
 import BetSlip from "./BetSlip";
 import Ladder from "../../modal/Ladder";
+import FancyBetSlip from "./FancyBetSlip";
 
 const Fancy = ({ fancy }) => {
   const [selectedRunner, setSelectedRunner] = useState("");
@@ -396,7 +397,6 @@ const Fancy = ({ fancy }) => {
                             </>
                           );
                         })}
-                        {/* <BetSlip setSelectedRunner={setSelectedRunner} /> */}
                       </tbody>
                     </table>
                   </div>

@@ -108,6 +108,8 @@ const BetSlip = ({ setSelectedRunner }) => {
     }
   };
 
+  console.log(placeBetValues);
+
   return (
     <tr className="MuiTableRow-root inline-betslip">
       <td
@@ -140,8 +142,9 @@ const BetSlip = ({ setSelectedRunner }) => {
                 <div className="header-event-market-div">
                   <div className="event">{placeBetValues?.eventName}</div>
                   <div className="market">
-                    {placeBetValues?.selectedBetName}
-                    <span className="odd-value">1.86</span>
+                    {placeBetValues?.selectedBetName ||
+                      placeBetValues?.marketName}
+                    {/* <span className="odd-value">1.86</span> */}
                   </div>
                 </div>
                 <button
