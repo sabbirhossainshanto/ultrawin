@@ -12,6 +12,8 @@ import Withdraw from "../pages/Withdraw/Withdraw";
 import InPlay from "../pages/InPlay/InPlay";
 import StakeSetting from "../pages/StakeSetting/StakeSetting";
 import BettingProfitLoss from "../pages/BettingProfitLoss/BettingProfitLoss";
+import SingleProfitLoss from "../pages/SingleBettingProfitLoss/SingleBettingProfitLoss";
+import DepositWithdrawReport from "../pages/DepositWithdrawReport/DepositWithdrawReport";
 
 const MainRouter = () => {
   const router = createBrowserRouter(
@@ -57,6 +59,14 @@ const MainRouter = () => {
           {
             path: "/betting-profit-loss",
             element: <BettingProfitLoss />,
+          },
+          {
+            path: "/betting-profit-loss/:marketId",
+            element: <SingleProfitLoss />,
+          },
+          {
+            path: "/deposit-withdraw-report",
+            element: <DepositWithdrawReport />,
           },
         ],
       },

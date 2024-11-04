@@ -50,7 +50,7 @@ const Account = () => {
                   <div className="header-amount">
                     {balance?.deductedExposure}
                   </div>
-                  <div className="header-content-text">Exposure Credited</div>
+                  <div className="header-content-text">Exposure</div>
                 </div>
                 <div className="bonus-credit">
                   <div className="header-amount">0.00</div>
@@ -128,7 +128,10 @@ const Account = () => {
                   </Link>
                 </div>
                 <div className="dashboard-item ios hydrated">
-                  <Link className="dashboard-item-link" to="/account_statement">
+                  <Link
+                    className="dashboard-item-link"
+                    to="/deposit-withdraw-report"
+                  >
                     <svg
                       width={12}
                       height={12}
@@ -142,7 +145,7 @@ const Account = () => {
                       />
                     </svg>
                     <span className="dashboard-item-text">
-                      Account Statement
+                      Deposit Withdraw Report
                     </span>
                   </Link>
                 </div>
