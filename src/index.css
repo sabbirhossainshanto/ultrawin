@@ -10,6 +10,12 @@
   }
 }
 
+@media screen and (min-width: 1120px) {
+  .mobile-betslip {
+    display: none !important;
+  }
+}
+
 .whatsapp-position {
   left: 30px;
   bottom: 90px;

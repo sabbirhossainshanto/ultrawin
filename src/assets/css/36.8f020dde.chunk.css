@@ -10491,6 +10491,7 @@
   background: var(--background-ctn-gradient);
   border-radius: 10px;
   padding-bottom: 5px;
+  position: relative;
 }
 .stream-section .bet-slip-open-bets-ctn.sticky-col {
   height: unset;

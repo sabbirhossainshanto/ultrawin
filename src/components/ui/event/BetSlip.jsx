@@ -108,15 +108,9 @@ const BetSlip = ({ setSelectedRunner }) => {
     }
   };
 
-  console.log(placeBetValues);
-
   return (
-    <tr className="MuiTableRow-root inline-betslip">
-      <td
-        className="MuiTableCell-root MuiTableCell-body"
-        colSpan="4"
-        style={{ width: "100vw" }}
-      >
+    <tr className="MuiTableRow-root inline-betslip mobile-betslip">
+      <td className="MuiTableCell-root MuiTableCell-body" colSpan="4">
         <div className="exch-betslip-ctn">
           {betDelay > 0 && (
             <div className="betslip-progress">

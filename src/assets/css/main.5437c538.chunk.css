@@ -1724,7 +1724,7 @@ input:-webkit-autofill {
 
 .sticky-col {
   position: -webkit-sticky;
-  position: sticky;
+  /* position: sticky; */
   height: 100%;
 }
 

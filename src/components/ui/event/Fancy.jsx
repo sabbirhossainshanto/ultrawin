@@ -368,7 +368,12 @@ const Fancy = ({ fancy }) => {
                                     </div>
                                   </div>
                                 </td>
-                                <td className="MuiTableCell-root MuiTableCell-body limits-cell">
+                                <td
+                                  className="MuiTableCell-root MuiTableCell-body limits-cell"
+                                  style={{
+                                    paddingLeft: "4px",
+                                  }}
+                                >
                                   <div className="limits-data">
                                     <div className="row web-view">
                                       <div>

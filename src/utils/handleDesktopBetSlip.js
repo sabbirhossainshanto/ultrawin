@@ -1,6 +1,6 @@
 import {
   setPlaceBetValues,
-  setShowComponent,
+  setShowBetSlip,
 } from "../redux/features/events/eventSlice";
 
 export const handleDesktopBetSlip = (
@@ -67,7 +67,7 @@ export const handleDesktopBetSlip = (
       setSelectedRunner(runner?.id);
     }
     dispatch(setPlaceBetValues(betData));
-    dispatch(setShowComponent(true));
+    dispatch(setShowBetSlip(true));
   } else {
     ("navigate login");
   }

@@ -16,6 +16,7 @@ import {
 } from "../../redux/features/events/eventSlice";
 import IFrame from "../../components/ui/event/IFrame";
 import ScoreCard from "../../components/ui/event/ScoreCard";
+import RightSidebar from "../../components/ui/event/RightSidebar/RightSidebar";
 
 const Event = () => {
   const dispatch = useDispatch();
@@ -264,22 +265,35 @@ const Event = () => {
           <div className="punter-view" id="main-content">
             <div className="sports-view-ctn">
               <div>
-                <div className="hydrated md eam-ctn">
-                  <EventHeader setTab={setTab} tab={tab} data={data} />
-                  <IFrame tab={tab} setTab={setTab} score={data?.score} />
-                  {match_odds?.[0]?.score?.length > 0 &&
-                    eventTypeId == 4 &&
-                    tab === "scorecard" && (
-                      <ScoreCard match_odds={match_odds} />
+                <div
+                  className="hydrated md eam-ctn"
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    gap: "10px",
+                  }}
+                >
+                  <div
+                    // className="eam-events-table-section md hydrated"
+                    style={{ width: "100%" }}
+                  >
+                    <EventHeader setTab={setTab} tab={tab} data={data} />
+                    <IFrame tab={tab} setTab={setTab} score={data?.score} />
+                    {match_odds?.[0]?.score?.length > 0 &&
+                      eventTypeId == 4 &&
+                      tab === "scorecard" && (
+                        <ScoreCard match_odds={match_odds} />
+                      )}
+                    {match_odds?.length > 0 && (
+                      <MatchOddsBookmaker data={match_odds} />
                     )}
-                  {match_odds?.length > 0 && (
-                    <MatchOddsBookmaker data={match_odds} />
-                  )}
-                  {match_odds?.length > 0 && (
-                    <MatchOddsBookmaker data={bookmaker} />
-                  )}
+                    {match_odds?.length > 0 && (
+                      <MatchOddsBookmaker data={bookmaker} />
+                    )}
 
-                  {fancy?.length > 0 && <Fancy fancy={fancy} />}
+                    {fancy?.length > 0 && <Fancy fancy={fancy} />}
+                  </div>
+                  <RightSidebar />
                 </div>
               </div>
             </div>

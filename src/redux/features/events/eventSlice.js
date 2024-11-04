@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   placeBetValues: null,
-  showComponent: false,
+  showBetSlip: false,
   price: null,
   stake: null,
   firstOdd: null,
@@ -15,8 +15,8 @@ const eventSlice = createSlice({
   name: "event",
   initialState,
   reducers: {
-    setShowComponent: (state, action) => {
-      state.showComponent = action.payload;
+    setShowBetSlip: (state, action) => {
+      state.showBetSlip = action.payload;
     },
     setPosition: (state, action) => {
       state.position = action.payload;
@@ -46,7 +46,7 @@ const eventSlice = createSlice({
 });
 
 export const {
-  setShowComponent,
+  setShowBetSlip,
   setPosition,
   setPlaceBetValues,
   setPrice,
