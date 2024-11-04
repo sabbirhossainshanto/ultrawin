@@ -1,11 +1,15 @@
+import { useParams } from "react-router-dom";
 import BetSlipDesktop from "./BetSlipDesktop";
 import Video from "./Video";
+import useIFrame from "../../../../hooks/useIFrame";
 
 const RightSidebar = () => {
+  const { eventId, eventTypeId } = useParams();
+  const { iFrameUrl } = useIFrame(eventTypeId, eventId);
   return (
     <div className="stream-section md hydrated">
       <div className="sticky-col">
-        <Video />
+        {iFrameUrl?.url && <Video url={iFrameUrl?.url} />}
         <BetSlipDesktop />
         {/* <div className="mt-10">
           <div className="trending-games-ctn">
