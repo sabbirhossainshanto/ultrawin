@@ -56,7 +56,6 @@ const Fancy = ({ fancy }) => {
       setLadderData(res.result);
     }
   };
-
   return (
     <>
       {ladderData?.length > 0 && (
@@ -66,7 +65,6 @@ const Fancy = ({ fancy }) => {
           eventName={eventName}
         />
       )}
-
       <div className="hydrated md eam-table-section fancy-tab-section">
         <div className="hydrated md">
           <div
@@ -80,7 +78,10 @@ const Fancy = ({ fancy }) => {
               <div className="fm-table-ctn">
                 <div className="table-ctn fm-table-content">
                   <div className="MuiPaper-root MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root">
-                    <table className="MuiTable-root fm-table">
+                    <table
+                      className="MuiTable-root fm-table"
+                      style={{ maxWidth: "100vw" }}
+                    >
                       <thead className="MuiTableHead-root">
                         {/* <tr className="MuiTableRow-root MuiTableRow-head">
                         <th
@@ -113,9 +114,7 @@ const Fancy = ({ fancy }) => {
                           <td className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft market-name-cell-head">
                             <div className="groupname-cell"> Fancy Market</div>
                           </td>
-                          <td className="MuiTableCell-root MuiTableCell-body book-btn-cell MuiTableCell-alignCenter odds-cell-head">
-                            <div className="odds-no-cell" />
-                          </td>
+
                           <td className="MuiTableCell-root MuiTableCell-body odds-cell-head MuiTableCell-alignCenter odds-no-cell">
                             <div className="odds-no-cell">no</div>
                           </td>
@@ -194,8 +193,47 @@ const Fancy = ({ fancy }) => {
                                         );
                                       })}
                                   </div>
+                                  <div
+                                    className="MuiTableCell-root MuiTableCell-body odds-cell book-btn-cell"
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "center",
+                                      justifyContent: "center",
+                                    }}
+                                  >
+                                    {pnl?.length > 0 ? (
+                                      pnl?.map(({ MarketId }, i) => {
+                                        return (
+                                          <button
+                                            key={i}
+                                            onClick={() =>
+                                              handleGetLadder(MarketId, games)
+                                            }
+                                            className={`cursor-pointer MuiButton-root MuiButtonBase-root MuiButton-text fancy-book-btn`}
+                                            tabIndex={-1}
+                                            type="button"
+                                          >
+                                            <span className="MuiButton-label">
+                                              Book
+                                            </span>
+                                          </button>
+                                        );
+                                      })
+                                    ) : (
+                                      <button
+                                        className={`Mui-disabled Mui-disabled MuiButton-root MuiButtonBase-root MuiButton-text fancy-book-btn`}
+                                        tabIndex={-1}
+                                        type="button"
+                                        disabled
+                                      >
+                                        <span className="MuiButton-label">
+                                          Book
+                                        </span>
+                                      </button>
+                                    )}
+                                  </div>
                                 </td>
-                                <td className="MuiTableCell-root MuiTableCell-body odds-cell book-btn-cell">
+                                {/* <td className="MuiTableCell-root MuiTableCell-body odds-cell book-btn-cell">
                                   {pnl?.length > 0 ? (
                                     pnl?.map(({ MarketId }, i) => {
                                       return (
@@ -226,7 +264,7 @@ const Fancy = ({ fancy }) => {
                                       </span>
                                     </button>
                                   )}
-                                </td>
+                                </td> */}
                                 <td className="MuiTableCell-root MuiTableCell-body odds-cell">
                                   <div className="odds-block">
                                     <div className="exch-odd-view">
@@ -358,6 +396,7 @@ const Fancy = ({ fancy }) => {
                             </>
                           );
                         })}
+                        {/* <BetSlip setSelectedRunner={setSelectedRunner} /> */}
                       </tbody>
                     </table>
                   </div>

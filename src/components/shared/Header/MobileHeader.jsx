@@ -6,7 +6,7 @@ const MobileHeader = () => {
   return (
     <>
       <WhatsApp />
-      <div className="mob-header" style={{ zIndex: 9 }}>
+      <div className="mob-header" style={{ zIndex: 9999 }}>
         <div className="exch-mob-header-ctn">
           <Link className="exch-mob-nav-link mob-link-btn" to="/login">
             <div className="exch-nav-item-ctn">

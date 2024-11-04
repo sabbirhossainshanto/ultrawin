@@ -110,7 +110,11 @@ const BetSlip = ({ setSelectedRunner }) => {
 
   return (
     <tr className="MuiTableRow-root inline-betslip">
-      <td className="MuiTableCell-root MuiTableCell-body" colSpan="3">
+      <td
+        className="MuiTableCell-root MuiTableCell-body"
+        colSpan="3"
+        style={{ width: "100vw" }}
+      >
         <div className="exch-betslip-ctn">
           {betDelay > 0 && (
             <div className="betslip-progress">
@@ -199,7 +203,6 @@ const BetSlip = ({ setSelectedRunner }) => {
                       <div className="sc-ion-input-md-h sc-ion-input-md-s md has-value hydrated">
                         <input
                           style={{
-                            color: "black",
                             width: "100%",
                           }}
                           onChange={(e) => dispatch(setPrice(e.target.value))}
