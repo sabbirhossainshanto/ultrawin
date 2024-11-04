@@ -1,4 +1,7 @@
-import { setPlaceBetValues } from "../redux/features/events/eventSlice";
+import {
+  setPlaceBetValues,
+  setShowBetSlip,
+} from "../redux/features/events/eventSlice";
 
 /* handle place bet */
 export const handleCashoutBetMobile = (
@@ -8,7 +11,8 @@ export const handleCashoutBetMobile = (
   setRunnerId,
   pnlBySelection,
   token,
-  team
+  team,
+  navigate
 ) => {
   if (token) {
     if (games?.status === "OPEN" && team?.runner?.status === "OPEN") {
@@ -51,8 +55,9 @@ export const handleCashoutBetMobile = (
           totalSize: team?.newStakeValue,
         })
       );
+      dispatch(setShowBetSlip(true));
     }
   } else {
-    ("navigate login");
+    navigate("/login");
   }
 };

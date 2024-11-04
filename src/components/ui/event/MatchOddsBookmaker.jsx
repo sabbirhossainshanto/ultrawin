@@ -33,7 +33,8 @@ const MatchOddsBookmaker = ({ data }) => {
       dispatch,
       price,
       token,
-      setSelectedRunner
+      setSelectedRunner,
+      navigate
     );
   };
 
@@ -193,7 +194,8 @@ const MatchOddsBookmaker = ({ data }) => {
                                           setSelectedRunner,
                                           pnlBySelection,
                                           token,
-                                          teamProfitForGame
+                                          teamProfitForGame,
+                                          navigate
                                         )
                                       }
                                       className={`MuiButtonBase-root MuiButton-root MuiButton-contained btn cashout-btn   MuiButton-containedPrimary MuiButton-containedSizeSmall MuiButton-sizeSmall ${
@@ -257,6 +259,9 @@ const MatchOddsBookmaker = ({ data }) => {
                           pnlBySelection?.filter(
                             (pnl) => pnl?.RunnerId === runner?.id
                           ) || [];
+                        const predictOddValues = predictOdd?.filter(
+                          (val) => val?.id === runner?.id
+                        );
                         return (
                           <>
                             <tr key={runner?.id} className="MuiTableRow-root">
@@ -273,16 +278,33 @@ const MatchOddsBookmaker = ({ data }) => {
                                     pnl?.map(({ pnl }, i) => {
                                       return (
                                         <span
+                                          style={{ backgroundColor: "white" }}
                                           key={i}
                                           className={` ${
                                             pnl > 0 ? "profit" : "loss"
                                           }`}
                                         >
+                                          {pnl > 0 && "+"}
                                           {pnl}
                                         </span>
                                       );
                                     })}
                                 </div>
+                                {stake &&
+                                  selectedRunner &&
+                                  predictOddValues?.map(({ odd, id }) => {
+                                    return (
+                                      <div key={id} className="profit-loss-box">
+                                        <span
+                                          className={`${
+                                            odd > 0 ? "profit" : "loss"
+                                          }`}
+                                        >
+                                          {odd > 0 && "+"} {stake && odd}
+                                        </span>
+                                      </div>
+                                    );
+                                  })}
                               </td>
                               <td className="MuiTableCell-root MuiTableCell-body odds-cell">
                                 <div className="odds-block web-view back-odds-block">

@@ -1,8 +1,19 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import WhatsApp from "../../ui/WhatsApp/WhatsApp";
+import { useSelector } from "react-redux";
 
 const MobileHeader = () => {
   const { pathname } = useLocation();
+  const { token } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+
+  const handleNavigateAccount = () => {
+    if (token) {
+      navigate("/account");
+    } else {
+      navigate("/login");
+    }
+  };
   return (
     <>
       <WhatsApp />
@@ -233,11 +244,11 @@ const MobileHeader = () => {
               <div className="exch-nav-item-label casino-label">Casino</div>
             </div>{" "}
           </Link>
-          <Link
+          <a
             className={`exch-mob-nav-link mob-link-btn ${
               pathname === "/account" ? "active" : ""
             }`}
-            to="/account"
+            onClick={handleNavigateAccount}
           >
             <div className="exch-nav-item-ctn">
               <div className="exch-nav-item-icon profile-icon">
@@ -263,7 +274,7 @@ const MobileHeader = () => {
               </div>
               <div className="exch-nav-item-label">Preferences</div>
             </div>
-          </Link>
+          </a>
         </div>
       </div>
     </>

@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { userToken } from "../../../redux/features/auth/authSlice";
 import { useState } from "react";
 import { useGetLadderMutation } from "../../../redux/features/events/events";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useExposer from "../../../hooks/useExposure";
 import { handleDesktopBetSlip } from "../../../utils/handleDesktopBetSlip";
 import handleRandomToken from "../../../utils/handleRandomToken";
@@ -11,10 +11,10 @@ import { settings } from "../../../api";
 import isOddSuspended from "../../../utils/isOddSuspended";
 import BetSlip from "./BetSlip";
 import Ladder from "../../modal/Ladder";
-import FancyBetSlip from "./FancyBetSlip";
 
 const Fancy = ({ fancy }) => {
   const [selectedRunner, setSelectedRunner] = useState("");
+  const navigate = useNavigate();
   const token = useSelector(userToken);
   const [eventName, setEventName] = useState("");
   const [ladderData, setLadderData] = useState([]);
@@ -37,7 +37,8 @@ const Fancy = ({ fancy }) => {
       dispatch,
       price,
       token,
-      setSelectedRunner
+      setSelectedRunner,
+      navigate
     );
   };
   const handleGetLadder = async (marketId, games) => {

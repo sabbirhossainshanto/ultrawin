@@ -1253,3 +1253,11 @@
 }
 
 /*! Score card css  */
+
+a {
+  cursor: pointer;
+}
+
+.profit-loss-box {
+  background-color: #fff;
+}

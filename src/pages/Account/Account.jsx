@@ -1,11 +1,13 @@
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../redux/features/auth/authSlice";
 import useBalance from "../../hooks/useBalance";
+import { setGroupType } from "../../redux/features/global/globalSlice";
 
 const Account = () => {
   const dispatch = useDispatch();
   const { balance } = useBalance();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -318,7 +320,11 @@ const Account = () => {
               >
                 <div className="dashboard-item ios hydrated">
                   <button
-                    onClick={() => dispatch(logout())}
+                    onClick={() => {
+                      dispatch(logout());
+                      navigate("/");
+                      dispatch(setGroupType(null));
+                    }}
                     className="MuiButtonBase-root MuiButton-root MuiButton-text dashboard-sign-out-btn"
                     tabIndex={0}
                     type="button"

@@ -11,7 +11,8 @@ export const handleDesktopBetSlip = (
   dispatch,
   price,
   token,
-  setSelectedRunner
+  setSelectedRunner,
+  navigate
 ) => {
   if (token) {
     let pnlBySelection;
@@ -69,6 +70,6 @@ export const handleDesktopBetSlip = (
     dispatch(setPlaceBetValues(betData));
     dispatch(setShowBetSlip(true));
   } else {
-    ("navigate login");
+    navigate("login");
   }
 };
