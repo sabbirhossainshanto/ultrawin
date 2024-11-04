@@ -19,6 +19,10 @@ const LeftSidebar = () => {
     dispatch(logout());
   };
 
+  const handleNavigate = (link) => {
+    navigate(link);
+  };
+
   return (
     <div className="web-view" style={{ position: "relative" }}>
       <div className="side-header">
@@ -1569,7 +1573,10 @@ const LeftSidebar = () => {
                 </svg>
                 <div className="sh-tab-label">Affiliate Program</div>
               </button>
-              <button className=" sh-btn">
+              <button
+                onClick={() => handleNavigate("/betting-profit-loss")}
+                className=" sh-btn"
+              >
                 <svg
                   width="12"
                   height="12"

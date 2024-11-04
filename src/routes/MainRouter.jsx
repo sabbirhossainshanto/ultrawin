@@ -11,6 +11,7 @@ import Account from "../pages/Account/Account";
 import Withdraw from "../pages/Withdraw/Withdraw";
 import InPlay from "../pages/InPlay/InPlay";
 import StakeSetting from "../pages/StakeSetting/StakeSetting";
+import BettingProfitLoss from "../pages/BettingProfitLoss/BettingProfitLoss";
 
 const MainRouter = () => {
   const router = createBrowserRouter(
@@ -52,6 +53,10 @@ const MainRouter = () => {
           {
             path: "/withdraw",
             element: <Withdraw />,
+          },
+          {
+            path: "/betting-profit-loss",
+            element: <BettingProfitLoss />,
           },
         ],
       },

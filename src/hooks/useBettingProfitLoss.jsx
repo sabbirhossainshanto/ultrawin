@@ -14,7 +14,7 @@ const useBettingProfitLoss = () => {
     .split("T")[0];
   /* current date */
   const toDate = new Date().toISOString().split("T")[0];
-  const { data: passbook } = useQuery({
+  const { data } = useQuery({
     queryKey: ["passbook"],
     /* enable when token loading */
     queryFn: async () => {
@@ -37,7 +37,7 @@ const useBettingProfitLoss = () => {
       }
     },
   });
-  return { passbook };
+  return { data };
 };
 
 export default useBettingProfitLoss;
