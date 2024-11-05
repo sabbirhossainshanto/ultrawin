@@ -47,28 +47,27 @@ const DepositWithdrawReport = () => {
                   <div className="report-title">My Transactions</div>
                 </div>
               </div>
+
               <div className="report-filters rh-web-view">
-                <div
-                  className="select-template"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    height: "30px",
-                    gap: "5px",
-                  }}
-                >
+                <div className="select-template">
                   <div style={{ color: "white" }} className="st-label">
                     Transaction Type
                   </div>
 
-                  <div style={{ backgroundColor: "white" }}>
+                  <div className="MuiInputBase-root MuiInput-root MuiInput-underline select-compo">
                     <select
+                      style={{ width: "100%", color: "white" }}
                       onChange={(e) => setSelectedReport(e.target.value)}
                       name=""
                       id=""
                     >
-                      <option value="deposit"> Deposit</option>
-                      <option value="withdraw">Withdraw</option>
+                      <option style={{ color: "black" }} value="deposit">
+                        {" "}
+                        Deposit
+                      </option>
+                      <option style={{ color: "black" }} value="withdraw">
+                        Withdraw
+                      </option>
                     </select>
                   </div>
                 </div>
@@ -76,26 +75,24 @@ const DepositWithdrawReport = () => {
 
               <div className="report-filters rh-mob-view">
                 <div className="two-filters">
-                  <div
-                    className="select-template"
-                    style={{
-                      paddingTop: "5px",
-                      display: "flex",
-                      flexDirection: "row",
-                      gap: "10px",
-                    }}
-                  >
+                  <div className="select-template">
                     <div style={{ color: "white" }} className="st-label">
                       Transaction Type
                     </div>
-                    <div style={{ backgroundColor: "white" }}>
+                    <div className="MuiInputBase-root MuiInput-root MuiInput-underline select-compo">
                       <select
+                        style={{ width: "100%", color: "white" }}
                         onChange={(e) => setSelectedReport(e.target.value)}
                         name=""
                         id=""
                       >
-                        <option value="deposit"> Deposit</option>
-                        <option value="withdraw">Withdraw</option>
+                        <option style={{ color: "black" }} value="deposit">
+                          {" "}
+                          Deposit
+                        </option>
+                        <option style={{ color: "black" }} value="withdraw">
+                          Withdraw
+                        </option>
                       </select>
                     </div>
                   </div>
