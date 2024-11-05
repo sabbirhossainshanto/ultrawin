@@ -34,10 +34,14 @@ const MainLayout = () => {
           <div
             style={{
               marginBottom: "75px",
+              minHeight: "calc(100vh - 114px)",
             }}
           >
             <Outlet />
           </div>
+          {/* <div className="rules-regulations-footer">
+            <div>Rules &amp; Regulations © 2024</div>
+          </div> */}
           <MobileHeader />
         </div>
       </div>

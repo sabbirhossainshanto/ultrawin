@@ -190,3 +190,27 @@ export const LiveCasinoTabs = [
     image: "/src/assets/images/others.03aee52d.svg",
   },
 ];
+
+export const tabs = [
+  { title: "All" },
+  { title: "Mac88" },
+  { title: "Mac88 Virtuals" },
+  { title: "Fun Games" },
+  { title: "Wingo" },
+  { title: "Spribe" },
+  { title: "Royal Gaming" },
+  { title: "Evolution" },
+  { title: "Turbo" },
+  { title: "Ezugi" },
+  { title: "Jili Gaming" },
+  { title: "AE SEXY" },
+  { title: "Live Playtech" },
+  { title: "Betsoft" },
+  { title: "Gamzix" },
+  { title: "Betgames.tv" },
+  { title: "Evoplay Entertainment" },
+  { title: "Asia Gaming" },
+  { title: "Winfinity" },
+  { title: "Vivo" },
+  { title: "Kingmaker" },
+];

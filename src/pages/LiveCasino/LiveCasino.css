@@ -429,10 +429,10 @@ button:disabled {
   margin: 0 6px;
   border: 1px solid #fff;
   border-radius: 8px;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; */
   padding: 4px;
 }
 

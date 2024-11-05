@@ -37,6 +37,8 @@ import notify from "./images/notifi-scroll-icon.d1d3e573.svg";
 import plus from "./images/plus.d8a64e14.svg";
 import minus from "./images/minus.4b583620.svg";
 import whatsapp from "./images/whatsapp.png";
+import default_notification from "./images/default_notification.svg";
+import warning from "./images/warning-yellow.svg";
 
 export default {
   theme,
@@ -78,4 +80,6 @@ export default {
   plus,
   minus,
   whatsapp,
+  default_notification,
+  warning,
 };

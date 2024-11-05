@@ -45,6 +45,11 @@ export const API = {
   auraWolf: "",
   groupSportsBook: "",
   depositBreakdown: "",
+  ultraLobby: "",
+  popularGames: "",
+  recommendedGames: "",
+  topRatedGames: "",
+  liveCasinoGames: "",
 };
 
 export const settings = {

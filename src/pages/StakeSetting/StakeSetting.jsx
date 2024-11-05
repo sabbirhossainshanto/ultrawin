@@ -192,9 +192,6 @@ const StakeSetting = () => {
             </div>
           </div>
         </div>
-        <div className="rules-regulations-footer">
-          <div>Rules &amp; Regulations © 2024</div>
-        </div>
       </form>
     </div>
   );

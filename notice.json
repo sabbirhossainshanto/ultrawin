@@ -95,7 +95,12 @@
       "withdrawBreakdown": "https://api7.live/api/exchange/diamond/withdrawBreakdown",
       "banner": "https://api7.live/api/exchange/diamond/banner",
       "exchangeGames": "https://cache7.live/api/exchange/diamond/exchangeGames",
-      "depositBreakdown": "https://api7.live/api/exchange/diamond/depositBreakdown"
+      "depositBreakdown": "https://api7.live/api/exchange/diamond/depositBreakdown",
+      "ultraLobby": "https://api7.live/api/exchange/diamond/ultra_lobby.php",
+      "popularGames": "https://api7.live/api/exchange/diamond/ultra_lobby.php?id=monk88",
+      "recommendedGames": "https://api7.live/api/exchange/diamond/ultra_lobby.php?id=mac88",
+      "topRatedGames": "https://api7.live/api/exchange/diamond/ultra_lobby.php?id=rg",
+      "liveCasinoGames": "https://api7.live/api/exchange/diamond/ultra_lobby.php?id=evolution"
     }
   },
   "success": true

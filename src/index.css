@@ -1261,3 +1261,132 @@ a {
 .profit-loss-box {
   background-color: #fff;
 }
+
+/*! Warning condition css */
+.swal2-container:has(.alert-dialog) {
+  z-index: 10000;
+}
+
+div:where(.swal2-container).swal2-backdrop-show,
+div:where(.swal2-container).swal2-noanimation {
+  background: rgba(0, 0, 0, 0.4);
+}
+.swal2-container {
+  display: grid;
+  position: fixed;
+  z-index: 1060;
+  inset: 0;
+  box-sizing: border-box;
+  grid-template-areas:
+    "top-start top top-end"
+    "center-start center center-end"
+    "bottom-start bottom-center bottom-end";
+  grid-template-rows: minmax(min-content, auto) minmax(min-content, auto) minmax(
+      min-content,
+      auto
+    );
+  height: 100%;
+  padding: 0.625em;
+  overflow-x: hidden;
+  transition: background-color 0.1s;
+  -webkit-overflow-scrolling: touch;
+}
+div:where(.swal2-container).swal2-bottom > .swal2-popup {
+  grid-column: 2;
+  grid-row: 3;
+  justify-self: center;
+  align-self: end;
+}
+.swal2-popup.alert-dialog {
+  background-color: #ffffff;
+  border-top: 5px solid #000000;
+  max-width: 390px;
+  padding: 15px 0 0;
+  width: 100%;
+  border-radius: 6px;
+}
+div:where(.swal2-container) div:where(.swal2-popup) {
+  display: none;
+  position: relative;
+  box-sizing: border-box;
+  grid-template-columns: minmax(0, 100%);
+  width: 32em;
+  max-width: 100%;
+  padding: 0 0 1.25em;
+  border: none;
+  border-radius: 5px;
+  background: #fff;
+  color: #545454;
+  font-family: inherit;
+  font-size: 1rem;
+}
+.swal2-popup.alert-dialog .swal2-icon {
+  height: auto;
+  border: none;
+  margin: 0 auto;
+  padding: 0;
+}
+.swal2-popup.alert-dialog .swal2-icon img {
+  width: 50px;
+  height: 50px;
+}
+.swal2-popup.alert-dialog .swal2-title {
+  color: var(--text-color);
+  padding-top: 5px;
+  padding-bottom: 15px;
+  font-weight: 400;
+  font-size: clamp(1rem, 4vw, 1.125rem);
+  margin: 0 auto;
+}
+.swal2-popup.alert-dialog .swal2-html-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 1rem 0;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 300;
+  background-color: #e8e8e8;
+}
+.swal2-popup.alert-dialog .swal2-actions {
+  width: 100%;
+  padding: 24px 0 15px;
+  margin: 0;
+  border-radius: 0 0 6px 6px;
+  background-color: #e8e8e8;
+}
+
+div:where(.swal2-container) div:where(.swal2-actions) {
+  display: flex;
+  z-index: 1;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  margin: 1.25em auto 0;
+  padding: 0;
+}
+
+.swal2-popup.alert-dialog .swal2-actions .swal2-styled.swal2-confirm {
+  background-color: #000000 !important;
+  margin: 0 0 4px;
+  border-radius: 30px;
+  width: 55%;
+  height: 35px;
+  max-width: 200px;
+  line-height: 1;
+  font-size: 12px;
+}
+.swal2-popup.alert-dialog .swal2-actions .swal2-styled.swal2-cancel {
+  background-color: transparent !important;
+
+  margin: 0;
+  border-radius: 30px;
+  width: 55%;
+  height: 35px;
+  max-width: 200px;
+  line-height: 1;
+  font-size: 12px;
+  border: 2px solid rgb(42, 42, 42);
+}
+/*!! Warning condition css */

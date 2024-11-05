@@ -365,9 +365,6 @@ const Account = () => {
               />
             </div>
           </div>
-          <div className="rules-regulations-footer">
-            <div>Rules &amp; Regulations © 2024</div>
-          </div>
         </div>
       </div>
     </>
