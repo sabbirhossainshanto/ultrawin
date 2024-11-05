@@ -4,7 +4,7 @@ import {
   setGroupType,
   setShowLeftSidebar,
 } from "../../../redux/features/global/globalSlice";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useBalance from "../../../hooks/useBalance";
 import useBonusBalance from "../../../hooks/useBonusBalance";
 import useContextState from "../../../hooks/useContextState";
@@ -16,6 +16,7 @@ const Header = () => {
   const { token, user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
   return (
     <div className="app-sub-header">
       <div className="MuiTabs-root actions-list web-view">
@@ -34,7 +35,11 @@ const Header = () => {
           style={{ marginBottom: "0px" }}
         >
           <div className="MuiTabs-flexContainer" role="tablist">
-            <Link aria-current="page" className="nav-link active" to="/">
+            <Link
+              aria-current="page"
+              className={`nav-link  ${pathname === "/" ? "active" : ""}`}
+              to="/"
+            >
               <button
                 className="MuiButtonBase-root MuiButton-root MuiButton-text nav-link-btn"
                 type="button"
@@ -61,7 +66,13 @@ const Header = () => {
                 <span className="MuiTouchRipple-root"></span>
               </button>
             </a>
-            <a className="nav-link" value="3" href="/casino">
+            <Link
+              className={`nav-link  ${
+                pathname === "/live-casino" ? "active" : ""
+              }`}
+              value="3"
+              to="/live-casino"
+            >
               <button
                 className="MuiButtonBase-root MuiButton-root MuiButton-text nav-link-btn"
                 type="button"
@@ -69,7 +80,7 @@ const Header = () => {
                 <span className="MuiButton-label">Live Casino</span>
                 <span className="MuiTouchRipple-root"></span>
               </button>
-            </a>
+            </Link>
             <a
               className="nav-link"
               value="4"

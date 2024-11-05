@@ -14,6 +14,7 @@ import StakeSetting from "../pages/StakeSetting/StakeSetting";
 import BettingProfitLoss from "../pages/BettingProfitLoss/BettingProfitLoss";
 import SingleProfitLoss from "../pages/SingleBettingProfitLoss/SingleBettingProfitLoss";
 import DepositWithdrawReport from "../pages/DepositWithdrawReport/DepositWithdrawReport";
+import LiveCasino from "../pages/LiveCasino/LiveCasino";
 
 const MainRouter = () => {
   const router = createBrowserRouter(
@@ -30,6 +31,10 @@ const MainRouter = () => {
           {
             index: true,
             element: <Home />,
+          },
+          {
+            path: "/live-casino",
+            element: <LiveCasino />,
           },
           {
             path: "/:eventTypeId/:eventId",
