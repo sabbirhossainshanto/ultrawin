@@ -138,59 +138,84 @@ const DepositStatement = ({ accountStatement }) => {
                 </div>
                 <div className="mct-b">
                   <div className="mct-b-r">
-                    <div className="mct-b-sr1" style={{ height: "18px" }}>
-                      <div
-                        className="mct-b-c mct-b-c0"
-                        style={{ width: "40%" }}
-                      >
-                        <div className="mb-event-name-date">
-                          <div className="b-700">DEPOSIT</div>
-                          <div className="mb-bet-date">
-                            04-11-24, 5:24:58 PM
+                    {accountStatement?.map((data, idx) => {
+                      return (
+                        <>
+                          <div
+                            key={idx}
+                            className="mct-b-sr1"
+                            style={{ height: "18px" }}
+                          >
+                            <div
+                              className="mct-b-c mct-b-c0"
+                              style={{ width: "40%" }}
+                            >
+                              <div className="mb-event-name-date">
+                                <div className="b-700">WITHDRAW</div>
+                                {/* <div className="mb-bet-date">
+                              04-11-24, 5:24:58 PM
+                            </div> */}
+                              </div>
+                            </div>
+                            <div
+                              className="mct-b-c mct-b-c1"
+                              style={{ width: "20%" }}
+                            >
+                              <div className="p-5">
+                                <div className="b-700"> {data?.status}</div>
+                              </div>
+                            </div>
+                            <div
+                              className="mct-b-c mct-b-c2"
+                              style={{ width: "20%" }}
+                            >
+                              {data?.amount}
+                            </div>
+                            <div
+                              className="mct-b-c mct-b-c3"
+                              style={{ width: "20%" }}
+                            >
+                              N/A
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                      <div
-                        className="mct-b-c mct-b-c1"
-                        style={{ width: "20%" }}
-                      >
-                        <div className="p-5">
-                          <div className="b-700">In Progress</div>
-                        </div>
-                      </div>
-                      <div
-                        className="mct-b-c mct-b-c2"
-                        style={{ width: "20%" }}
-                      >
-                        300
-                      </div>
-                      <div
-                        className="mct-b-c mct-b-c3"
-                        style={{ width: "20%" }}
-                      >
-                        2590601
-                      </div>
-                    </div>
-                    <div className="mct-b-sr1">
-                      <div
-                        className="mct-b-c mct-b-c0"
-                        style={{ width: "40%" }}
-                      >
-                        <div className="display-flex">
-                          <div className="b-500">Payment Method:</div>
-                          <div className="b-400">BANK_TRANSFER</div>
-                        </div>
-                      </div>
-                      <div
-                        className="mct-b-c mct-b-c1"
-                        style={{ width: "60%" }}
-                      >
-                        <div className="display-flex space-between p-5">
-                          <div className="b-700">Notes:</div>
-                          <div className="b-400" />
-                        </div>
-                      </div>
-                    </div>
+
+                          <div className="mct-b-sr1">
+                            <div
+                              className="mct-b-c mct-b-c0"
+                              style={{ width: "40%" }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  gap: "5px",
+                                  padding: "5px",
+                                }}
+                                className="display-flex"
+                              >
+                                <div className="b-500">Payment Method:</div>
+                                <div className="b-400">N/A</div>
+                              </div>
+                            </div>
+                            <div
+                              className="mct-b-c mct-b-c1"
+                              style={{ width: "60%" }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  gap: "5px",
+                                  padding: "5px",
+                                }}
+                                className="display-flex space-between"
+                              >
+                                <div className="b-700">Notes:</div>
+                                <div className="b-400">{data?.remark}</div>
+                              </div>
+                            </div>
+                          </div>
+                        </>
+                      );
+                    })}
                   </div>
                 </div>
               </div>

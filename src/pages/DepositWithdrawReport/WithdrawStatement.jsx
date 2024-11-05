@@ -55,32 +55,33 @@ const WithdrawStatement = ({ withdrawStatement }) => {
                         Payment Method
                       </th>
                     </tr>
+
                     {/* <tr className="MuiTableRow-root trx-mobView-head MuiTableRow-head">
-                          <th
-                            className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall"
-                            scope="col"
-                          >
-                            Transaction Type
-                          </th>
-                          <th
-                            className="MuiTableCell-root MuiTableCell-head trx-status MuiTableCell-sizeSmall"
-                            scope="col"
-                          >
-                            Status
-                          </th>
-                          <th
-                            className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall"
-                            scope="col"
-                          >
-                            Amount
-                          </th>
-                          <th
-                            className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall"
-                            scope="col"
-                          >
-                            TXN ID
-                          </th>
-                        </tr> */}
+                    <th
+                      className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall"
+                      scope="col"
+                    >
+                      Transaction Type
+                    </th>
+                    <th
+                      className="MuiTableCell-root MuiTableCell-head trx-status MuiTableCell-sizeSmall"
+                      scope="col"
+                    >
+                      Status
+                    </th>
+                    <th
+                      className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall"
+                      scope="col"
+                    >
+                      Amount
+                    </th>
+                    <th
+                      className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall"
+                      scope="col"
+                    >
+                      TXN ID
+                    </th>
+                  </tr> */}
                   </thead>
                   <tbody className="MuiTableBody-root apl-table-body trx-webView-body">
                     {withdrawStatement?.map((data, idx) => {
@@ -117,96 +118,109 @@ const WithdrawStatement = ({ withdrawStatement }) => {
                 </table>
               </div>
             </div>
-            {/* <div className="mct-ctn mob-view">
-                  <div className="mct">
-                    <div className="mct-h">
-                      <div
-                        className="mct-h-c0 mct-h-c"
-                        style={{ width: "40%" }}
-                      >
-                        Transaction Type
-                      </div>
-                      <div
-                        className="mct-h-c1 mct-h-c"
-                        style={{ width: "20%" }}
-                      >
-                        Status
-                      </div>
-                      <div
-                        className="mct-h-c2 mct-h-c"
-                        style={{ width: "20%" }}
-                      >
-                        Amount
-                      </div>
-                      <div
-                        className="mct-h-c3 mct-h-c"
-                        style={{ width: "20%" }}
-                      >
-                        Txn ID
-                      </div>
-                    </div>
-                    <div className="mct-b">
-                      <div className="mct-b-r">
-                        <div
-                          className="mct-b-sr1"
-                          style={{ height: "18px" }}
-                        >
+
+            {/* Mobile view */}
+            <div className="mct-ctn mob-view">
+              <div className="mct">
+                <div className="mct-h">
+                  <div className="mct-h-c0 mct-h-c" style={{ width: "40%" }}>
+                    Transaction Type
+                  </div>
+                  <div className="mct-h-c1 mct-h-c" style={{ width: "20%" }}>
+                    Status
+                  </div>
+                  <div className="mct-h-c2 mct-h-c" style={{ width: "20%" }}>
+                    Amount
+                  </div>
+                  <div className="mct-h-c3 mct-h-c" style={{ width: "20%" }}>
+                    Txn ID
+                  </div>
+                </div>
+                <div className="mct-b">
+                  <div className="mct-b-r">
+                    {withdrawStatement?.map((data, idx) => {
+                      return (
+                        <>
                           <div
-                            className="mct-b-c mct-b-c0"
-                            style={{ width: "40%" }}
+                            key={idx}
+                            className="mct-b-sr1"
+                            style={{ height: "18px" }}
                           >
-                            <div className="mb-event-name-date">
-                              <div className="b-700">DEPOSIT</div>
-                              <div className="mb-bet-date">
-                                04-11-24, 5:24:58 PM
+                            <div
+                              className="mct-b-c mct-b-c0"
+                              style={{ width: "40%" }}
+                            >
+                              <div className="mb-event-name-date">
+                                <div className="b-700">WITHDRAW</div>
+                                {/* <div className="mb-bet-date">
+                              04-11-24, 5:24:58 PM
+                            </div> */}
+                              </div>
+                            </div>
+                            <div
+                              className="mct-b-c mct-b-c1"
+                              style={{ width: "20%" }}
+                            >
+                              <div className="p-5">
+                                <div className="b-700"> {data?.status}</div>
+                              </div>
+                            </div>
+                            <div
+                              className="mct-b-c mct-b-c2"
+                              style={{ width: "20%" }}
+                            >
+                              {data?.amount}
+                            </div>
+                            <div
+                              className="mct-b-c mct-b-c3"
+                              style={{ width: "20%" }}
+                            >
+                              N/A
+                            </div>
+                          </div>
+
+                          <div className="mct-b-sr1">
+                            <div
+                              className="mct-b-c mct-b-c0"
+                              style={{ width: "40%" }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  gap: "5px",
+                                  padding: "5px",
+                                }}
+                                className="display-flex"
+                              >
+                                <div className="b-500">Payment Method:</div>
+                                <div className="b-400">N/A</div>
+                              </div>
+                            </div>
+                            <div
+                              className="mct-b-c mct-b-c1"
+                              style={{ width: "60%" }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  gap: "5px",
+                                  padding: "5px",
+                                }}
+                                className="display-flex space-between"
+                              >
+                                <div className="b-700">Notes:</div>
+                                <div className="b-400">{data?.remark}</div>
                               </div>
                             </div>
                           </div>
-                          <div
-                            className="mct-b-c mct-b-c1"
-                            style={{ width: "20%" }}
-                          >
-                            <div className="p-5">
-                              <div className="b-700">In Progress</div>
-                            </div>
-                          </div>
-                          <div
-                            className="mct-b-c mct-b-c2"
-                            style={{ width: "20%" }}
-                          >
-                            300
-                          </div>
-                          <div
-                            className="mct-b-c mct-b-c3"
-                            style={{ width: "20%" }}
-                          >
-                            2590601
-                          </div>
-                        </div>
-                        <div className="mct-b-sr1">
-                          <div
-                            className="mct-b-c mct-b-c0"
-                            style={{ width: "40%" }}
-                          >
-                            <div className="display-flex">
-                              <div className="b-500">Payment Method:</div>
-                              <div className="b-400">BANK_TRANSFER</div>
-                            </div>
-                          </div>
-                          <div
-                            className="mct-b-c mct-b-c1"
-                            style={{ width: "60%" }}
-                          >
-                            <div className="display-flex space-between p-5">
-                              <div className="b-700">Notes:</div>
-                              <div className="b-400" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                        </>
+                      );
+                    })}
                   </div>
-                </div> */}
+                </div>
+              </div>
+            </div>
+            {/*  */}
             <div className="md hydrated" />
           </div>
         </div>

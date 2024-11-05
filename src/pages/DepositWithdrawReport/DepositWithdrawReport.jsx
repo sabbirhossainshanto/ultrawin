@@ -3,17 +3,19 @@ import useDepositStatement from "../../hooks/useDepositStatement";
 import useWithdrawStatement from "../../hooks/useWithdrawStatement";
 import DepositStatement from "./DepositStatement";
 import WithdrawStatement from "./WithdrawStatement";
+import { useNavigate } from "react-router-dom";
 
 const DepositWithdrawReport = () => {
   const [selectedReport, setSelectedReport] = useState("deposit");
   const { accountStatement } = useDepositStatement();
   const { withdrawStatement } = useWithdrawStatement();
+  const navigate = useNavigate();
 
   return (
     <div className="md hydrated">
       <div className="router-ctn">
         <div className="support-container tx-request-ctn tr-ctn">
-          <button className="rbb-btn">
+          <button onClick={() => navigate(-1)} className="rbb-btn">
             <svg
               className="MuiSvgIcon-root rbb-icon"
               focusable="false"
@@ -108,10 +110,10 @@ const DepositWithdrawReport = () => {
             )}
           </div>
         </div>
-        <div className="rules-regulations-footer">
-          <div>Rules &amp; Regulations © 2024</div>
-        </div>
       </div>
+      {/* <div className="rules-regulations-footer">
+        <div>Rules &amp; Regulations © 2024</div>
+      </div> */}
     </div>
   );
 };
