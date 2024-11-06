@@ -19,7 +19,18 @@ const LiveCasino = () => {
   const [selectedSubProvider, setSelectedSubProvider] = useState("all");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [filteredData, setFilteredData] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
+  /* Search by games name */
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value.toLowerCase());
+    const searchGames = data.filter((game) =>
+      game.gameName.toLowerCase().includes(e.target.value.toLowerCase())
+    );
+    setFilteredData(searchGames);
+  };
+
+  /* Create unique sub provider name and category */
   useEffect(() => {
     if (data?.length > 0) {
       const subProviderNames = Array.from(
@@ -31,38 +42,45 @@ const LiveCasino = () => {
     }
   }, [data]);
 
+  /* Load all data initially */
   useEffect(() => {
     if (data?.length > 0) {
-      if (selectedCategory === "all" && selectedSubProvider === "all") {
+      if (
+        selectedCategory === "all" &&
+        selectedSubProvider === "all" &&
+        searchQuery === ""
+      ) {
         setFilteredData(data);
       }
     }
-  }, [data, selectedCategory, selectedSubProvider]);
+  }, [data, selectedCategory, selectedSubProvider, searchQuery]);
 
+  /* Filter By Category */
   useEffect(() => {
     if (data?.length > 0) {
-      if (selectedCategory !== "all") {
+      if (selectedCategory !== "all" && searchQuery === "") {
         const filterByCategory = data?.filter(
           (d) => d.category === selectedCategory
         );
         return setFilteredData(filterByCategory);
       }
     }
-  }, [data, selectedCategory]);
+  }, [data, selectedCategory, searchQuery]);
 
+  // /* Filter By SubProvider */
   useEffect(() => {
     if (data?.length > 0) {
-      if (selectedSubProvider !== "all") {
+      if (selectedSubProvider !== "all" && searchQuery === "") {
         const filterByCategory = data?.filter(
           (d) => d.subProviderName === selectedSubProvider
         );
         return setFilteredData(filterByCategory);
       }
     }
-  }, [data, selectedSubProvider]);
+  }, [data, selectedSubProvider, searchQuery]);
 
+  /* Handle Navigate */
   const handleNavigateToIFrame = (game) => {
-    console.log(game);
     if (token) {
       if (bonusToken) {
         return setError("Bonus wallet is available only on sports.");
@@ -145,11 +163,13 @@ const LiveCasino = () => {
                       <div className="tab-btns">
                         <div className="search-games-ctn">
                           <input
+                            value={searchQuery}
+                            onChange={handleSearchChange}
                             className="search-games-input"
                             placeholder="Search games"
-                            defaultValue
                           />
                           <svg
+                            onClick={() => setSearchQuery("")}
                             className="MuiSvgIcon-root"
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -167,7 +187,10 @@ const LiveCasino = () => {
                   {/* Tab */}
                   <div className="casino-filter-section">
                     <div
-                      onClick={() => setSelectedSubProvider("all")}
+                      onClick={() => {
+                        setSelectedSubProvider("all");
+                        setSearchQuery("");
+                      }}
                       className={`casino-filter-text-ctn  ${
                         selectedSubProvider === "all"
                           ? "casino-filter-text-ctn-selected"
@@ -179,7 +202,10 @@ const LiveCasino = () => {
                     {subProvider?.map((provider, idx) => {
                       return (
                         <div
-                          onClick={() => setSelectedSubProvider(provider)}
+                          onClick={() => {
+                            setSelectedSubProvider(provider);
+                            setSearchQuery("");
+                          }}
                           key={idx}
                           className={`casino-filter-text-ctn  ${
                             selectedSubProvider === provider
@@ -196,7 +222,10 @@ const LiveCasino = () => {
                   <div className="cw-cts">
                     <div className="cw-sub-cts">
                       <button
-                        onClick={() => setSelectedCategory("all")}
+                        onClick={() => {
+                          setSelectedCategory("all");
+                          setSearchQuery("");
+                        }}
                         className={`cw-ct ${
                           selectedCategory === "all" ? "cw-ct-sel" : ""
                         }`}
@@ -214,7 +243,10 @@ const LiveCasino = () => {
                       {categories?.map((category, i) => {
                         return (
                           <button
-                            onClick={() => setSelectedCategory(category)}
+                            onClick={() => {
+                              setSelectedCategory(category);
+                              setSearchQuery("");
+                            }}
                             key={i}
                             className={`cw-ct ${
                               selectedCategory === category ? "cw-ct-sel" : ""
