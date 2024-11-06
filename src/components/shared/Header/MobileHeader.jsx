@@ -138,7 +138,12 @@ const MobileHeader = () => {
                 <div className="exch-nav-item-label">Home</div>
               </div>{" "}
             </Link>
-            <Link className="exch-mob-nav-link mob-link-btn" to="/casino">
+            <Link
+              className={`exch-mob-nav-link mob-link-btn ${
+                pathname === "/live-casino" ? "active" : ""
+              }`}
+              to="/live-casino"
+            >
               <div className="exch-nav-item-ctn">
                 <div className="exch-nav-item-icon">
                   <svg

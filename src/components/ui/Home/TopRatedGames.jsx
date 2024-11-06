@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { settings } from "../../../api";
 import toast from "react-hot-toast";
 import WarningCondition from "../WarningCondition/WarningCondition";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper/modules";
 
 const TopRatedGames = () => {
   const { data } = useTopRatedGames();
@@ -69,44 +71,63 @@ const TopRatedGames = () => {
               <span className="MuiTouchRipple-root" />
             </button>
           </div>
-          <div className="slick-list">
-            <div
-              className="slick-track"
-              style={{
-                opacity: 1,
-                width: "4445px",
-                height: "180px",
-              }}
-            >
-              {data?.map((tGame) => {
-                return (
-                  <div
-                    onClick={() => handleNavigateToIFrame(tGame)}
-                    key={tGame?.gameId}
-                    className="slick-slide slick-cloned"
-                    aria-hidden="true"
-                    style={{ width: "127px", cursor: "pointer" }}
-                  >
-                    <div
+          <Swiper
+            spaceBetween={10}
+            slidesPerView="auto"
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Pagination, Navigation]}
+            className="mySwiper"
+          >
+            <div className="slick-list">
+              <div
+                className="slick-track"
+                style={{
+                  opacity: 1,
+                  height: "200px",
+                  display: "flex",
+                  gap: "10px",
+                  overflow: "auto",
+                }}
+              >
+                {data?.map((tGame) => {
+                  return (
+                    <SwiperSlide
+                      onClick={() => handleNavigateToIFrame(tGame)}
+                      key={tGame?.gameId}
                       style={{
-                        width: "100%",
-                        display: "inline-block",
-                        height: "100%",
+                        width: "150px",
+                        height: "200px",
+                        cursor: "pointer",
+                        background: "none",
                       }}
                     >
-                      <img
-                        style={{ height: "100%", objectFit: "cover" }}
-                        className="home-casino-img"
-                        src={tGame?.urlThumb}
-                        loading="lazy"
-                        alt="Teen Patti"
-                      />
-                    </div>
-                  </div>
-                );
-              })}
+                      <div
+                        className="slick-slide slick-cloned"
+                        aria-hidden="true"
+                      >
+                        <div
+                          style={{
+                            display: "inline-block",
+                            height: "100%",
+                          }}
+                        >
+                          <img
+                            className="home-casino-img"
+                            style={{ height: "100%", width: "100%" }}
+                            src={tGame?.urlThumb}
+                            loading="lazy"
+                            alt="Diamonds"
+                          />
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          </Swiper>
           <div className="jss45 jss47">
             <button
               className="MuiButtonBase-root MuiIconButton-root jss48"
