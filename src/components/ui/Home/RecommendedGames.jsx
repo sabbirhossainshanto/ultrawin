@@ -116,7 +116,7 @@ const RecommendedGames = () => {
                           <img
                             className="home-casino-img"
                             style={{ height: "100%", width: "100%" }}
-                            src={rGame?.urlThumb}
+                            src={rGame?.trendingThumbnail}
                             loading="lazy"
                             alt="Diamonds"
                           />

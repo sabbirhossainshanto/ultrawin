@@ -117,7 +117,7 @@ const PopularGames = () => {
                           <img
                             className="home-casino-img"
                             style={{ height: "100%", width: "100%" }}
-                            src={pGame?.urlThumb}
+                            src={pGame?.trendingThumbnail}
                             loading="lazy"
                             alt="Diamonds"
                           />
