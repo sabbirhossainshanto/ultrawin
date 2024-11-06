@@ -1,4 +1,5 @@
-import assets from "../../../assets";
+// import assets from "../../../assets";
+import useBannerImage from "../../../hooks/useBannerImage";
 import LiveCasinoGames from "./LiveCasinoGames";
 import PopularGames from "./PopularGames";
 import RecommendedGames from "./RecommendedGames";
@@ -7,6 +8,7 @@ import TopRatedGames from "./TopRatedGames";
 import TrendingGames from "./TrendingGames";
 
 const Home = () => {
+  const { bannerImage } = useBannerImage();
   return (
     <div className="md hydrated">
       <div slot="fixed" className="md refresher-md hydrated refresher-native">
@@ -46,20 +48,42 @@ const Home = () => {
       <div className="router-ctn">
         <div className="home-page-ctn">
           <div className="home-container">
-            <div className="banner-container mt-12">
-              <div className="banner-cards">
-                <div className="inplay-bg banner-card-div">
-                  <div className="banner-image">
-                    <img src={assets.joining_bonus} alt="Deposit now" />
-                  </div>
-                </div>
-                <div className="inplay-bg banner-card-div">
-                  <div className="banner-image">
-                    <img src={assets.affiliate} alt="Affiliate" />
-                  </div>
+            {bannerImage?.banner?.length > 0 && (
+              <div className="banner-container mt-12">
+                <div className="banner-cards">
+                  {bannerImage?.banner?.slice(0, 2).map((img) => {
+                    return (
+                      <>
+                        <div
+                          style={{ borderRadius: "5px" }}
+                          key={img}
+                          className="inplay-bg banner-card-div"
+                        >
+                          <div className="banner-image">
+                            <img
+                              style={{ borderRadius: "5px" }}
+                              src={img}
+                              alt="Deposit now"
+                            />
+                          </div>
+                        </div>
+                      </>
+                    );
+                  })}
                 </div>
               </div>
-            </div>
+              // <div className="banner-container mt-12">
+              //   <div className="banner-cards">
+
+              //     {/* <div className="inplay-bg banner-card-div">
+              //       <div className="banner-image">
+              //         <img src={assets.affiliate} alt="Affiliate" />
+              //       </div>
+              //     </div> */}
+              //   </div>
+              // </div>
+            )}
+
             <PopularGames />
             <TrendingGames />
             <RecommendedGames />
