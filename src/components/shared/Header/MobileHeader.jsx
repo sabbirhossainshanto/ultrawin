@@ -23,7 +23,7 @@ const MobileHeader = () => {
       {!pathname?.includes("/casino") && (
         <div className="mob-header" style={{ zIndex: 9999 }}>
           <div className="exch-mob-header-ctn">
-            <Link className="exch-mob-nav-link mob-link-btn" to="/login">
+            <Link className="exch-mob-nav-link mob-link-btn">
               <div className="exch-nav-item-ctn">
                 <div className="exch-nav-item-icon sport-icon">
                   <svg

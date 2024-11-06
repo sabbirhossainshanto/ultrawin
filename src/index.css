@@ -16,6 +16,18 @@
   }
 }
 
+.animate-spin {
+  animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 .whatsapp-position {
   left: 30px;
   bottom: 90px;
@@ -1390,3 +1402,7 @@ div:where(.swal2-container) div:where(.swal2-actions) {
   border: 2px solid rgb(42, 42, 42);
 }
 /*!! Warning condition css */
+
+.sponsors-container .swiper-wrapper {
+  gap: 30px !important;
+}

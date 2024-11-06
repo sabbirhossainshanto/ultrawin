@@ -43,6 +43,7 @@ const LeftSidebar = () => {
               onClick={() => {
                 dispatch(setGroupType(4));
                 navigate("/");
+                window.scrollTo(0, 0);
               }}
               className={`sh-btn ${group === 4 ? "active-sh-btn" : ""}`}
             >
@@ -492,6 +493,7 @@ const LeftSidebar = () => {
               onClick={() => {
                 dispatch(setGroupType(1));
                 navigate("/");
+                window.scrollTo(0, 0);
               }}
               className={`sh-btn ${group === 1 ? "active-sh-btn" : ""}`}
             >
@@ -581,6 +583,7 @@ const LeftSidebar = () => {
               onClick={() => {
                 dispatch(setGroupType(2));
                 navigate("/");
+                window.scrollTo(0, 0);
               }}
               className={`sh-btn ${group === 2 ? "active-sh-btn" : ""}`}
             >

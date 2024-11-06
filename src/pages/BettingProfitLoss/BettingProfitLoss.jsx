@@ -3,6 +3,7 @@ import useBettingProfitLoss from "../../hooks/useBettingProfitLoss";
 import { useNavigate } from "react-router-dom";
 
 const BettingProfitLoss = () => {
+  window.scrollTo(0, 0);
   const { token } = useSelector((state) => state.auth);
   const { data } = useBettingProfitLoss();
   const navigate = useNavigate();

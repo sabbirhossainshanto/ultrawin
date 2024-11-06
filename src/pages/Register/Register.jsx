@@ -16,8 +16,10 @@ import useBalance from "../../hooks/useBalance";
 import { useState } from "react";
 import useGetSocialLink from "../../hooks/useGetSocialLink";
 import { navigateTelegramInstagram } from "../../utils/navigateTelegramInstagram";
+import useContextState from "../../hooks/useContextState";
 
 const Register = () => {
+  const { logo } = useContextState();
   const { socialLink } = useGetSocialLink();
   const navigate = useNavigate();
   const { refetchBalance } = useBalance();
@@ -91,7 +93,12 @@ const Register = () => {
   return (
     <div className="login-ctn">
       <div className="title-row">
-        <img src={assets.title} alt="website" className="logo" />
+        <img
+          onClick={() => navigate("/")}
+          src={logo}
+          alt="website"
+          className="logo"
+        />
       </div>
       <div className="login-card">
         <div className="login-form-page">
@@ -212,7 +219,7 @@ const Register = () => {
                     className="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
                     type="password"
                   />
-                  <div className="MuiInputAdornment-root MuiInputAdornment-positionEnd">
+                  {/* <div className="MuiInputAdornment-root MuiInputAdornment-positionEnd">
                     <button
                       className="MuiButtonBase-root MuiIconButton-root"
                       type="button"
@@ -230,7 +237,7 @@ const Register = () => {
                       </span>
                       <span className="MuiTouchRipple-root"></span>
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -256,7 +263,7 @@ const Register = () => {
                     className="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
                     type="password"
                   />
-                  <div className="MuiInputAdornment-root MuiInputAdornment-positionEnd">
+                  {/* <div className="MuiInputAdornment-root MuiInputAdornment-positionEnd">
                     <button
                       className="MuiButtonBase-root MuiIconButton-root"
                       type="button"
@@ -274,7 +281,7 @@ const Register = () => {
                       </span>
                       <span className="MuiTouchRipple-root"></span>
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

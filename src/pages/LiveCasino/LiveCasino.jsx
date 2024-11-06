@@ -6,6 +6,7 @@ import { settings } from "../../api";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import WarningCondition from "../../components/ui/WarningCondition/WarningCondition";
+import Loader from "../../components/shared/Loader/Loader";
 
 const LiveCasino = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const LiveCasino = () => {
   const [error, setError] = useState("");
   const [showWarning, setShowWarning] = useState(false);
   const [gameInfo, setGameInfo] = useState({ gameName: "", gameId: "" });
-  const { data } = useGetUltraLobby();
+  const { data, isLoading } = useGetUltraLobby();
   const [subProvider, setSubProvider] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedSubProvider, setSelectedSubProvider] = useState("all");
@@ -102,6 +103,10 @@ const LiveCasino = () => {
       return toast.error(error);
     }
   }, [error]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <>

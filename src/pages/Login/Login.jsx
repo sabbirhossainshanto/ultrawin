@@ -11,8 +11,10 @@ import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import useGetSocialLink from "../../hooks/useGetSocialLink";
 import { navigateTelegramInstagram } from "../../utils/navigateTelegramInstagram";
+import useContextState from "../../hooks/useContextState";
 
 const Login = () => {
+  const { logo } = useContextState();
   const { socialLink } = useGetSocialLink();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -84,7 +86,12 @@ const Login = () => {
   return (
     <div className="login-ctn">
       <div className="title-row">
-        <img src={assets.title} alt="website" className="logo" />
+        <img
+          onClick={() => navigate("/")}
+          src={logo}
+          alt="website"
+          className="logo"
+        />
       </div>
       <div className="login-card">
         <div className="login-form-page">
