@@ -1828,6 +1828,7 @@ const MobileSidebar = () => {
                   onClick={() => {
                     dispatch(logout());
                     dispatch(setShowLeftSidebar(false));
+                    navigate("/");
                   }}
                   className=" sh-btn"
                 >

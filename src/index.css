@@ -1406,3 +1406,11 @@ div:where(.swal2-container) div:where(.swal2-actions) {
 .sponsors-container .swiper-wrapper {
   gap: 30px !important;
 }
+
+.side-header .sh-menu::-webkit-scrollbar {
+  display: none;
+}
+
+.casino-section .swiper-wrapper {
+  gap: 6px;
+}

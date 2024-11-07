@@ -749,6 +749,9 @@ ion-icon {
   text-align: center;
   padding-top: 20px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .login-ctn .title-row .logo {

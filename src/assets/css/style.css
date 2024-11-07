@@ -12361,7 +12361,7 @@ img,
   border-radius: 1.5rem 1.5rem 0rem 0rem;
   background: #ebedf4;
   animation: slide-up 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  width: 100%;
+  width: 768px;
 }
 
 .depositbreak {
@@ -12588,12 +12588,13 @@ img,
 
 .Modal-Background {
   font-family: "Lato";
-  max-width: 768px;
+  max-width: 100%;
   margin: 0 10px;
   margin: auto;
   position: fixed;
   display: flex;
   align-items: flex-end;
+  justify-content: center;
   inset: 0;
   background: rgba(28, 28, 28, 0.7);
   -webkit-backdrop-filter: blur(1px);

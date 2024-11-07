@@ -68,7 +68,10 @@ const CasinoSection = ({ sectionTitle, data }) => {
         <div className="border-shadow-container">
           <span className="text">{sectionTitle}</span>
         </div>
-        <div className="slick-slider slick-initialized" dir="ltr">
+        <div
+          className="slick-slider slick-initialized casino-section"
+          dir="ltr"
+        >
           <div onClick={slideLeft} className="jss45 jss46">
             <button
               className="MuiButtonBase-root MuiIconButton-root jss48"
@@ -104,9 +107,8 @@ const CasinoSection = ({ sectionTitle, data }) => {
                 className="slick-track"
                 style={{
                   opacity: 1,
-                  height: "200px",
+                  height: "220px",
                   display: "flex",
-                  gap: "10px",
                   overflow: "auto",
                 }}
               >
@@ -116,13 +118,14 @@ const CasinoSection = ({ sectionTitle, data }) => {
                       onClick={() => handleNavigateToIFrame(game)}
                       key={game?.gameId}
                       style={{
-                        width: "150px",
-                        height: "200px",
+                        width: "160px",
+                        height: "220px",
                         cursor: "pointer",
                         background: "none",
                       }}
                     >
                       <div
+                        style={{ width: "100%" }}
                         className="slick-slide slick-cloned"
                         aria-hidden="true"
                       >
@@ -130,6 +133,7 @@ const CasinoSection = ({ sectionTitle, data }) => {
                           style={{
                             display: "inline-block",
                             height: "100%",
+                            width: "100%",
                           }}
                         >
                           <img

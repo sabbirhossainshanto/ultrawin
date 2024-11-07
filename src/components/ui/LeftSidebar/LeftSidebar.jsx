@@ -17,6 +17,7 @@ const LeftSidebar = () => {
 
   const handleLogout = () => {
     dispatch(logout());
+    navigate("/");
   };
 
   const handleNavigate = (link) => {
