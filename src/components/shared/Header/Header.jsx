@@ -8,7 +8,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useBalance from "../../../hooks/useBalance";
 import useBonusBalance from "../../../hooks/useBonusBalance";
 import useContextState from "../../../hooks/useContextState";
-import Dropdown from "./Dropdown";
+// import Dropdown from "./Dropdown";
 
 const Header = () => {
   const { logo } = useContextState();
@@ -197,7 +197,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <Dropdown />
+      {/* <Dropdown /> */}
     </>
   );
 };

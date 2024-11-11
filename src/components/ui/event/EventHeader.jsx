@@ -50,6 +50,7 @@ const EventHeader = ({ data, tab, setTab }) => {
           >
             <div className="MuiTabs-flexContainer" role="tablist">
               <button
+                style={{ padding: "0px 10px" }}
                 onClick={() => setTab("scorecard")}
                 className={`MuiTab-root MuiButtonBase-root MuiTab-textColorInherit  event-tab ${
                   tab === "scorecard" ? "Mui-selected" : ""
@@ -62,6 +63,7 @@ const EventHeader = ({ data, tab, setTab }) => {
                 <span className="MuiTouchRipple-root" />
               </button>
               <button
+                style={{ padding: "0px 10px" }}
                 onClick={() => setTab("liveStream")}
                 className={`MuiTab-root MuiButtonBase-root MuiTab-textColorInherit  event-tab ${
                   tab === "liveStream" ? "Mui-selected" : ""
@@ -74,6 +76,7 @@ const EventHeader = ({ data, tab, setTab }) => {
                 <span className="MuiTouchRipple-root" />
               </button>
               <button
+                style={{ padding: "0px 10px" }}
                 onClick={() => setTab("openBets")}
                 className={`MuiTab-root MuiButtonBase-root MuiTab-textColorInherit  event-tab ${
                   tab === "openBets" ? "Mui-selected" : ""
