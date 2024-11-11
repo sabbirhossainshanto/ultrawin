@@ -15,10 +15,6 @@ body {
   background: var(--ion-background-color);
 }
 
-body.backdrop-no-scroll {
-  overflow: hidden;
-}
-
 html.ios ion-modal.modal-card .ion-page > ion-header > ion-toolbar:first-child {
   padding-top: 0;
 }
@@ -147,20 +143,6 @@ html.ios ion-modal.modal-card .ion-page > ion-header > ion-toolbar:first-child {
   ) !important;
   --ion-color-shade: var(--ion-color-dark-shade, #1e2023) !important;
   --ion-color-tint: var(--ion-color-dark-tint, #383a3e) !important;
-}
-
-.ion-page {
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  display: flex;
-  position: absolute;
-  flex-direction: column;
-  justify-content: space-between;
-  contain: layout size style;
-  overflow: hidden;
-  z-index: 0;
 }
 
 .split-pane-visible > .ion-page.split-pane-main {

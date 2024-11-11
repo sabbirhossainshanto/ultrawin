@@ -1,13 +1,3 @@
-html,
-body {
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow-y: auto !important;
-  scroll-behavior: unset !important;
-  position: relative !important;
-  /* height: auto !important; */
-}
-
 @media screen and (max-width: 720px) {
   .card-add-bank-position {
     bottom: 70px;
@@ -17,6 +7,9 @@ body {
 @media screen and (min-width: 720px) {
   .card-add-bank-position {
     bottom: 0;
+  }
+  .support {
+    margin-left: 250px;
   }
 }
 
@@ -224,7 +217,7 @@ body {
 /* App pop up */
 
 .place-btn-disable {
-  background-color: #132f30;
+  background-color: #132f30 !important;
   padding: 10px 30px;
   color: var(--ion--text-light);
   border-radius: 100px;
@@ -1423,4 +1416,21 @@ div:where(.swal2-container) div:where(.swal2-actions) {
 
 .casino-section .swiper-wrapper {
   gap: 6px;
+}
+
+.text-white {
+  color: white !important;
+}
+.text-black {
+  color: black !important;
+}
+
+.status-text-approved {
+  color: #17c964 !important;
+}
+.status-text-rejected {
+  color: red !important;
+}
+.status-text-pending {
+  color: orange !important;
 }

@@ -89,11 +89,7 @@ const MobileSidebar = () => {
             <div className="sh-sub-menu">
               <button
                 className=" sh-btn"
-                onClick={() => {
-                  dispatch(setGroupType(4));
-                  navigate("/");
-                  dispatch(setShowLeftSidebar(false));
-                }}
+                onClick={() => handleNavigate("/cricket")}
               >
                 <svg
                   width={18}
@@ -538,11 +534,7 @@ const MobileSidebar = () => {
                 <div className="sh-tab-label">cricket</div>
               </button>
               <button
-                onClick={() => {
-                  dispatch(setGroupType(1));
-                  navigate("/");
-                  dispatch(setShowLeftSidebar(false));
-                }}
+                onClick={() => handleNavigate("/football")}
                 className=" sh-btn"
               >
                 <svg
@@ -628,11 +620,7 @@ const MobileSidebar = () => {
                 <div className="sh-tab-label">football</div>
               </button>
               <button
-                onClick={() => {
-                  dispatch(setGroupType(2));
-                  navigate("/");
-                  dispatch(setShowLeftSidebar(false));
-                }}
+                onClick={() => handleNavigate("/tennis")}
                 className=" sh-btn"
               >
                 <svg
@@ -690,6 +678,8 @@ const MobileSidebar = () => {
                 </svg>
                 <div className="sh-tab-label">tennis</div>
               </button>
+
+              {/*               
               <button className=" sh-btn">
                 <svg
                   width={18}
@@ -1481,7 +1471,7 @@ const MobileSidebar = () => {
                   />
                 </svg>
                 <div className="sh-tab-label">Multi markets</div>
-              </button>
+              </button> */}
             </div>
             {token && (
               <div className="sh-sub-menu">

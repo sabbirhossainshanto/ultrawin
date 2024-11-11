@@ -38,6 +38,7 @@ const LiveCasino = () => {
         new Set(data.map((item) => item.subProviderName))
       );
       const categories = Array.from(new Set(data.map((item) => item.category)));
+      console.log(categories);
       setCategories(categories);
       setSubProvider(subProviderNames);
     }
@@ -235,12 +236,19 @@ const LiveCasino = () => {
                           selectedCategory === "all" ? "cw-ct-sel" : ""
                         }`}
                       >
-                        {/* <div className="tab-icon-ctn">
-                            <img src={tab.image} alt="" className="cw-ct-img" />
-                          </div> */}
+                        <div className="tab-icon-ctn">
+                          <img
+                            src={`/src/assets/images/all.svg`}
+                            alt=""
+                            className="cw-ct-img"
+                          />
+                        </div>
                         <span
-                          style={{ color: "white" }}
-                          className="tab-btn-text tab-btn-text-selected"
+                          style={{
+                            color:
+                              selectedCategory === "all" ? "black" : "white",
+                          }}
+                          className={`tab-btn-text tab-btn-text-selected `}
                         >
                           All
                         </span>
@@ -254,15 +262,27 @@ const LiveCasino = () => {
                             }}
                             key={i}
                             className={`cw-ct ${
-                              selectedCategory === category ? "cw-ct-sel" : ""
+                              selectedCategory === category ? "cw-ct-sel " : ""
                             }`}
                           >
-                            {/* <div className="tab-icon-ctn">
-                            <img src={category.image} alt="" className="cw-ct-img" />
-                          </div> */}
+                            <div className="tab-icon-ctn">
+                              <img
+                                src={`/src/assets/images/${category
+                                  ?.split(" ")
+                                  .join("")
+                                  .toLowerCase()}.svg`}
+                                alt=""
+                                className="cw-ct-img"
+                              />
+                            </div>
                             <span
-                              style={{ color: "white" }}
-                              className="tab-btn-text tab-btn-text-selected"
+                              style={{
+                                color:
+                                  selectedCategory === category
+                                    ? "black"
+                                    : "white",
+                              }}
+                              className={`tab-btn-text tab-btn-text-selected `}
                             >
                               {category}
                             </span>

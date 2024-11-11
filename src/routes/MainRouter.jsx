@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ScrollToTop from "../components/shared/ScrollToTop/ScrollToTop";
 import App from "../App";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
@@ -16,22 +15,33 @@ import SingleProfitLoss from "../pages/SingleBettingProfitLoss/SingleBettingProf
 import DepositWithdrawReport from "../pages/DepositWithdrawReport/DepositWithdrawReport";
 import LiveCasino from "../pages/LiveCasino/LiveCasino";
 import IFrame from "../pages/IFrame/IFrame";
+import Cricket from "../pages/Cricket/Cricket";
+import Football from "../pages/Football/Football";
+import Tennis from "../pages/Tennis/Tennis";
+import ChangePassword from "../pages/ChangePassword/ChangePassword";
 
 const MainRouter = () => {
   const router = createBrowserRouter(
     [
       {
         path: "/",
-        element: (
-          <>
-            <ScrollToTop />
-            <App />
-          </>
-        ),
+        element: <App />,
         children: [
           {
             index: true,
             element: <Home />,
+          },
+          {
+            path: "/cricket",
+            element: <Cricket />,
+          },
+          {
+            path: "/football",
+            element: <Football />,
+          },
+          {
+            path: "/tennis",
+            element: <Tennis />,
           },
           {
             path: "/live-casino",
@@ -91,6 +101,10 @@ const MainRouter = () => {
       {
         path: "/forgot-password",
         element: <ForgotPassword />,
+      },
+      {
+        path: "/change-password",
+        element: <ChangePassword />,
       },
     ],
     {

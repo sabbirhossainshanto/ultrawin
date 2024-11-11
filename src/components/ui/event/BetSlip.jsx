@@ -330,11 +330,7 @@ const BetSlip = ({ setSelectedRunner }) => {
                     <button
                       onClick={handleOrderBets}
                       disabled={!stake || betDelay > 0}
-                      className={`MuiButtonBase-root MuiButton-root MuiButton-text  ${
-                        !stake || betDelay > 0
-                          ? "place-btn-disable"
-                          : "place-btn"
-                      }`}
+                      className={`MuiButtonBase-root MuiButton-root MuiButton-text  place-btn`}
                       type="button"
                     >
                       <span className="MuiButton-label">

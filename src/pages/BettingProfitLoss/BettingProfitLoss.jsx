@@ -81,7 +81,13 @@ const BettingProfitLoss = () => {
                                       key={i}
                                       className="MuiTableRow-root apl-table-row"
                                     >
-                                      <td className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall">
+                                      <td
+                                        style={{ cursor: "pointer" }}
+                                        onClick={() =>
+                                          handleNavigateSinglePassbook(item)
+                                        }
+                                        className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                                      >
                                         <span
                                           style={{ marginLeft: "10px" }}
                                           className="txt-bldin-mob"

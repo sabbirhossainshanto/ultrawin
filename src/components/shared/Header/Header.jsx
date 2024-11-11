@@ -50,7 +50,13 @@ const Header = () => {
                   <span className="MuiTouchRipple-root"></span>
                 </button>
               </Link>
-              <a className="nav-link" value="1" href="/exchange_sports/inplay">
+              <Link
+                className={`nav-link  ${
+                  pathname === "/in-play" ? "active" : ""
+                }`}
+                value="1"
+                to="/in-play"
+              >
                 <button
                   className="MuiButtonBase-root MuiButton-root MuiButton-text nav-link-btn"
                   type="button"
@@ -58,8 +64,8 @@ const Header = () => {
                   <span className="MuiButton-label">Inplay</span>
                   <span className="MuiTouchRipple-root"></span>
                 </button>
-              </a>
-              <a className="nav-link" value="2" href="/login">
+              </Link>
+              <a className="nav-link" value="2">
                 <button
                   className="MuiButtonBase-root MuiButton-root MuiButton-text nav-link-btn"
                   type="button"
@@ -83,19 +89,6 @@ const Header = () => {
                   <span className="MuiTouchRipple-root"></span>
                 </button>
               </Link>
-              <a
-                className="nav-link"
-                value="4"
-                href="/exchange_sports/multi-markets"
-              >
-                <button
-                  className="MuiButtonBase-root MuiButton-root MuiButton-text nav-link-btn"
-                  type="button"
-                >
-                  <span className="MuiButton-label">Multi Markets</span>
-                  <span className="MuiTouchRipple-root"></span>
-                </button>
-              </a>
             </div>
             <span
               className="jss53 jss55 MuiTabs-indicator"

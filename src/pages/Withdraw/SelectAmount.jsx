@@ -61,7 +61,7 @@ const SelectAmount = ({ setAmount, amount, setShowBankAccount }) => {
             </div>
           </div>
         </div>
-        <div className="active-bonus-card ">
+        {/* <div className="active-bonus-card ">
           <div className="active-bonus-inner-card ">
             <div className="money-text ">
               <p className="">Free Money</p>
@@ -97,7 +97,7 @@ const SelectAmount = ({ setAmount, amount, setShowBankAccount }) => {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="amount-input ">
           <p className="amount-text ">Please enter the amount to withdraw</p>
           <form

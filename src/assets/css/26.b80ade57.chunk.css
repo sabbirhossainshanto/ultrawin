@@ -2549,16 +2549,17 @@
   scrollbar-width: none;
 }
 .cw-cts .cw-sub-cts .cw-ct {
-  min-width: 80px;
+  min-width: 100px;
+  width: "auto";
   height: 55px;
   background-color: transparent;
   margin: 0 6px;
   border: 1px solid #fff;
   border-radius: 8px;
-  /* display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center; */
+  align-items: center;
   padding: 4px;
 }
 .cw-cts .cw-sub-cts .cw-ct .tab-icon-ctn {
@@ -2582,9 +2583,7 @@
   font-weight: 500;
   line-height: 18px;
 }
-.cw-cts .cw-sub-cts .cw-ct .tab-btn-text-selected {
-  color: #000;
-}
+
 .cw-cts .cw-sub-cts .cw-ct.cw-ct-sel {
   background: var(--bet-slip-btn);
   border: none;

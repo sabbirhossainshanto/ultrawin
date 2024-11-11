@@ -102,7 +102,21 @@ const WithdrawStatement = ({ withdrawStatement }) => {
                           <td className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeSmall">
                             {data?.amount}
                           </td>
-                          <td className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeSmall">
+                          <td
+                            className={`MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeSmall b-700 ${
+                              data?.status === "APPROVED"
+                                ? "status-text-approved"
+                                : ""
+                            } ${
+                              data?.status === "REJECTED"
+                                ? "status-text-rejected"
+                                : ""
+                            } ${
+                              data?.status === "PENDING"
+                                ? "status-text-pending"
+                                : ""
+                            }`}
+                          >
                             {data?.status}
                           </td>
                           <td className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeSmall">
@@ -162,7 +176,24 @@ const WithdrawStatement = ({ withdrawStatement }) => {
                               style={{ width: "20%" }}
                             >
                               <div className="p-5">
-                                <div className="b-700"> {data?.status}</div>
+                                <div
+                                  className={`b-700  ${
+                                    data?.status === "APPROVED"
+                                      ? "status-text-approved"
+                                      : ""
+                                  } ${
+                                    data?.status === "REJECTED"
+                                      ? "status-text-rejected"
+                                      : ""
+                                  } ${
+                                    data?.status === "PENDING"
+                                      ? "status-text-pending"
+                                      : ""
+                                  }`}
+                                >
+                                  {" "}
+                                  {data?.status}
+                                </div>
                               </div>
                             </div>
                             <div

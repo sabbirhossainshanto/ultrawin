@@ -23,7 +23,9 @@ const MainLayout = () => {
     <>
       <div className="MuiBox-root jss31"></div>
       <div className="ion-app md ion-page hydrated">
-        <LeftSidebar />
+        <div className="web-view" style={{ position: "fixed" }}>
+          <LeftSidebar />
+        </div>
         <div className="support">
           {settings?.apkLink && isModalOpen && (
             <AndroidView>

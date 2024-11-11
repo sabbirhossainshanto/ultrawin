@@ -86,6 +86,9 @@ const BetSlipDesktop = () => {
 
   /* Handle bets */
   const handleOrderBets = async () => {
+    if (!stake) {
+      return toast.error("Minimum stake amount required.");
+    }
     const generatedToken = handleRandomToken();
     const encryptedData = handleEncryptData([
       {
@@ -386,12 +389,8 @@ const BetSlipDesktop = () => {
                           <div className="place-section mob-view">
                             <button
                               onClick={handleOrderBets}
-                              disabled={!stake || betDelay > 0}
-                              className={`MuiButtonBase-root MuiButton-root MuiButton-text  ${
-                                !stake || betDelay > 0
-                                  ? "place-btn-disable"
-                                  : "place-btn"
-                              }`}
+                              disabled={betDelay > 0}
+                              className={`MuiButtonBase-root MuiButton-root MuiButton-text  place-btn`}
                               type="button"
                             >
                               <span className="MuiButton-label">
@@ -411,12 +410,8 @@ const BetSlipDesktop = () => {
                       <button
                         style={{ width: "100%" }}
                         onClick={handleOrderBets}
-                        disabled={!stake || betDelay > 0}
-                        className={`MuiButtonBase-root MuiButton-root MuiButton-text ${
-                          !stake || betDelay > 0
-                            ? "place-btn-disable"
-                            : "place-btn"
-                        }`}
+                        disabled={betDelay > 0}
+                        className={`MuiButtonBase-root MuiButton-root MuiButton-text place-btn`}
                         type="button"
                       >
                         <span className="MuiButton-label">

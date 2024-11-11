@@ -4,10 +4,16 @@ import { logout } from "./redux/features/auth/authSlice";
 import { settings } from "./api";
 import MainLayout from "./components/layout/MainLayout";
 import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 
 const App = () => {
   const dispatch = useDispatch();
   const disabledDevtool = settings.disabledDevtool;
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   /* Disable devtool */
   useEffect(() => {

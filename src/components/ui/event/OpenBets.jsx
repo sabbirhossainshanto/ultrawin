@@ -69,19 +69,29 @@ const OpenBets = ({ myBets }) => {
             </tbody>
           </table>
         </div>
-        <div className="btn-background">
-          <div className="btn-mybets">
-            <a>
-              <button
-                className="MuiButtonBase-root MuiButton-root MuiButton-text"
-                type="button"
-              >
-                <span className="MuiButton-label">View All</span>
-                <span className="MuiTouchRipple-root"></span>
-              </button>
-            </a>
+        {myBets?.length === 0 && (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <p
+              style={{
+                backgroundColor: "white",
+                width: "99%",
+                textAlign: "center",
+                borderRadius: "5px",
+                padding: "5px 0px",
+              }}
+            >
+              {" "}
+              No Open Bets!
+            </p>
           </div>
-        </div>
+        )}
+
         <p></p>
       </div>
     </div>
