@@ -35,7 +35,7 @@ const MainLayout = () => {
           <div
             style={{
               marginBottom: "75px",
-              minHeight: "calc(100vh - 114px)",
+              // minHeight: "calc(100vh - 114px)",
             }}
           >
             <Outlet />

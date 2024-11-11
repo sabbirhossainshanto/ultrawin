@@ -20,6 +20,7 @@ const MobileHeader = () => {
       <div className="rules-regulations-footer web-view">
         <div>Rules &amp; Regulations © 2024</div>
       </div>
+
       {!pathname?.includes("/casino") && (
         <div className="mob-header" style={{ zIndex: 9999 }}>
           <div className="exch-mob-header-ctn">

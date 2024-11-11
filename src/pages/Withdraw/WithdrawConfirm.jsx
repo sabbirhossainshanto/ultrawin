@@ -18,9 +18,11 @@ const WithdrawConfirm = ({
 }) => {
   const [withdrawSuccess, setWithdrawSuccess] = useState(false);
   const { token } = useContextState();
+  const [disable, setDisable] = useState(false);
   /* handle withdraw function */
   const handleCoinSubmit = async (e) => {
     e.preventDefault();
+    setDisable(true);
     if (amount?.length > 0 && bank) {
       const generatedToken = handleRandomToken();
       const bankData = {
@@ -158,7 +160,12 @@ const WithdrawConfirm = ({
             </div>
           </div>
         </div>
-        <button onClick={handleCoinSubmit} className="proceed-btn ">
+        <button
+          disabled={disable}
+          style={{ cursor: disable ? "not-allowed" : "pointer" }}
+          onClick={handleCoinSubmit}
+          className="proceed-btn "
+        >
           <span className="">Proceed</span>
         </button>
       </div>

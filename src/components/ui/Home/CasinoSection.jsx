@@ -15,7 +15,6 @@ const CasinoSection = ({ sectionTitle, data }) => {
   const [gameInfo, setGameInfo] = useState({ gameName: "", gameId: "" });
 
   const handleNavigateToIFrame = (game) => {
-    console.log(game);
     if (token) {
       if (bonusToken) {
         return setError("Bonus wallet is available only on sports.");

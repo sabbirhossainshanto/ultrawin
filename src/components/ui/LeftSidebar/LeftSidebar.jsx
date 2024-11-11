@@ -44,7 +44,10 @@ const LeftSidebar = () => {
               onClick={() => {
                 dispatch(setGroupType(4));
                 navigate("/");
-                window.scrollTo(0, 0);
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                });
               }}
               className={`sh-btn ${group === 4 ? "active-sh-btn" : ""}`}
             >
