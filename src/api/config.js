@@ -60,6 +60,7 @@ export const getSetApis = (setNoticeLoaded, baseUrl) => {
         API.slotsWolf = endPoints?.slotsWolf;
         API.withdrawIframe = endPoints?.withdrawIframe;
         API.assets = endPoints?.assets;
+        settings.build = setting?.build;
         settings.casino = setting?.casino;
         settings.otp = setting?.otp;
         settings.siteTitle = setting?.siteTitle;

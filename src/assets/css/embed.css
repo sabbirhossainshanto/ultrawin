@@ -1713,7 +1713,7 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
 
 .exch-mob-header-ctn .active {
   background: var(--mob-header-active-bg);
-  border-top: 4px solid var(--mob-header-border);
+  border-top: 4px solid var(--primary-color);
 }
 
 .exch-mob-header-ctn .active .mh-img {
@@ -1738,7 +1738,7 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  background-color: var(--mob-header-bg);
+  background-color: var(--table-bg);
   font-size: 12px;
   height: 70px;
   border-radius: 20px 20px 0 0;

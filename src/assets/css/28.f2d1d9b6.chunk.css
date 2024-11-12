@@ -136,7 +136,7 @@ ion-icon {
 }
 
 .login-form-page .back-icon .demo .login-form-btn-demo {
-  background-color: var(--custom-btn-bg-variant-2);
+  background-color: var(--primary-color);
   margin-top: 0 !important;
   padding: 2px 12px !important;
   border-radius: 16px;
@@ -153,8 +153,8 @@ ion-icon {
   background: var(--ion-background-color);
   padding: 10px 0;
   border-top-width: 2px;
-  border: 2px solid var(--form-ctn-border);
-  border-top: 1px solid var(--form-ctn-border);
+  border: 2px solid var(--primary-color);
+  border-top: 1px solid var(--primary-color);
   margin-top: -2px;
   border-radius: 0 0 16px 16px;
   font-family: var(--headers-font-family);
@@ -206,7 +206,7 @@ ion-icon {
   flex-direction: column;
   background-color: var(--ion-background-color);
   border-radius: 16px 16px 0 0;
-  border: 2px solid var(--form-ctn-border);
+  border: 2px solid var(--primary-color);
   border-bottom: none;
 }
 
@@ -251,7 +251,7 @@ ion-icon {
 }
 
 .login-form-page .login-form-ctn .sign-up-title .sign-up-color {
-  color: var(--ion-color-primary);
+  color: var(--primary-color);
   text-decoration: underline;
 }
 
@@ -385,7 +385,7 @@ ion-icon {
   height: 44px;
   font-size: 13px;
   border-radius: 100px;
-  background: var(--custom-btn-bg-variant-2);
+  background: var(--primary-color);
   color: var(--custom-btn-text-variant-2) !important;
   font-weight: 700;
   border: 1px solid var(--custom-btn-border-variant-2);

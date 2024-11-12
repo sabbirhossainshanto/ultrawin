@@ -25,7 +25,8 @@
         "width": 125,
         "format": "png"
       },
-      "baseUrl": ""
+      "baseUrl": "",
+      "build": "development"
     },
 
     "endpoint": {

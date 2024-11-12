@@ -384,7 +384,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 50px;
-  background-color: var(--ion-color-primary);
+  background-color: var(--primary-color);
   position: absolute;
   top: 26px;
   right: 12px;
@@ -559,7 +559,7 @@
     .MuiTableRow-root
     .MuiTableCell-root:first-child {
     border-radius: 20px !important;
-    border: 1px solid var(--table-head-cell-border) !important;
+    border: 1px solid var(--primary-color) !important;
   }
 }
 /* .events-table-ctn
@@ -650,7 +650,7 @@
   .events-table
   .MuiTableRow-root
   .br-inplay-start {
-  border-left: 1px solid var(--table-head-cell-border) !important;
+  border-left: 1px solid var(--primary-color) !important;
 }
 .events-table-ctn
   .events-table-content
@@ -670,8 +670,8 @@
   .events-table
   .MuiTableRow-root
   .br-inplay-start {
-  border-top: 1px solid var(--table-head-cell-border) !important;
-  border-bottom: 1px solid var(--table-head-cell-border) !important;
+  border-top: 1px solid var(--primary-color) !important;
+  border-bottom: 1px solid var(--primary-color) !important;
   max-height: 30px;
   line-height: 5px !important;
 }
@@ -1118,7 +1118,7 @@
   .events-table
   .MuiTableBody-root
   .bgc-white {
-  background-color: var(--table-cell-bg) !important;
+  background-color: var(--table-bg) !important;
 }
 @media screen and (max-width: 720px) {
   .events-table-ctn
@@ -1510,7 +1510,7 @@
   font-size: 10px;
 }
 .race-events-ctn .race-market-times .market-time.live {
-  background-color: var(--ion-color-primary);
+  background-color: var(--primary-color);
   color: #000;
 }
 .race-events-ctn .table-ctn .MuiTableBody-root .MuiTableCell-body {
@@ -2357,7 +2357,7 @@
     .MuiTableRow-root
     .mob-et-b-c {
     border-radius: 10px !important;
-    background-color: var(--custom-table-body-row);
+    background-color: var(--table-bg);
   }
 }
 .events-table-msg-text {

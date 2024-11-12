@@ -148,7 +148,10 @@ const SingleProfitLoss = () => {
               className=""
             ></path>
           </svg>
-          <span className="deposit-withdraw-head-title  ng-star-inserted">
+          <span
+            style={{ color: "white" }}
+            className="deposit-withdraw-head-title  ng-star-inserted"
+          >
             Back
           </span>
         </div>

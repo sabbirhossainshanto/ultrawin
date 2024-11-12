@@ -20,8 +20,14 @@ const ApiProvider = ({ children }) => {
       const link = document.createElement("link");
       link.rel = "stylesheet";
       link.type = "text/css";
-      link.href = `${API.assets}/${settings.siteUrl}/theme.css`;
-      document.head.appendChild(link);
+
+      if (settings.build === "production") {
+        link.href = `${API.assets}/${settings.siteUrl}/theme.css`;
+        document.head.appendChild(link);
+      } else {
+        link.href = `/src/assets/css/theme.css`;
+        document.head.appendChild(link);
+      }
 
       /* Dynamically append  favicon  */
       const FavIconLink = document.createElement("link");

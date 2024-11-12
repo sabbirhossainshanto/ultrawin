@@ -12307,7 +12307,7 @@ img,
 .btnn.active {
   opacity: 1;
   border-radius: 0.5rem;
-  background: var(--color1);
+  background: var(--primary-color);
   /* box-shadow: 0 5px 21px #00cf5875; */
 }
 
@@ -12335,7 +12335,7 @@ img,
   align-items: center;
   gap: 0.375rem;
   border-radius: 0.5rem;
-  background: var(--color1);
+  background: var(--primary-color);
 }
 
 .makepayment:hover {
@@ -18759,7 +18759,7 @@ button {
   border-radius: 0.5rem;
   opacity: 0.5;
   width: 100%;
-  background-color: var(--color1);
+  background-color: var(--primary-color);
   /* box-shadow: 0 0 5px var(--color2); */
   color: #fff;
   font-family: "Lato";
@@ -19653,7 +19653,7 @@ img,
   gap: 0.375rem;
   opacity: 0.7;
   border-radius: 0.5rem;
-  background: var(--color1);
+  background: var(--primary-color);
 }
 
 .process-btn:enabled {
@@ -21906,7 +21906,7 @@ img,
   gap: 0.375rem;
   flex-shrink: 0;
   border-radius: 0.5rem;
-  background: var(--color1);
+  background: var(--primary-color);
   margin-top: 2rem;
 }
 

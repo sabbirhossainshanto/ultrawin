@@ -110,7 +110,7 @@ th {
   .MuiTableHead-root
   .MuiTableRow-root
   .MuiTableCell-root:first-child {
-  border-left: var(--table-head-border);
+  border-left: var(--primary-color);
 }
 .tbl-ctn
   .MuiPaper-root
@@ -207,9 +207,9 @@ th {
   .MuiTableCell-head {
   color: #fff !important;
   text-transform: uppercase;
-  border-top: 1px solid var(--table-head-cell-border) !important;
-  border-bottom: 1px solid var(--table-head-cell-border) !important;
-  border-left: 1px solid var(--table-head-cell-border) !important;
+  border-top: 1px solid var(--primary-color) !important;
+  border-bottom: 1px solid var(--primary-color) !important;
+  border-left: 1px solid var(--primary-color) !important;
 }
 .reports-ctn
   .content-ctn
@@ -237,7 +237,7 @@ th {
   .MuiTable-root
   .MuiTableBody-root
   .MuiTableRow-root {
-  background-color: var(--custom-table-body-row);
+  background-color: var(--table-bg);
   color: var(--custom-table-body-color);
 }
 .reports-ctn
@@ -385,7 +385,7 @@ button:disabled {
 /*! CSS Used from: https://www.ultrawin.co.in/static/css/26.2768a9c1.chunk.css */
 .report-header {
   width: 100%;
-  background-color: var(--reports-header-bg-color);
+  background-color: var(--table-bg);
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -398,7 +398,7 @@ button:disabled {
   display: flex;
   align-items: center;
   background: var(--reports-subheader-bg-color);
-  border: 1px solid var(--reports-header-border);
+  border: 1px solid var(--primary-color);
   border-radius: 25px;
 }
 .report-header .report-img-title .tab-btns {
@@ -904,7 +904,7 @@ button:disabled {
   height: 32px;
   background: var(--head-bg);
   border-radius: 20px;
-  border: 1px solid var(--table-head-cell-border);
+  border: 1px solid var(--primary-color);
   overflow: hidden;
   margin: 4px 0;
 }
@@ -915,7 +915,7 @@ button:disabled {
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.02em;
-  border-left: 1px solid var(--table-head-cell-border);
+  border-left: 1px solid var(--primary-color);
   height: 100%;
   display: flex;
   justify-content: center;
@@ -928,7 +928,7 @@ button:disabled {
   border-radius: 0 20px 20px 0;
 }
 .mct-ctn .mct .mct-b .mct-b-r {
-  background-color: var(--custom-table-body-row);
+  background-color: var(--table-bg);
   color: var(--custom-table-body-color);
   overflow: hidden;
   border-radius: 15px;
@@ -1063,7 +1063,7 @@ button:disabled {
 .sports-filters-row-ctn .sports-filters-row .primary {
   color: #000;
   border-color: #fff;
-  background: var(--ion-color-primary);
+  background: var(--primary-color);
 }
 .sports-filters-row-ctn .sports-filters-row .secondary {
   color: #fff;

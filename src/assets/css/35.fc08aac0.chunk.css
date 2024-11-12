@@ -206,7 +206,7 @@
 }
 .rules-regulations-footer {
   width: 90%;
-  background-color: var(--ion-button-bg-2);
+  background-color: var(--primary-color);
   padding: 10px;
   display: flex;
   justify-content: center;
@@ -881,7 +881,7 @@
 }
 .report-header {
   width: 100%;
-  background-color: var(--reports-header-bg-color);
+  background-color: var(--table-bg);
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -894,7 +894,7 @@
   display: flex;
   align-items: center;
   background: var(--reports-subheader-bg-color);
-  border: 1px solid var(--reports-header-border);
+  border: 1px solid var(--primary-color);
   border-radius: 25px;
 }
 .report-header .report-img-title .tab-btns {
@@ -915,7 +915,7 @@
 }
 .report-header .report-img-title .tab-btns .search-games-input {
   height: unset;
-  border: 1px solid var(--ion-color-primary);
+  border: 1px solid var(--primary-color);
   border-radius: 40px;
   background: transparent;
   font-size: 13px;
@@ -925,7 +925,7 @@
 .report-header .report-img-title .tab-btns .tab-btn {
   margin: 10px 5px;
   padding: 5px 15px;
-  background: var(--ion-button-color);
+  background: var(--primary-color);
   border-radius: 20px;
   text-transform: capitalize;
   width: auto;
@@ -1111,11 +1111,11 @@
   text-align: center;
 }
 .cb.cb-variant-2 {
-  background: var(--custom-btn-bg-variant-2);
-  color: var(--custom-btn-text-variant-2);
+  background: var(--primary-color);
+  color: white;
 }
 .cb.cb-variant-1 {
-  background: var(--custom-btn-bg-variant-1);
+  background: var(--primary-color);
   color: var(--custom-btn-text-variant-1);
 }
 .dialog-footer {

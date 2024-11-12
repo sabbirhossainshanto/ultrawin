@@ -132,7 +132,7 @@ ion-icon {
   color: #000;
 }
 .side-header .sh-menu .sh-sub-menu .active-sh-btn {
-  background: var(--ion-color-primary);
+  background: var(--primary-color);
 }
 .side-header .sh-menu .sh-sub-menu .active-sh-btn .sh-tab-label {
   color: var(--active-text-color);

@@ -1,3 +1,221 @@
+.ios body.darkgreen,
+.md body.darkgreen {
+  --ion-background: #090909;
+  --ion-background-color-rgb: 0, 20, 61;
+  --ion-background-color: #071123;
+  --ion-background-secondary: #212121;
+  --ion-background-tertiary: #212121;
+  --ion-button-color: #01fafe;
+  --ion-button-color-2: #fff;
+  --ion-button-bg-2: #008c95;
+  --ion-selected-btn-bg-color: #000;
+  --background-ctn-gradient: #122036;
+  --background-card: #122036;
+  --team-info-background: #008c95;
+  --bet-slip-btn: #01fafe;
+  --account-details-card-bg: #3e8d93;
+  --input-template-bg: #3d4a62;
+  --input-template-color: #fff;
+  --input-label-border: #008c95;
+  --input-label-bg: #071123;
+  --btn-disable-bg: #3d4a62;
+  --card-details: #fff;
+  --sidebar-icon-bg: #0d8893;
+  --pl-total: #008c95;
+  --campaign-card-bg: #485f83;
+  --dashed-border: #01fafe;
+  --copy-button-color: invert(99%) sepia(83%) saturate(7499%) hue-rotate(99deg)
+    brightness(104%) contrast(99%);
+  --ion-heading-color: #01fafe;
+  --bet-slip-tab-unsel-bg: #000;
+  --bet-slip-tab-unsel-text: #fff;
+  --premium-vs-bg: #008c95;
+  --premium-vs-border: #01fafe;
+  --form-ctn-border: #04a0e2;
+  --form-ctn-no-account-text: #a4d4d4;
+  --date-display-bg: var(--ion-background-color);
+  --date-display-color: #fff;
+  --custom-btn-bg-variant-1: #01fafe;
+  --custom-btn-text-variant-1: #000;
+  --custom-btn-border-variant-1: #fff;
+  --custom-btn-bg-variant-2: #008c95;
+  --custom-btn-text-variant-2: #fff;
+  --custom-btn-icon-variant-2: invert(0%) sepia(10%) saturate(7499%)
+    hue-rotate(294deg) brightness(97%) contrast(100%);
+  --custom-btn-border-variant-2: #fff;
+  --myprofile-tab-img-bg: #01fafe;
+  --myprofile-tab-border: transparent;
+  --myprofile-tab-border-selected: #01fafe;
+  --referral-card-bg: #485f83;
+  --referral-card-text: #fff;
+  --tab-active-bg: #01fafe;
+  --tab-active-border: #fff;
+  --reports-header-bg-color: #212e44;
+  --reports-subheader-bg-color: #071123;
+  --reports-header-icon-color: invert(0%) sepia(79%) saturate(2316%)
+    hue-rotate(112deg) brightness(106%) contrast(95%);
+  --reports-header-icon-bg-color: #fff;
+  --reports-header-color: #fff;
+  --reports-header-border: #04a0e2;
+  --head-bg: #071123;
+  --head-text-1: #fff;
+  --head-text-2: var(--primary-color);
+  --head-border: #071123;
+  --container-bg: #212e44;
+  --table-head-cell-border: #04a0e2;
+  --table-head-bg: #071123;
+  --table-cell-bg: #212e44;
+  --table-cell-text: #fff;
+  --table-cell-border: #212e44;
+  --table-subheader-bg: #071123;
+  --table-subheader-text: #fff;
+  --custom-table-body-row: #212e44;
+  --custom-table-body-color: #fff;
+  --custom-table-body-border: hsla(0, 0%, 100%, 0.5);
+  --custom-table-no-data-bg: #212e44;
+  --custom-table-no-data-text: #fff;
+  --custom-table-no-data-border: hsla(0, 0%, 100%, 0.5);
+  --stake-settings-indv-bg: #212e44;
+  --dashboard-icon-bg: #008c95;
+  --dashboard-text-color: #fff;
+  --mob-header-bg: #212e44;
+  --mob-header-text: #fff;
+  --mob-header-icon: invert(100%) sepia(0%) saturate(7484%) hue-rotate(223deg)
+    brightness(105%) contrast(107%);
+  --mob-header-active-bg: #071123;
+  --mob-header-active-text: #fff;
+  --mob-header-active-icon: invert(90%) sepia(77%) saturate(3206%)
+    hue-rotate(109deg) brightness(104%) contrast(110%);
+  --mob-header-border: #01fafe;
+  --enabled-market-bg: #0d8893;
+  --arrow-color: #fff;
+  --fancy-book-btn: var(--primary-color);
+  --fancy-book-btn-text: #000;
+  --card-bg1: "#094145";
+  --card-bg: linear-gradient(
+    284.37deg,
+    var(--card-bg1) -213.61%,
+    var(--card-bg2) 99.84%
+  );
+  --table-header-background: var(--ion-background-color);
+  --ion-text-color: #090909;
+  --ion-text-color-rgb: 0, 20, 61;
+  --ion-text-light: #fff;
+  --ion-text-light-rgb: 255, 255, 255;
+  --ion-text-dark: #000;
+  --ion-text-dark-rgb: 10, 13, 21;
+  --ion-text-color-contrast: #fff;
+  --ion-text-color-contrast-rgb: var(--ion-text-light);
+  --ion-arrow: #fff;
+  --ion-text-notification: red;
+  --ion-text-market-notification: red;
+  --ion-card-background: #e4e8ed;
+  --ion-card-text-color: #090909;
+  --ion-card-background-contrast: #fff;
+  --ion-card-border: 1px solid rgba(10, 13, 21, 0.1);
+  --ion-card-border-color-rgb: 10, 13, 21;
+  --ion-toolbar-background: none;
+  --ion-item-background: none;
+  --ion-item-background-activated: none;
+  --ion-popover-background: #212e44;
+  --ion-popover--hover-background: #fff;
+  --dialog-close-btn: #e4e8ed;
+  --dialog-header-bg: #071123;
+  --notification-bg: #fff;
+  --notification-text: #000;
+  --date-picker-container-background: #fff;
+  --date-picker-header-button-background: #e4e8ed;
+  --date-picker-selected-bg: #008c95;
+  --reports-bg-color: #fff;
+  --reports-title-color: var(--primary-color);
+  --score-card-background-color: #090909;
+  --signup-card-background-color: #071123;
+  --signup-font-color: #fff;
+  --notification-background-col: linear-gradient(
+    180deg,
+    #ff4fc1,
+    #ff00a5 25%,
+    #d7028c 60%,
+    #ff4fc1
+  );
+  --section-border: hsla(0, 0%, 100%, 0.5);
+  --card-bg: "#094145";
+  --provider-blend-color: none;
+  --scrollable-box: #222f44;
+  --table-header: #071123;
+  --table-sub-header: #212e44;
+  --market-table-bg: #31425f;
+  --border-color: #04a0e2;
+  --active-text-color: #000;
+  --carousel-arrow-btn: #212e44;
+  --deposit_web_banner: url(../media/green_deposit.316302f7.webp);
+  --deposit_mob_banner: url(../media/green_mob_deposit.4b1f5f80.webp);
+  --provider-banner: url(../media/provider_background.cbbbc95b.webp);
+  --login-background: url("/src/assets/images/loginBG.93cee606.webp");
+  --login-mob-background: url(../media/loginMobBG.55828ab4.webp);
+  --signup-bg: var(--ion-background);
+}
+
+.ios body.darkgreen,
+.ios body.purple,
+.md body.darkgreen,
+.md body.purple {
+  --premium-vs-text: #fff;
+  --referral-card-border: #fff;
+  --tab-passive-bg: transparent;
+  --tab-passive-text: #fff;
+  --tab-passive-border: #fff;
+  --tab-active-text: #000;
+  --dashboard-icon-color: #fff;
+  --enabled-market-text: #000;
+  --linear-gradient-background-1: linear-gradient(
+    88.06deg,
+    var(--ion-background) 30%,
+    var(--primary-color) 86%
+  );
+  --linear-gradient-background-2: linear-gradient(90deg, #6800a8, #45006f);
+  --card-bg2: "212E44";
+  --accoridan-summary-background: #fff;
+  --betslip-bg-color: #6800a8;
+  --webkit-gradient-background-1: linear-gradient(
+    88.06deg,
+    var(--ion-background) 30%,
+    var(--primary-color) 86%
+  );
+  --webkit-gradient-background-2: linear-gradient(
+    88.06deg,
+    var(--ion-background) 30%,
+    var(--primary-color) 117.02%
+  );
+  --popover-background-active: #000;
+  --accordion-summary-root-background: #fff;
+  --accordion-summary-root-expanded-background: #212121;
+  --accordion-summary-root-text-color: var(--ion-text-color);
+  --accordion-details-root-background: #fff;
+  --am-accordion-summary-root-background: #e4e8ed;
+  --am-accordion-summary-root-expanded-background: var(--primary-color);
+  --am-accordion-summary-root-text-color: var(--ion-text-color);
+  --am-accordion-details-root-background: #fff;
+  --select-element-background: var(--ion-popover--hover-background);
+  --select-popover-background: var(--ion-popover-background);
+  --select-popover-active-background: var(--ion-popover--hover-background);
+  --dialog-header-background: #212121;
+  --dialog-content-background: #e4e8ed;
+  --dialog-header-color: #fff;
+  --drawer-background: #e4e8ed;
+  --drawer-background-contrast: #fff;
+  --drawer-text-color: #00143d;
+  --input-background-color: #212121;
+  --input-text-color: #0a0d15;
+  --input-bg-color: #fff;
+  --filter-controls-border: #b4b4b4;
+  --market-info-icons: #fff;
+  --score-card-details-color: var(--primary-color);
+  --accordian-headers-color: #fff;
+  --accordian-arrow-bg: var(--primary-color);
+  --accordian-arrow-text: #fff;
+}
+
 :root {
   --table-head-border: 0.1px solid var(--table-head-cell-border) !important;
   --table-body-border: #e0e0e0;
@@ -431,7 +649,7 @@ ion-select-popover ion-list ion-item ion-radio {
 }
 
 ion-select-popover ion-list ion-item:hover {
-  color: var(--ion-color-primary) !important;
+  color: var(--primary-color) !important;
   background: var(--select-popover-active-background);
 }
 
@@ -570,7 +788,7 @@ ion-select-popover ion-list ion-item.item-radio-checked {
   .MuiDialog-paper
   .MuiDialogContent-root
   .MuiButton-containedPrimary {
-  background-color: var(--ion-color-primary);
+  background-color: var(--primary-color);
   color: var(--ion-color-primary-contrast);
   text-transform: none;
   font-weight: 600;
@@ -776,7 +994,7 @@ ion-select-popover ion-list ion-item.item-radio-checked {
 }
 
 .reports-ctn .header-ctn .page-title .title-image path {
-  fill: var(--ion-color-primary);
+  fill: var(--primary-color);
 }
 
 @media screen and (max-width: 920px) {
@@ -801,13 +1019,13 @@ ion-select-popover ion-list ion-item.item-radio-checked {
 }
 
 .reports-ctn .header-ctn .img-page-title-row .title-image path {
-  fill: var(--ion-color-primary);
+  fill: var(--primary-color);
 }
 
 .reports-ctn .header-ctn .img-page-title-row .title {
   margin-left: 4px;
   font-family: var(--headers-font-family);
-  color: var(--ion-color-primary);
+  color: var(--primary-color);
   font-weight: 600;
   font-size: 24px;
   line-height: 99%;
@@ -1195,7 +1413,7 @@ ion-select-popover ion-list ion-item.item-radio-checked {
   .reports-ctn .header-ctn .page-title.button-page-title {
     font-weight: 600;
     font-size: 18px;
-    color: var(--ion-color-primary);
+    color: var(--primary-color);
     display: flex;
     align-items: center;
     margin-top: 16px;
@@ -1309,7 +1527,7 @@ ion-select-popover ion-list ion-item.item-radio-checked {
 }
 
 .competitions-menu-tabs .MuiButtonBase-root.active .MuiTab-wrapper {
-  color: var(--ion-color-primary);
+  color: var(--primary-color);
   opacity: 1;
 }
 
@@ -1701,7 +1919,7 @@ input:-webkit-autofill {
 }
 
 .MuiTab-textColorInherit.Mui-selected {
-  border-bottom: 2px solid var(--ion-color-primary);
+  border-bottom: 2px solid var(--primary-color);
 }
 
 .MuiTab-root {
@@ -1840,7 +2058,7 @@ input:-webkit-autofill {
   }
 
   to {
-    color: var(--ion-color-primary);
+    color: var(--primary-color);
     font-weight: bolder;
   }
 }
@@ -1996,7 +2214,7 @@ ion-popover [popover]:not(:popover-open):not(dialog[open]) {
 }
 
 .casino-header-ctn {
-  background: var(--ion-color-primary);
+  background: var(--primary-color);
   border-radius: 20px;
 }
 
@@ -2190,7 +2408,7 @@ video::-webkit-media-controls-panel {
   width: 50%;
   text-transform: capitalize;
   color: var(--dialog-header-color);
-  background: var(--ion-color-primary);
+  background: var(--primary-color);
   border-radius: 30px;
   height: 42px;
   margin-left: 0;
@@ -2242,7 +2460,7 @@ video::-webkit-media-controls-panel {
   width: 50%;
   align-items: center;
   justify-content: center;
-  background-color: var(--ion-color-primary);
+  background-color: var(--primary-color);
   margin: 5px;
   color: var(--active-text-color);
   font-size: 14px;
@@ -2287,7 +2505,7 @@ body {
 
 .dev-tools-msg-modal .modal-content-ctn {
   background: var(--ion-background) !important;
-  border: 5px solid var(--ion-color-primary);
+  border: 5px solid var(--primary-color);
 }
 
 .dev-tools-msg-modal .modal-content-ctn .dev-tools-warning-msg {
@@ -2311,7 +2529,6 @@ body {
   --ion-color-primary-tint: #ffb03a;
   --ion-primary-border-color: #2f004e;
   --markets-table-background: #eff4ff;
-  --table-bg: #212e44;
   --table-body-content: #fff;
   --ion-color-secondary: #37446e;
   --ion-color-secondary-rgb: 55, 68, 110;
@@ -2362,7 +2579,7 @@ body {
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
-  --ion-nav-card-background: var(--ion-color-primary);
+  --ion-nav-card-background: var(--primary-color);
   --ion-nav-card-text: #00061a;
   --ion-header-text-color: #828db9;
   --ion-header-text-color-rgb: 130, 141, 185;
@@ -2493,227 +2710,7 @@ ion-item {
   --transition: none;
 }
 
-.ios body.darkgreen,
-.md body.darkgreen {
-  --ion-color-primary: #01fafe;
-  --ion-background: #090909;
-  --ion-background-color-rgb: 0, 20, 61;
-  --ion-background-color: #071123;
-  --ion-background-secondary: #212121;
-  --ion-background-tertiary: #212121;
-  --ion-button-color: #01fafe;
-  --ion-button-color-2: #fff;
-  --ion-button-bg-2: #008c95;
-  --ion-selected-btn-bg-color: #000;
-  --table-bg: #212e44;
-  --background-ctn-gradient: #122036;
-  --background-card: #122036;
-  --team-info-background: #008c95;
-  --bet-slip-btn: #01fafe;
-  --account-details-card-bg: #3e8d93;
-  --input-template-bg: #3d4a62;
-  --input-template-color: #fff;
-  --input-label-border: #008c95;
-  --input-label-bg: #071123;
-  --btn-disable-bg: #3d4a62;
-  --card-details: #fff;
-  --sidebar-icon-bg: #0d8893;
-  --pl-total: #008c95;
-  --campaign-card-bg: #485f83;
-  --dashed-border: #01fafe;
-  --copy-button-color: invert(99%) sepia(83%) saturate(7499%) hue-rotate(99deg)
-    brightness(104%) contrast(99%);
-  --ion-heading-color: #01fafe;
-  --bet-slip-tab-unsel-bg: #000;
-  --bet-slip-tab-unsel-text: #fff;
-  --premium-vs-bg: #008c95;
-  --premium-vs-border: #01fafe;
-  --form-ctn-border: #04a0e2;
-  --form-ctn-no-account-text: #a4d4d4;
-  --date-display-bg: var(--ion-background-color);
-  --date-display-color: #fff;
-  --custom-btn-bg-variant-1: #01fafe;
-  --custom-btn-text-variant-1: #000;
-  --custom-btn-border-variant-1: #fff;
-  --custom-btn-bg-variant-2: #008c95;
-  --custom-btn-text-variant-2: #fff;
-  --custom-btn-icon-variant-2: invert(0%) sepia(10%) saturate(7499%)
-    hue-rotate(294deg) brightness(97%) contrast(100%);
-  --custom-btn-border-variant-2: #fff;
-  --myprofile-tab-img-bg: #01fafe;
-  --myprofile-tab-border: transparent;
-  --myprofile-tab-border-selected: #01fafe;
-  --referral-card-bg: #485f83;
-  --referral-card-text: #fff;
-  --tab-active-bg: #01fafe;
-  --tab-active-border: #fff;
-  --reports-header-bg-color: #212e44;
-  --reports-subheader-bg-color: #071123;
-  --reports-header-icon-color: invert(0%) sepia(79%) saturate(2316%)
-    hue-rotate(112deg) brightness(106%) contrast(95%);
-  --reports-header-icon-bg-color: #fff;
-  --reports-header-color: #fff;
-  --reports-header-border: #04a0e2;
-  --head-bg: #071123;
-  --head-text-1: #fff;
-  --head-text-2: var(--ion-color-primary);
-  --head-border: #071123;
-  --container-bg: #212e44;
-  --table-head-cell-border: #04a0e2;
-  --table-head-bg: #071123;
-  --table-cell-bg: #212e44;
-  --table-cell-text: #fff;
-  --table-cell-border: #212e44;
-  --table-subheader-bg: #071123;
-  --table-subheader-text: #fff;
-  --custom-table-body-row: #212e44;
-  --custom-table-body-color: #fff;
-  --custom-table-body-border: hsla(0, 0%, 100%, 0.5);
-  --custom-table-no-data-bg: #212e44;
-  --custom-table-no-data-text: #fff;
-  --custom-table-no-data-border: hsla(0, 0%, 100%, 0.5);
-  --stake-settings-indv-bg: #212e44;
-  --dashboard-icon-bg: #008c95;
-  --dashboard-text-color: #fff;
-  --mob-header-bg: #212e44;
-  --mob-header-text: #fff;
-  --mob-header-icon: invert(100%) sepia(0%) saturate(7484%) hue-rotate(223deg)
-    brightness(105%) contrast(107%);
-  --mob-header-active-bg: #071123;
-  --mob-header-active-text: #fff;
-  --mob-header-active-icon: invert(90%) sepia(77%) saturate(3206%)
-    hue-rotate(109deg) brightness(104%) contrast(110%);
-  --mob-header-border: #01fafe;
-  --enabled-market-bg: #0d8893;
-  --arrow-color: #fff;
-  --fancy-book-btn: var(--ion-color-primary);
-  --fancy-book-btn-text: #000;
-  --card-bg1: "#094145";
-  --card-bg: linear-gradient(
-    284.37deg,
-    var(--card-bg1) -213.61%,
-    var(--card-bg2) 99.84%
-  );
-  --table-header-background: var(--ion-background-color);
-  --ion-text-color: #090909;
-  --ion-text-color-rgb: 0, 20, 61;
-  --ion-text-light: #fff;
-  --ion-text-light-rgb: 255, 255, 255;
-  --ion-text-dark: #000;
-  --ion-text-dark-rgb: 10, 13, 21;
-  --ion-text-color-contrast: #fff;
-  --ion-text-color-contrast-rgb: var(--ion-text-light);
-  --ion-arrow: #fff;
-  --ion-text-notification: red;
-  --ion-text-market-notification: red;
-  --ion-card-background: #e4e8ed;
-  --ion-card-text-color: #090909;
-  --ion-card-background-contrast: #fff;
-  --ion-card-border: 1px solid rgba(10, 13, 21, 0.1);
-  --ion-card-border-color-rgb: 10, 13, 21;
-  --ion-toolbar-background: none;
-  --ion-item-background: none;
-  --ion-item-background-activated: none;
-  --ion-popover-background: #212e44;
-  --ion-popover--hover-background: #fff;
-  --dialog-close-btn: #e4e8ed;
-  --dialog-header-bg: #071123;
-  --notification-bg: #fff;
-  --notification-text: #000;
-  --date-picker-container-background: #fff;
-  --date-picker-header-button-background: #e4e8ed;
-  --date-picker-selected-bg: #008c95;
-  --reports-bg-color: #fff;
-  --reports-title-color: var(--ion-color-primary);
-  --score-card-background-color: #090909;
-  --signup-card-background-color: #071123;
-  --signup-font-color: #fff;
-  --notification-background-col: linear-gradient(
-    180deg,
-    #ff4fc1,
-    #ff00a5 25%,
-    #d7028c 60%,
-    #ff4fc1
-  );
-  --section-border: hsla(0, 0%, 100%, 0.5);
-  --card-bg: "#094145";
-  --provider-blend-color: none;
-  --scrollable-box: #222f44;
-  --table-header: #071123;
-  --table-sub-header: #212e44;
-  --market-table-bg: #31425f;
-  --border-color: #04a0e2;
-  --active-text-color: #000;
-  --carousel-arrow-btn: #212e44;
-  --deposit_web_banner: url(../media/green_deposit.316302f7.webp);
-  --deposit_mob_banner: url(../media/green_mob_deposit.4b1f5f80.webp);
-  --provider-banner: url(../media/provider_background.cbbbc95b.webp);
-  --login-background: url("/src/assets/images/loginBG.93cee606.webp");
-  --login-mob-background: url(../media/loginMobBG.55828ab4.webp);
-  --signup-bg: var(--ion-background);
-}
-
-.ios body.darkgreen,
-.ios body.purple,
-.md body.darkgreen,
-.md body.purple {
-  --premium-vs-text: #fff;
-  --referral-card-border: #fff;
-  --tab-passive-bg: transparent;
-  --tab-passive-text: #fff;
-  --tab-passive-border: #fff;
-  --tab-active-text: #000;
-  --dashboard-icon-color: #fff;
-  --enabled-market-text: #000;
-  --linear-gradient-background-1: linear-gradient(
-    88.06deg,
-    var(--ion-background) 30%,
-    var(--ion-color-primary) 86%
-  );
-  --linear-gradient-background-2: linear-gradient(90deg, #6800a8, #45006f);
-  --card-bg2: "212E44";
-  --accoridan-summary-background: #fff;
-  --betslip-bg-color: #6800a8;
-  --webkit-gradient-background-1: linear-gradient(
-    88.06deg,
-    var(--ion-background) 30%,
-    var(--ion-color-primary) 86%
-  );
-  --webkit-gradient-background-2: linear-gradient(
-    88.06deg,
-    var(--ion-background) 30%,
-    var(--ion-color-primary) 117.02%
-  );
-  --popover-background-active: #000;
-  --accordion-summary-root-background: #fff;
-  --accordion-summary-root-expanded-background: #212121;
-  --accordion-summary-root-text-color: var(--ion-text-color);
-  --accordion-details-root-background: #fff;
-  --am-accordion-summary-root-background: #e4e8ed;
-  --am-accordion-summary-root-expanded-background: var(--ion-color-primary);
-  --am-accordion-summary-root-text-color: var(--ion-text-color);
-  --am-accordion-details-root-background: #fff;
-  --select-element-background: var(--ion-popover--hover-background);
-  --select-popover-background: var(--ion-popover-background);
-  --select-popover-active-background: var(--ion-popover--hover-background);
-  --dialog-header-background: #212121;
-  --dialog-content-background: #e4e8ed;
-  --dialog-header-color: #fff;
-  --drawer-background: #e4e8ed;
-  --drawer-background-contrast: #fff;
-  --drawer-text-color: #00143d;
-  --input-background-color: #212121;
-  --input-text-color: #0a0d15;
-  --input-bg-color: #fff;
-  --filter-controls-border: #b4b4b4;
-  --market-info-icons: #fff;
-  --score-card-details-color: var(--ion-color-primary);
-  --accordian-headers-color: #fff;
-  --accordian-arrow-bg: var(--ion-color-primary);
-  --accordian-arrow-text: #fff;
-}
-
-.ios body.purple,
+/* .ios body.purple,
 .md body.purple {
   --ion-color-primary: #ba52fa;
   --ion-background: #6800a8;
@@ -2849,7 +2846,7 @@ ion-item {
   --date-picker-header-button-background: #e4e8ed;
   --date-picker-selected-bg: #ba52fa;
   --reports-bg-color: #fff;
-  --reports-title-color: var(--ion-color-primary);
+  --reports-title-color: var(--primary-color);
   --score-card-background-color: #6800a8;
   --signup-card-background-color: #6800a8;
   --signup-font-color: #fff;
@@ -2860,7 +2857,7 @@ ion-item {
     #d7028c 60%,
     #ff4fc1
   );
-  --providers-info-background: var(--ion-color-primary);
+  --providers-info-background: var(--primary-color);
   --provider-blend-color: rgba(175, 92, 250, 0.65);
   --scrollable-box: #58018d;
   --table-header: linear-gradient(90deg, #45006f, #6800a8);
@@ -2874,13 +2871,13 @@ ion-item {
   --deposit_mob_banner: url(/static/media/purple_mob_deposit.9a7ad6ae.webp);
   --provider-banner: url(/static/media/purple_provider_banner.a6ee9ca6.webp);
   --signup-bg: var(--ion-background);
-}
+} */
 
-.ios body.darkvoilet,
+/* .ios body.darkvoilet,
 .ios body.purple,
 .md body.darkvoilet,
 .md body.purple {
-  --fancy-book-btn: var(--ion-color-primary);
+  --fancy-book-btn: var(--primary-color);
   --fancy-book-btn-text: #fff;
   --card-bg: linear-gradient(
     284.37deg,
@@ -2889,9 +2886,9 @@ ion-item {
   );
   --notification-text: #fff;
   --active-text-color: #fff;
-}
+} */
 
-.ios body.darkvoilet,
+/* .ios body.darkvoilet,
 .md body.darkvoilet {
   --ion-color-primary: linear-gradient(
     104.86deg,
@@ -2984,7 +2981,7 @@ ion-item {
   --reports-header-border: #45577b;
   --head-bg: #10191d;
   --head-text-1: #fff;
-  --head-text-2: var(--ion-color-primary);
+  --head-text-2: var(--primary-color);
   --head-border: #071123;
   --container-bg: #2b1f36;
   --table-head-cell-border: #45577b;
@@ -3019,7 +3016,7 @@ ion-item {
   --linear-gradient-background-1: linear-gradient(
     88.06deg,
     var(--ion-background) 30%,
-    var(--ion-color-primary) 86%
+    var(--primary-color) 86%
   );
   --linear-gradient-background-2: linear-gradient(90deg, #6800a8, #45006f);
   --card-bg1: "#094145";
@@ -3030,12 +3027,12 @@ ion-item {
   --webkit-gradient-background-1: linear-gradient(
     88.06deg,
     var(--ion-background) 30%,
-    var(--ion-color-primary) 86%
+    var(--primary-color) 86%
   );
   --webkit-gradient-background-2: linear-gradient(
     88.06deg,
     var(--ion-background) 30%,
-    var(--ion-color-primary) 117.02%
+    var(--primary-color) 117.02%
   );
   --ion-text-color: #090909;
   --ion-text-color-rgb: 0, 20, 61;
@@ -3064,7 +3061,7 @@ ion-item {
   --accordion-summary-root-text-color: var(--ion-text-color);
   --accordion-details-root-background: #fff;
   --am-accordion-summary-root-background: #e4e8ed;
-  --am-accordion-summary-root-expanded-background: var(--ion-color-primary);
+  --am-accordion-summary-root-expanded-background: var(--primary-color);
   --am-accordion-summary-root-text-color: var(--ion-text-color);
   --am-accordion-details-root-background: #fff;
   --select-element-background: var(--ion-popover--hover-background);
@@ -3086,10 +3083,10 @@ ion-item {
   --input-text-color: #0a0d15;
   --input-bg-color: #fff;
   --reports-bg-color: #fff;
-  --reports-title-color: var(--ion-color-primary);
+  --reports-title-color: var(--primary-color);
   --filter-controls-border: #b4b4b4;
   --market-info-icons: #fff;
-  --score-card-details-color: var(--ion-color-primary);
+  --score-card-details-color: var(--primary-color);
   --score-card-background-color: #090909;
   --signup-card-background-color: #071123;
   --signup-font-color: #fff;
@@ -3118,7 +3115,7 @@ ion-item {
   --login-background: url(/static/media/Login.c6159a59.webp);
   --login-mob-background: url("/static/media/Login (1).f8eb1408.webp");
   --signup-bg: #804871;
-}
+} */
 
 .loading-page-ctn {
   background: var(--ion-background);
@@ -3150,7 +3147,7 @@ ion-item {
 }
 
 .loading-page-ctn .item-row .loading-page-spinner {
-  --color: var(--ion-color-primary);
+  --color: var(--primary-color);
 }
 
 @media only screen and (max-width: 1120px) {

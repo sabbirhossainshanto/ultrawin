@@ -206,7 +206,7 @@
 }
 .rules-regulations-footer {
   width: 90%;
-  background-color: var(--ion-button-bg-2);
+  background-color: var(--primary-color);
   padding: 10px;
   display: flex;
   justify-content: center;
@@ -877,7 +877,7 @@
 }
 .report-header {
   width: 100%;
-  background-color: var(--reports-header-bg-color);
+  background-color: var(--table-bg);
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -890,7 +890,7 @@
   display: flex;
   align-items: center;
   background: var(--reports-subheader-bg-color);
-  border: 1px solid var(--reports-header-border);
+  border: 1px solid var(--primary-color);
   border-radius: 25px;
 }
 .report-header .report-img-title .tab-btns {
@@ -911,7 +911,7 @@
 }
 .report-header .report-img-title .tab-btns .search-games-input {
   height: unset;
-  border: 1px solid var(--ion-color-primary);
+  border: 1px solid var(--primary-color);
   border-radius: 40px;
   background: transparent;
   font-size: 13px;
@@ -921,7 +921,7 @@
 .report-header .report-img-title .tab-btns .tab-btn {
   margin: 10px 5px;
   padding: 5px 15px;
-  background: var(--ion-button-color);
+  background: var(--primary-color);
   border-radius: 20px;
   text-transform: capitalize;
   width: auto;
@@ -1107,11 +1107,11 @@
   text-align: center;
 }
 .cb.cb-variant-2 {
-  background: var(--custom-btn-bg-variant-2);
-  color: var(--custom-btn-text-variant-2);
+  background: var(--primary-color);
+  color: white;
 }
 .cb.cb-variant-1 {
-  background: var(--custom-btn-bg-variant-1);
+  background: var(--primary-color);
   color: var(--custom-btn-text-variant-1);
 }
 .dialog-footer {
@@ -1239,7 +1239,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 50px;
-  background-color: var(--ion-color-primary);
+  background-color: var(--primary-color);
   position: absolute;
   top: 28px;
   right: 12px;
@@ -1324,7 +1324,7 @@
 }
 .dc-page-bg .dc-ctn .game-types-tabs .MuiTab-root.Mui-selected ion-icon,
 .dc-page-bg .dc-ctn .game-types-tabs .MuiTab-root.Mui-selected span {
-  color: var(--ion-color-primary);
+  color: var(--primary-color);
 }
 .dc-page-bg .dc-ctn .game-types-tabs .MuiTab-root .MuiTab-wrapper {
   font-family: var(--headers-font-family);
@@ -1547,7 +1547,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 50px;
-  background-color: var(--ion-color-primary);
+  background-color: var(--primary-color);
   position: absolute;
   top: 2px;
   right: 5px;
@@ -1974,8 +1974,8 @@
   margin-bottom: 0;
 }
 .dc-page-bg .game-range {
-  color: var(--ion-color-primary);
-  border: 1px solid var(--ion-color-primary);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
   border-radius: 10px;
   padding: 1px 10px;
   font-size: 12px;
@@ -1994,7 +1994,7 @@
     display: none !important;
   }
   .dc-page-bg .casino-tabs .ind-casino-tab {
-    color: var(--ion-color-primary);
+    color: var(--primary-color);
     opacity: 1 !important;
   }
   .dc-page-bg .casino-tabs .ind-casino-tab .MuiTab-wrapper {
@@ -2029,7 +2029,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 50px;
-  background-color: var(--ion-color-primary);
+  background-color: var(--primary-color);
   position: absolute;
   top: 11px;
   right: 12px;
@@ -2161,7 +2161,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 50px;
-    background-color: var(--ion-color-primary);
+    background-color: var(--primary-color);
     position: absolute;
     top: 7px;
     right: 12px;
@@ -2243,7 +2243,7 @@
     .exch-inplay-events-view
     .casino-mob-buttons
     .casino-mob-btn.active {
-    border-color: var(--ion-color-primary);
+    border-color: var(--primary-color);
   }
   .dc-page-bg
     .exch-inplay-events-view
@@ -2286,7 +2286,7 @@
     width: 34px;
   }
   .dc-page-bg .casino-icon-active svg {
-    fill: var(--ion-color-primary);
+    fill: var(--primary-color);
   }
   .dc-page-bg .dc-ctn {
     padding: 0;
@@ -2374,7 +2374,7 @@
   background: #fff !important;
 }
 .dc-dialog-continue {
-  background: var(--ion-color-primary);
+  background: var(--primary-color);
   justify-content: center !important;
 }
 .dc-dialog-body {
@@ -2517,7 +2517,7 @@
   background-color: var(--reports-header-color);
   -ms-overflow-style: none;
   scrollbar-width: none;
-  border: 1.5px solid var(--reports-header-border);
+  border: 1.5px solid var(--primary-color);
 }
 .casino-filter-section .casino-filter-text-ctn {
   padding: 10px 20px;
@@ -2525,7 +2525,7 @@
   cursor: pointer;
 }
 .casino-filter-section .casino-filter-text-ctn:not(:last-child) {
-  border-right: 1px solid var(--reports-header-border);
+  border-right: 1px solid var(--primary-color);
 }
 .casino-filter-section .casino-filter-text-ctn .casino-filter-text {
   white-space: nowrap;
@@ -2534,7 +2534,7 @@
   font-weight: 600;
 }
 .casino-filter-section .casino-filter-text-ctn-selected {
-  background: var(--bet-slip-btn);
+  background: var(--primary-color);
   color: #000;
 }
 .cw-cts {
@@ -2585,7 +2585,7 @@
 }
 
 .cw-cts .cw-sub-cts .cw-ct.cw-ct-sel {
-  background: var(--bet-slip-btn);
+  background: var(--primary-color);
   border: none;
 }
 .cw-cts .cw-sub-cts .cw-ct.cw-ct-sel .cw-ct-img {

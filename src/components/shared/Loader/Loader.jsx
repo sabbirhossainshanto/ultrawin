@@ -12,7 +12,11 @@ const Loader = () => {
         backgroundColor: "black",
       }}
     >
-      <FaSpinner className="animate-spin" size={30} color="white" />
+      <FaSpinner
+        className="animate-spin"
+        size={30}
+        color="var(--primary-color)"
+      />
     </div>
   );
 };

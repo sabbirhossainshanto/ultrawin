@@ -71,4 +71,5 @@ export const settings = {
   logoWidth: "",
   apkLink: "",
   betFairCashOut: "",
+  build: "",
 };

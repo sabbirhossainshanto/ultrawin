@@ -19,7 +19,14 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </QueryClientProvider>
       </PersistGate>
     </Provider>
-    <Toaster />
+    <Toaster
+      toastOptions={{
+        style: {
+          marginTop: "40px",
+          zIndex: 999999999,
+        },
+      }}
+    />
   </ApiProvider>
   // </React.StrictMode>
 );

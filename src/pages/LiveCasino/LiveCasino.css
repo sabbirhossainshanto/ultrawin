@@ -70,7 +70,7 @@ button:disabled {
 /*! CSS Used from: https://www.ultrawin.co.in/static/css/26.2768a9c1.chunk.css */
 .report-header {
   width: 100%;
-  background-color: var(--reports-header-bg-color);
+  background-color: var(--table-bg);
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -84,7 +84,7 @@ button:disabled {
   display: flex;
   align-items: center;
   background: var(--reports-subheader-bg-color);
-  border: 1px solid var(--reports-header-border);
+  border: 1px solid var(--primary-color);
   border-radius: 25px;
 }
 
@@ -109,7 +109,7 @@ button:disabled {
 
 .report-header .report-img-title .tab-btns .search-games-input {
   height: unset;
-  border: 1px solid var(--ion-color-primary);
+  border: 1px solid var(--primary-color);
   border-radius: 40px;
   background: transparent;
   font-size: 13px;
@@ -384,7 +384,7 @@ button:disabled {
   background-color: var(--reports-header-color);
   -ms-overflow-style: none;
   scrollbar-width: none;
-  border: 1.5px solid var(--reports-header-border);
+  border: 1.5px solid var(--primary-color);
 }
 
 .casino-filter-section .casino-filter-text-ctn {
@@ -394,7 +394,7 @@ button:disabled {
 }
 
 .casino-filter-section .casino-filter-text-ctn:not(:last-child) {
-  border-right: 1px solid var(--reports-header-border);
+  border-right: 1px solid var(--primary-color);
 }
 
 .casino-filter-section .casino-filter-text-ctn .casino-filter-text {
@@ -405,7 +405,7 @@ button:disabled {
 }
 
 .casino-filter-section .casino-filter-text-ctn-selected {
-  background: var(--bet-slip-btn);
+  background: var(--primary-color);
   color: #000;
 }
 
@@ -447,7 +447,7 @@ button:disabled {
 }
 
 .cw-cts .cw-sub-cts .cw-ct.cw-ct-sel {
-  background: var(--bet-slip-btn);
+  background: var(--primary-color);
   border: none;
 }
 

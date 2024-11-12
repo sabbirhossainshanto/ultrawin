@@ -115,7 +115,7 @@
   .search-tab
   .search-games-input {
   height: unset;
-  border: 1px solid var(--ion-color-primary);
+  border: 1px solid var(--primary-color);
   border-radius: 40px;
   background: transparent;
   font-size: 13px;
@@ -264,9 +264,9 @@
   .exch-inplay-events-table-section
   .inplay-status-tabs
   .inplay-tab.selected-inplay-tab {
-  background: var(--tab-active-bg);
+  background: var(--primary-color);
   color: var(--tab-active-text);
-  border: 1px solid var(--tab-active-bg);
+  border: 1px solid var(--primary-color);
   font-weight: 900;
   padding: 11px 12px;
   letter-spacing: 0.02em;
