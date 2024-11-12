@@ -151,7 +151,7 @@ const StakeSetting = () => {
                             className="plus-div"
                           >
                             <img
-                              style={{ height: "15px" }}
+                              style={{ height: "15px", background: "none" }}
                               className="plus-btn"
                               src={assets.plus}
                               alt=""

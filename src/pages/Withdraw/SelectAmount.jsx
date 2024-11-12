@@ -10,7 +10,7 @@ const SelectAmount = ({ setAmount, amount, setShowBankAccount }) => {
       className="dep-w-info-bc  ng-star-inserted"
     >
       <div className="withdraw-section  ng-star-inserted">
-        <div className="bonus-amount ">
+        <div className="bonus-amount card-bg">
           <img
             loading="lazy"
             src={assets.star}
@@ -50,11 +50,13 @@ const SelectAmount = ({ setAmount, amount, setShowBankAccount }) => {
             />
           </div>
           <div className="wallet-card ">
-            <span className="wallet-amount ">
+            <span className="wallet-amount " style={{ color: "white" }}>
               ₹ {withdrawBreakdown?.mainWallet}
             </span>
             <div className="wallet-txt ">
-              <p className="">Main Wallet</p>
+              <p className="" style={{ color: "white" }}>
+                Main Wallet
+              </p>
               <div className="with-any ">
                 <p className="">Can withdraw anytime</p>
               </div>
@@ -98,8 +100,10 @@ const SelectAmount = ({ setAmount, amount, setShowBankAccount }) => {
             </div>
           </div>
         </div> */}
-        <div className="amount-input ">
-          <p className="amount-text ">Please enter the amount to withdraw</p>
+        <div className="amount-input card-bg">
+          <p className="amount-text" style={{ color: "white" }}>
+            Please enter the amount to withdraw
+          </p>
           <form
             style={{ width: "100%" }}
             className=" ng-pristine ng-invalid ng-touched"

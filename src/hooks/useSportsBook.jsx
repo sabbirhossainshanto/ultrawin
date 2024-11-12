@@ -4,7 +4,11 @@ import { API } from "../api";
 import handleDecryptData from "../utils/handleDecryptData";
 
 const useSportsBook = (group) => {
-  const { data, refetch: refetchSports } = useQuery({
+  const {
+    data,
+    refetch: refetchSports,
+    isLoading,
+  } = useQuery({
     queryKey: ["sports"],
     enabled: group !== null ? true : false,
     queryFn: async () => {
@@ -17,7 +21,7 @@ const useSportsBook = (group) => {
     refetchInterval: 2000,
   });
 
-  return { data, refetchSports };
+  return { data, refetchSports, isLoading };
 };
 
 export default useSportsBook;

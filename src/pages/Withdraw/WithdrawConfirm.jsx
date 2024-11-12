@@ -3,10 +3,11 @@ import WithdrawSuccess from "../../components/modal/WithdrawSuccess";
 import axios from "axios";
 import { API, settings } from "../../api";
 import handleRandomToken from "../../utils/handleRandomToken";
-import useContextState from "../../hooks/useContextState";
 import toast from "react-hot-toast";
 import handleEncryptData from "../../utils/handleEncryptData";
 import assets from "../../assets";
+import { useSelector } from "react-redux";
+import { userToken } from "../../redux/features/auth/authSlice";
 
 const WithdrawConfirm = ({
   bank,
@@ -17,7 +18,7 @@ const WithdrawConfirm = ({
   setConfirmWithdraw,
 }) => {
   const [withdrawSuccess, setWithdrawSuccess] = useState(false);
-  const { token } = useContextState();
+  const token = useSelector(userToken);
   const [disable, setDisable] = useState(false);
   /* handle withdraw function */
   const handleCoinSubmit = async (e) => {
@@ -51,8 +52,13 @@ const WithdrawConfirm = ({
   return (
     <>
       <div
-        className="withdraw-account"
-        style={{ backgroundColor: "white", padding: "10px", margin: "0px" }}
+        className="withdraw-account card-bg"
+        style={{
+          padding: "10px",
+          margin: "0px",
+          marginTop: "15px",
+          borderRadius: "10px",
+        }}
       >
         <div
           onClick={() => {
@@ -62,12 +68,17 @@ const WithdrawConfirm = ({
           className="back-nav-bc "
         >
           <img loading="lazy" src={assets.backArrow} alt="" className="" />
-          <span className="back-nav-title-bc ellipsis ">
+          <span
+            style={{ color: "white" }}
+            className="back-nav-title-bc ellipsis "
+          >
             Back to Select Account
           </span>
         </div>
         <div className="withdraw-amount ">
-          <span className="">Withdrawal Amount</span>
+          <span style={{ color: "white" }} className="">
+            Withdrawal Amount
+          </span>
           <div
             style={{ cursor: "pointer" }}
             className="edit-logo"
@@ -82,6 +93,7 @@ const WithdrawConfirm = ({
           </div>
         </div>
         <input
+          style={{ color: "white" }}
           type="text"
           name=""
           className=""
@@ -89,7 +101,9 @@ const WithdrawConfirm = ({
           disabled
         />
         <div className="bank-account ">
-          <span className="">Bank Account</span>
+          <span style={{ color: "white" }} className="">
+            Bank Account
+          </span>
           <div
             style={{ cursor: "pointer" }}
             onClick={() => {
@@ -121,6 +135,7 @@ const WithdrawConfirm = ({
                   width: "max-content",
                   display: "flex",
                   flexDirection: "row",
+                  color: "white",
                 }}
                 className=""
               >
@@ -136,6 +151,7 @@ const WithdrawConfirm = ({
                   width: "max-content",
                   display: "flex",
                   flexDirection: "row",
+                  color: "white",
                 }}
                 className=""
               >
@@ -151,6 +167,7 @@ const WithdrawConfirm = ({
                   width: "max-content",
                   display: "flex",
                   flexDirection: "row",
+                  color: "white",
                 }}
                 className=""
               >

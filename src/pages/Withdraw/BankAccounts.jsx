@@ -3,7 +3,6 @@ import AddBank from "../../components/modal/bank/AddBank";
 import DeleteBank from "../../components/modal/bank/DeleteBank";
 import useContextState from "../../hooks/useContextState";
 import assets from "../../assets";
-import useWithdrawBreakdown from "../../hooks/useWithdrawBreakDown";
 
 const BankAccounts = ({
   bankData,
@@ -14,7 +13,6 @@ const BankAccounts = ({
   setBank,
   bank,
 }) => {
-  const { withdrawBreakdown } = useWithdrawBreakdown();
   const { addBank, setAddBank } = useContextState();
   const [removeBank, setRemoveBank] = useState("");
 
@@ -25,7 +23,7 @@ const BankAccounts = ({
 
   return (
     <>
-      <div
+      {/* <div
         style={{ marginTop: "5px", backgroundColor: "#122036" }}
         className="active-bonus-card "
       >
@@ -72,14 +70,13 @@ const BankAccounts = ({
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
       <div
-        className="dep-w-info-bc"
+        className="dep-w-info-bc card-bg"
         style={{
-          backgroundColor: "white",
           padding: "10px",
           margin: "0px",
-          marginTop: "10px",
+          marginTop: "15px",
           borderRadius: "10px",
         }}
       >
@@ -93,7 +90,12 @@ const BankAccounts = ({
             className="back-nav-bc "
           >
             <img loading="lazy" src={assets?.backArrow} alt="" className="" />
-            <span className="back-nav-title-bc ellipsis ">Back to Amount</span>
+            <span
+              className="back-nav-title-bc ellipsis "
+              style={{ color: "white" }}
+            >
+              Back to Amount
+            </span>
           </div>
 
           {/*   <!-- no bank account start -->
@@ -147,6 +149,7 @@ const BankAccounts = ({
                           width: "max-content",
                           display: "flex",
                           flexDirection: "row",
+                          color: "white",
                         }}
                         className=""
                       >
@@ -173,6 +176,7 @@ const BankAccounts = ({
                           width: "max-content",
                           display: "flex",
                           flexDirection: "row",
+                          color: "white",
                         }}
                         className=""
                       >
@@ -186,6 +190,7 @@ const BankAccounts = ({
                           width: "max-content",
                           display: "flex",
                           flexDirection: "row",
+                          color: "white",
                         }}
                         className=""
                       >

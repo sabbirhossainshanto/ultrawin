@@ -136,23 +136,23 @@ const PaymentMethods = ({
 
   return (
     <div
+      className="card-bg"
       style={{
-        backgroundColor: "#ebedf4",
         minHeight: "50vh",
         height: "100%",
         paddingBottom: "20px",
         // paddingTop: "
-        borderRadius: "4px",
+        borderRadius: "10px",
       }}
     >
       <div _ngcontent-kdb-c159="" className="paymethod ng-tns-c159-13">
         <div _ngcontent-kdb-c159="" className="accountdetail ng-tns-c159-13">
           <p
             _ngcontent-kdb-c159=""
-            className="make ng-tns-c159-13"
+            className="make ng-tns-c159-13 "
             style={{
               marginBottom: "0.75rem",
-              color: "black",
+              color: "white",
               paddingTop: "5px",
             }}
           >
@@ -208,7 +208,7 @@ const PaymentMethods = ({
             <p
               _ngcontent-kdb-c159=""
               className="make ng-tns-c159-13"
-              style={{ marginBottom: "0.75rem", color: "black" }}
+              style={{ marginBottom: "0.75rem", color: "white" }}
             >
               Use below details to make payment
             </p>
@@ -407,7 +407,7 @@ const PaymentMethods = ({
             <p
               _ngcontent-kdb-c159=""
               className="make ng-tns-c159-13"
-              style={{ marginBottom: "0.75rem", color: "black" }}
+              style={{ marginBottom: "0.75rem", color: "white" }}
             >
               Use below details to make payment
             </p>
@@ -613,7 +613,7 @@ const PaymentMethods = ({
               style={{
                 marginBottom: "0.75rem",
                 marginLeft: "10px",
-                color: "black",
+                color: "white",
               }}
             >
               QR code for payment
@@ -727,7 +727,7 @@ const PaymentMethods = ({
               style={{
                 marginBottom: "0.75rem",
                 marginLeft: "10px",
-                color: "black",
+                color: "white",
               }}
             >
               QR code for payment
@@ -813,7 +813,7 @@ const PaymentMethods = ({
               style={{
                 marginBottom: "0.75rem",
                 marginLeft: "10px",
-                color: "black",
+                color: "white",
               }}
             >
               QR code for payment

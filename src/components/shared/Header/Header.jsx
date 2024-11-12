@@ -65,15 +65,7 @@ const Header = () => {
                   <span className="MuiTouchRipple-root"></span>
                 </button>
               </Link>
-              <a className="nav-link" value="2">
-                <button
-                  className="MuiButtonBase-root MuiButton-root MuiButton-text nav-link-btn"
-                  type="button"
-                >
-                  <span className="MuiButton-label">Sportsbook</span>
-                  <span className="MuiTouchRipple-root"></span>
-                </button>
-              </a>
+
               <Link
                 className={`nav-link  ${
                   pathname === "/live-casino" ? "active" : ""

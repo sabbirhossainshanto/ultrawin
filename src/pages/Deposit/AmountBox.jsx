@@ -1,8 +1,8 @@
 const AmountBox = ({ amount, setAmount, setShowModal }) => {
   return (
-    <div className="amountBox">
+    <div className="amountBox" style={{ backgroundColor: "#122036" }}>
       <div className="withdraw_text ">
-        <p style={{ color: "#3d3d3d" }}>Please enter the amount to deposit</p>
+        <p style={{ color: "white" }}>Please enter the amount to deposit</p>
       </div>
       <div className="diposit_form ">
         <div className="w-100 deposit_form_input ">
@@ -26,7 +26,7 @@ const AmountBox = ({ amount, setAmount, setShowModal }) => {
           </div>
         </div>
       </div>
-      <div className="stack-button ">
+      <div className="stack-button">
         <button
           onClick={() => setAmount(300)}
           type="button"

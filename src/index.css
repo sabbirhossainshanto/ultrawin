@@ -1434,3 +1434,10 @@ div:where(.swal2-container) div:where(.swal2-actions) {
 .status-text-pending {
   color: orange !important;
 }
+.card-bg {
+  background-color: #122036;
+}
+
+.ion-app .support::-webkit-scrollbar {
+  display: none;
+}

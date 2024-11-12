@@ -103,10 +103,7 @@ const UploadTransaction = ({ paymentId, amount }) => {
         <div className="utrbox ng-tns-c159-0">
           <div className="utrtxt ng-tns-c159-0">
             <div className="u-i-p-control-item-holder-bc ng-tns-c159-0">
-              <form
-                style={{ background: "#fff" }}
-                className="ng-tns-c159-0 ng-pristine ng-invalid ng-touched"
-              >
+              <form className="ng-tns-c159-0 ng-pristine ng-invalid ng-touched">
                 <div className="upload ng-tns-c159-0 ng-star-inserted">
                   <div className="uploadimg ng-tns-c159-0">
                     <div className="uploadsvg ng-tns-c159-0">
@@ -146,7 +143,7 @@ const UploadTransaction = ({ paymentId, amount }) => {
                         </defs>
                       </svg>
                       <div className="uploadtxt ng-tns-c159-0 ng-star-inserted">
-                        <p className="ng-tns-c159-0">
+                        <p className="ng-tns-c159-0" style={{ color: "white" }}>
                           Upload Transaction Image
                         </p>
                       </div>
@@ -237,7 +234,7 @@ const UploadTransaction = ({ paymentId, amount }) => {
       <div className="utrbox ng-tns-c159-0">
         <div className="utrtxt ng-tns-c159-0">
           <div className="u-i-p-control-item-holder-bc ng-tns-c159-0">
-            <p className="ng-tns-c159-0" style={{ color: "black" }}>
+            <p className="ng-tns-c159-0" style={{ color: "white" }}>
               {" "}
               Enter UTR/Trans ID/Ref ID number to proceed further
             </p>
