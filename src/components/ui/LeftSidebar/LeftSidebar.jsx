@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import assets from "../../../assets";
 import useContextState from "../../../hooks/useContextState";
 import { setGroupType } from "../../../redux/features/global/globalSlice";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { logout } from "../../../redux/features/auth/authSlice";
 import useGetSocialLink from "../../../hooks/useGetSocialLink";
 import { navigateTelegramInstagram } from "../../../utils/navigateTelegramInstagram";
@@ -13,7 +13,7 @@ const LeftSidebar = () => {
   const { logo } = useContextState();
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
-  const { pathname } = useLocation();
+  const { group } = useSelector((state) => state.global);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -40,10 +40,11 @@ const LeftSidebar = () => {
       <div className="sh-menu">
         <div className="sh-sub-menu">
           <button
-            onClick={() => handleNavigate("/cricket")}
-            className={`sh-btn ${
-              pathname === "/cricket" ? "active-sh-btn" : ""
-            }`}
+            onClick={() => {
+              dispatch(setGroupType(4));
+              navigate("/");
+            }}
+            className={`sh-btn ${group === 4 ? "active-sh-btn" : ""}`}
           >
             <svg
               width="18"
@@ -488,10 +489,11 @@ const LeftSidebar = () => {
             <div className="sh-tab-label">cricket</div>
           </button>
           <button
-            onClick={() => handleNavigate("/football")}
-            className={`sh-btn ${
-              pathname === "/football" ? "active-sh-btn" : ""
-            }`}
+            onClick={() => {
+              dispatch(setGroupType(1));
+              navigate("/");
+            }}
+            className={`sh-btn ${group === 1 ? "active-sh-btn" : ""}`}
           >
             <svg
               width="18"
@@ -576,10 +578,11 @@ const LeftSidebar = () => {
             <div className="sh-tab-label">football</div>
           </button>
           <button
-            onClick={() => handleNavigate("/tennis")}
-            className={`sh-btn ${
-              pathname === "/tennis" ? "active-sh-btn" : ""
-            }`}
+            onClick={() => {
+              dispatch(setGroupType(2));
+              navigate("/");
+            }}
+            className={`sh-btn ${group === 2 ? "active-sh-btn" : ""}`}
           >
             <svg
               width="18"

@@ -43,6 +43,11 @@ const MobileSidebar = () => {
     dispatch(setShowLeftSidebar(false));
   };
 
+  const handleSetGroupType = (group) => {
+    dispatch(setGroupType(group));
+    dispatch(setShowLeftSidebar(false));
+  };
+
   return (
     <div
       role="presentation"
@@ -87,10 +92,7 @@ const MobileSidebar = () => {
           </div>
           <div className="sh-menu">
             <div className="sh-sub-menu">
-              <button
-                className=" sh-btn"
-                onClick={() => handleNavigate("/cricket")}
-              >
+              <button className=" sh-btn" onClick={() => handleSetGroupType(4)}>
                 <svg
                   width={18}
                   height={18}
@@ -533,10 +535,7 @@ const MobileSidebar = () => {
                 </svg>
                 <div className="sh-tab-label">cricket</div>
               </button>
-              <button
-                onClick={() => handleNavigate("/football")}
-                className=" sh-btn"
-              >
+              <button onClick={() => handleSetGroupType(1)} className=" sh-btn">
                 <svg
                   width={18}
                   height={18}
@@ -619,10 +618,7 @@ const MobileSidebar = () => {
                 </svg>
                 <div className="sh-tab-label">football</div>
               </button>
-              <button
-                onClick={() => handleNavigate("/tennis")}
-                className=" sh-btn"
-              >
+              <button onClick={() => handleSetGroupType(2)} className=" sh-btn">
                 <svg
                   width={18}
                   height={18}

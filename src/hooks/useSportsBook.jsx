@@ -9,7 +9,7 @@ const useSportsBook = (group) => {
     refetch: refetchSports,
     isLoading,
   } = useQuery({
-    queryKey: ["sports"],
+    queryKey: ["sports", group],
     enabled: group !== null ? true : false,
     queryFn: async () => {
       const res = await axios.post(`${API.groupSportsBook}/${group}`);
@@ -17,7 +17,7 @@ const useSportsBook = (group) => {
       const decryptionData = await handleDecryptData(JSON.stringify(data));
       return decryptionData;
     },
-    gcTime: 0,
+
     refetchInterval: 2000,
   });
 
