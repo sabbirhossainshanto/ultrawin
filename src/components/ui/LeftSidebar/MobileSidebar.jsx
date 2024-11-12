@@ -46,6 +46,7 @@ const MobileSidebar = () => {
   const handleSetGroupType = (group) => {
     dispatch(setGroupType(group));
     dispatch(setShowLeftSidebar(false));
+    navigate("/");
   };
 
   return (
