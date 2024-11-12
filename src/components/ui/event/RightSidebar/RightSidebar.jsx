@@ -3,13 +3,14 @@ import BetSlipDesktop from "./BetSlipDesktop";
 import Video from "./Video";
 import useIFrame from "../../../../hooks/useIFrame";
 
-const RightSidebar = () => {
+const RightSidebar = ({ score }) => {
   const { eventId, eventTypeId } = useParams();
-  const { iFrameUrl } = useIFrame(eventTypeId, eventId);
+  const { iFrameUrl } = useIFrame(eventTypeId, eventId, score?.hasVideo);
+
   return (
     <div className="stream-section md hydrated">
       <div className="sticky-col">
-        {iFrameUrl?.url && <Video url={iFrameUrl?.url} />}
+        {iFrameUrl?.url && score?.hasVideo && <Video url={iFrameUrl?.url} />}
         <BetSlipDesktop />
         {/* <div className="mt-10">
           <div className="trending-games-ctn">

@@ -258,6 +258,7 @@ const Event = () => {
     // value?.toFixed(2)
     return hasDecimal ? parseFloat(value?.toFixed(2)) : value;
   };
+
   return (
     <>
       <div className="router-ctn">
@@ -293,7 +294,7 @@ const Event = () => {
 
                     {fancy?.length > 0 && <Fancy fancy={fancy} />}
                   </div>
-                  <RightSidebar />
+                  <RightSidebar score={data?.score} />
                 </div>
               </div>
             </div>
