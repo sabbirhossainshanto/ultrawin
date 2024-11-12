@@ -10,7 +10,7 @@ const Football = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 100);
+    }, 300);
   }, []);
 
   if (loading) {
