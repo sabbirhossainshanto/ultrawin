@@ -31,25 +31,23 @@ const ForgotPassword = () => {
     }
   };
   const handleOTP = async () => {
-    if (mobile.length > 0) {
-      const generatedToken = handleRandomToken();
-      const otpData = {
-        mobile,
-        token: generatedToken,
-        site: settings?.siteUrl,
-      };
-      const encryptedData = handleEncryptData(otpData);
-      const res = await getOTP(encryptedData).unwrap();
+    const generatedToken = handleRandomToken();
+    const otpData = {
+      mobile,
+      token: generatedToken,
+      site: settings?.siteUrl,
+    };
+    const encryptedData = handleEncryptData(otpData);
+    const res = await getOTP(encryptedData).unwrap();
 
-      if (res?.success) {
-        setOTP({
-          orderId: res?.result?.orderId,
-          otpMethod: "sms",
-        });
-        toast.success(res?.result?.message);
-      } else {
-        toast.error(res?.error?.errorMessage);
-      }
+    if (res?.success) {
+      setOTP({
+        orderId: res?.result?.orderId,
+        otpMethod: "sms",
+      });
+      toast.success(res?.result?.message);
+    } else {
+      toast.error(res?.error?.errorMessage);
     }
   };
 
@@ -148,6 +146,7 @@ const ForgotPassword = () => {
               className="login-demologin-btns"
             >
               <button
+                disabled={mobile.length < 10}
                 onClick={handleOTP}
                 style={{ border: "none", height: "30px" }}
                 className="MuiButtonBase-root MuiButton-root MuiButton-contained login-form-btn MuiButton-containedPrimary"
