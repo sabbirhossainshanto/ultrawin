@@ -17,7 +17,7 @@ const Group = ({ data }) => {
       return data?.[key]?.visible === true;
     });
 
-  const eventName = { 4: "Cricket", 2: "Tennis", 1: "Football" };
+  const eventName = { 4: "Cricket", 2: "Tennis", 1: "Football", 5: "Kabbadi" };
   useEffect(() => {
     if (data) {
       const categories = Array.from(

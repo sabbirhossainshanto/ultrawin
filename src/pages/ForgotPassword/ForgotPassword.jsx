@@ -1,4 +1,5 @@
 import assets from "../../assets";
+import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import {
   useForgotPasswordMutation,
   useGetOtpMutation,
@@ -17,8 +18,8 @@ const ForgotPassword = () => {
   const { socialLink } = useGetSocialLink();
   const navigate = useNavigate();
   const [handleForgotPassword] = useForgotPasswordMutation();
-  // const [passType, setPassType] = useState(true);
-  // const [confirmPassType, setConfirmPassType] = useState(true);
+  const [passType, setPassType] = useState(true);
+  const [confirmPassType, setConfirmPassType] = useState(true);
   const [mobile, setMobile] = useState("");
   const [OTP, setOTP] = useState({});
   const [getOTP] = useGetOtpMutation();
@@ -100,14 +101,17 @@ const ForgotPassword = () => {
                 <span className="back-text">Back</span>
               </div>
             </div>
-            <div className="card-title">Forgot Password</div>
-            <span className="card-login-here">
-              Please enter the details here.
+            <div
+              className="card-title"
+              style={{ fontSize: "22px", padding: "10px", fontWeight: "500" }}
+            >
+              Forgot Username/Password
+            </div>
+            <span className="card-login-here" style={{ fontWeight: "400" }}>
+              We’ll send OTP on your registered number associated with username.
             </span>
-            <span className="usr-input">
-              <span className="input-labell sc-ion-label-md-h sc-ion-label-md-s md hydrated">
-                Mobile No <span className="red-text">*</span>
-              </span>
+
+            <span style={{ marginTop: "30px" }} className="usr-input">
               <div
                 className="MuiFormControl-root MuiTextField-root login-input-field user-name"
                 style={{ position: "relative" }}
@@ -120,32 +124,46 @@ const ForgotPassword = () => {
                     maxLength={10}
                     onChange={(e) => handleMobileInputChange(e)}
                     style={{
-                      paddingLeft: "5px",
+                      padding: "0px 5px",
                       width: "100%",
                       height: "100%",
                     }}
                     aria-invalid="false"
-                    placeholder="Username/Mobile No"
+                    placeholder="Enter User Name"
                     type="text"
                     className="MuiInputBase-input MuiOutlinedInput-input"
                     value={mobile}
                   />
                 </div>
-                <button
-                  onClick={handleOTP}
-                  style={{ position: "absolute", right: 5, top: "5px" }}
-                  className="MuiButtonBase-root MuiButton-root MuiButton-contained login-form-btn-demo MuiButton-containedPrimary"
-                  type="button"
-                >
-                  <span className="MuiButton-label">Get OTP</span>
-                  <span className="MuiTouchRipple-root"></span>
-                </button>
               </div>
             </span>
+
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "end",
+                height: "50px",
+              }}
+              className="login-demologin-btns"
+            >
+              <button
+                onClick={handleOTP}
+                style={{ border: "none", height: "30px" }}
+                className="MuiButtonBase-root MuiButton-root MuiButton-contained login-form-btn MuiButton-containedPrimary"
+                type="button"
+              >
+                <span
+                  style={{ fontWeight: "400", fontSize: "15px" }}
+                  className="MuiButton-label"
+                >
+                  Send OTP
+                </span>
+                <span className="MuiTouchRipple-root"></span>
+              </button>
+            </div>
+
             <span className="usr-input">
-              <span className="input-labell sc-ion-label-md-h sc-ion-label-md-s md hydrated">
-                OTP <span className="red-text">*</span>
-              </span>
               <div className="MuiFormControl-root MuiTextField-root login-input-field user-name">
                 <div
                   style={{ padding: "0px", height: "100%" }}
@@ -153,13 +171,13 @@ const ForgotPassword = () => {
                 >
                   <input
                     style={{
-                      paddingLeft: "5px",
+                      padding: "0px 5px",
                       width: "100%",
                       height: "100%",
                     }}
                     {...register("otp", { required: true })}
                     aria-invalid="false"
-                    placeholder="OTP"
+                    placeholder="Enter OTP"
                     type="text"
                     className="MuiInputBase-input MuiOutlinedInput-input"
                   />
@@ -167,10 +185,7 @@ const ForgotPassword = () => {
               </div>
             </span>
 
-            <div className="pwd-input">
-              <span className="input-labell sc-ion-label-md-h sc-ion-label-md-s md hydrated">
-                Password <span className="red-text">*</span>
-              </span>
+            <div style={{ marginTop: "20px" }} className="pwd-input">
               <div className="MuiFormControl-root login-input-field pwd-field">
                 <div
                   style={{ padding: "0px", height: "100%" }}
@@ -178,16 +193,16 @@ const ForgotPassword = () => {
                 >
                   <input
                     style={{
-                      paddingLeft: "5px",
+                      padding: "0px 5px",
                       width: "100%",
                       height: "100%",
                     }}
                     {...register("password", { required: true })}
                     aria-invalid="false"
                     id="standard-adornment-password"
-                    placeholder="Password"
+                    placeholder="Enter New Password"
                     className="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
-                    type="password"
+                    type={passType ? "password" : "text"}
                   />
                   <div className="MuiInputAdornment-root MuiInputAdornment-positionEnd">
                     <button
@@ -195,15 +210,21 @@ const ForgotPassword = () => {
                       type="button"
                       aria-label="toggle password visibility"
                     >
-                      <span className="MuiIconButton-label">
-                        <svg
-                          className="MuiSvgIcon-root"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                          aria-hidden="true"
-                        >
-                          <path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"></path>
-                        </svg>
+                      <span
+                        onClick={() => setPassType((prev) => !prev)}
+                        className="MuiIconButton-label"
+                      >
+                        {passType ? (
+                          <IoEyeOffOutline
+                            color="var(--color-bg-primary)"
+                            size={23}
+                          />
+                        ) : (
+                          <IoEyeOutline
+                            color="var(--color-bg-primary)"
+                            size={23}
+                          />
+                        )}
                       </span>
                       <span className="MuiTouchRipple-root"></span>
                     </button>
@@ -211,10 +232,7 @@ const ForgotPassword = () => {
                 </div>
               </div>
             </div>
-            <div className="pwd-input">
-              <span className="input-labell sc-ion-label-md-h sc-ion-label-md-s md hydrated">
-                Confirm Password <span className="red-text">*</span>
-              </span>
+            <div style={{ marginTop: "20px" }} className="pwd-input">
               <div className="MuiFormControl-root login-input-field pwd-field">
                 <div
                   style={{ padding: "0px", height: "100%" }}
@@ -222,16 +240,16 @@ const ForgotPassword = () => {
                 >
                   <input
                     style={{
-                      paddingLeft: "5px",
+                      padding: "0px 5px",
                       width: "100%",
                       height: "100%",
                     }}
                     {...register("confirmPassword", { required: true })}
                     aria-invalid="false"
                     id="standard-adornment-password"
-                    placeholder="Confirm Password"
+                    placeholder="Enter Confirm Password"
                     className="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
-                    type="password"
+                    type={confirmPassType ? "password" : "text"}
                   />
                   <div className="MuiInputAdornment-root MuiInputAdornment-positionEnd">
                     <button
@@ -239,15 +257,21 @@ const ForgotPassword = () => {
                       type="button"
                       aria-label="toggle password visibility"
                     >
-                      <span className="MuiIconButton-label">
-                        <svg
-                          className="MuiSvgIcon-root"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                          aria-hidden="true"
-                        >
-                          <path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"></path>
-                        </svg>
+                      <span
+                        onClick={() => setConfirmPassType((prev) => !prev)}
+                        className="MuiIconButton-label"
+                      >
+                        {confirmPassType ? (
+                          <IoEyeOffOutline
+                            color="var(--color-bg-primary)"
+                            size={23}
+                          />
+                        ) : (
+                          <IoEyeOutline
+                            color="var(--color-bg-primary)"
+                            size={23}
+                          />
+                        )}
                       </span>
                       <span className="MuiTouchRipple-root"></span>
                     </button>
@@ -256,17 +280,29 @@ const ForgotPassword = () => {
               </div>
             </div>
 
-            <div className="login-demologin-btns">
+            <div style={{ marginTop: "10px" }} className="login-demologin-btns">
               <button
+                style={{ border: "none", width: "100%", height: "40px" }}
                 className="MuiButtonBase-root MuiButton-root MuiButton-contained login-form-btn MuiButton-containedPrimary"
                 type="submit"
               >
-                <span className="MuiButton-label">Update</span>
+                <span style={{ fontWeight: "500" }} className="MuiButton-label">
+                  Reset Password
+                </span>
                 <span className="MuiTouchRipple-root"></span>
               </button>
             </div>
           </form>
-
+          <div className="account-SignUp">
+            <div className="account-dontHaveAccount">Don’t have account?</div>
+            <span
+              style={{ cursor: "pointer" }}
+              onClick={() => navigate("/register")}
+              className="back-to-SignUp"
+            >
+              Sign Up
+            </span>
+          </div>
           <div className="socialMedia-login">
             <div className="sm-new-ctn">
               <div className="sm-new-links">

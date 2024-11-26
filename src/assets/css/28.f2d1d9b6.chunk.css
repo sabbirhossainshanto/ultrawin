@@ -386,7 +386,7 @@ ion-icon {
   font-size: 13px;
   border-radius: 100px;
   background: var(--primary-color);
-  color: var(--custom-btn-text-variant-2) !important;
+  color: black;
   font-weight: 700;
   border: 1px solid var(--custom-btn-border-variant-2);
   box-shadow: none;
@@ -403,7 +403,7 @@ ion-icon {
   .login-demologin-btns
   .login-form-btn
   .MuiButton-label {
-  color: var(--custom-btn-text-variant-2) !important;
+  color: black !important;
   font-family: var(--headers-font-family) !important;
   font-size: 16px;
   font-weight: 700;
