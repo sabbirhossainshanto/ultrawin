@@ -15,6 +15,8 @@ export const handleDesktopBetSlip = (
   navigate
 ) => {
   if (token) {
+    let selectionId;
+    let runnerId;
     let pnlBySelection;
     const updatedPnl = [];
 
@@ -24,13 +26,29 @@ export const handleDesktopBetSlip = (
     }
 
     if (games?.btype == "FANCY") {
+      runnerId = games?.id;
+
+      selectionId = games?.id;
       const pnl = pnlBySelection?.find((p) => p?.RunnerId === games?.id);
       if (pnl) {
         updatedPnl.push(pnl?.pnl);
       }
-    } else {
+    } else if (games?.btype && games?.btype !== "FANCY") {
+      runnerId = games.runners.map((runner) => runner.id);
+      selectionId = runner?.id;
       games?.runners?.forEach((runner) => {
         const pnl = pnlBySelection?.find((p) => p?.RunnerId === runner?.id);
+        if (pnl) {
+          updatedPnl.push(pnl?.pnl);
+        }
+      });
+    } else {
+      runnerId = games.runners.map((runner) => runner.id);
+      selectionId = runner?.selectionId;
+      games?.runners?.forEach((runner) => {
+        const pnl = pnlBySelection?.find(
+          (p) => p?.RunnerId === runner?.selectionId
+        );
         if (pnl) {
           updatedPnl.push(pnl?.pnl);
         }
@@ -40,7 +58,7 @@ export const handleDesktopBetSlip = (
     const betData = {
       price: price,
       side: betType === "back" ? 0 : 1,
-      selectionId: games?.btype == "FANCY" ? games?.id : runner?.id,
+      selectionId,
       btype: games?.btype,
       eventTypeId: games?.eventTypeId,
       betDelay: games?.betDelay,
@@ -49,10 +67,7 @@ export const handleDesktopBetSlip = (
       back: betType === "back",
       selectedBetName: runner?.name,
       name: games.runners.map((runner) => runner.name),
-      runnerId:
-        games?.btype == "FANCY"
-          ? games?.id
-          : games.runners.map((runner) => runner.id),
+      runnerId,
       isWeak: games?.isWeak,
       maxLiabilityPerMarket: games?.maxLiabilityPerMarket,
       isBettable: games?.isBettable,
@@ -64,8 +79,10 @@ export const handleDesktopBetSlip = (
     };
     if (games?.btype == "FANCY") {
       setSelectedRunner(games?.id);
-    } else {
+    } else if (games.btype && games?.btype !== "FANCY") {
       setSelectedRunner(runner?.id);
+    } else {
+      setSelectedRunner(runner?.selectionId);
     }
     dispatch(setPlaceBetValues(betData));
     dispatch(setShowBetSlip(true));

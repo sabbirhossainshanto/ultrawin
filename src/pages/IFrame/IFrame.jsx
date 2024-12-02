@@ -44,8 +44,6 @@ const IFrame = () => {
     getCasinoVideo();
   }, [gameId, token]);
 
-  console.log({ iFrame });
-
   return (
     <div className="md hydrated">
       <div className="router-ctn">

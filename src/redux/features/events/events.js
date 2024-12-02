@@ -7,9 +7,13 @@ export const eventsApi = baseApi.injectEndpoints({
     getAllGroupEvents: builder.query({
       query: (sports) => {
         return {
-          url: `${API.group}/${sports}`,
+          url: `${API.groupSportsBook}/${sports}`,
           method: "GET",
         };
+      },
+      transformResponse: (data) => {
+        const decryptionData = handleDecryptData(JSON.stringify(data));
+        return decryptionData;
       },
     }),
     getAllOddsEvents: builder.query({
@@ -50,7 +54,7 @@ export const eventsApi = baseApi.injectEndpoints({
           body: payload,
         };
       },
-    })
+    }),
   }),
 });
 

@@ -17,6 +17,7 @@ import {
 import IFrame from "../../components/ui/event/IFrame";
 import ScoreCard from "../../components/ui/event/ScoreCard";
 import RightSidebar from "../../components/ui/event/RightSidebar/RightSidebar";
+import HorseGreyhound from "../../components/ui/event/HorseGreyhound";
 
 const Event = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const Event = () => {
     eventTypeId,
     eventId,
   };
+
   const [match_odds, setMatch_odds] = useState([]);
   const [bookmaker, setBookmaker] = useState([]);
   // const [bookmaker2, setBookmaker2] = useState([]);
@@ -293,6 +295,10 @@ const Event = () => {
                     )}
 
                     {fancy?.length > 0 && <Fancy fancy={fancy} />}
+
+                    {eventTypeId == 7 || eventTypeId == 4339 ? (
+                      <HorseGreyhound data={data} />
+                    ) : null}
                   </div>
                   <RightSidebar score={data?.score} />
                 </div>
