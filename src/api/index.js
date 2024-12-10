@@ -72,4 +72,5 @@ export const settings = {
   apkLink: "",
   betFairCashOut: "",
   build: "",
+  b2c: true,
 };

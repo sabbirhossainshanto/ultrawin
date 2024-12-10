@@ -79,6 +79,7 @@ export const getSetApis = (setNoticeLoaded, baseUrl) => {
         settings.logoWidth = setting?.logo?.width;
         settings.apkLink = setting?.apkLink;
         settings.betFairCashOut = setting?.betFairCashOut;
+        settings.b2c = setting?.b2c;
         setNoticeLoaded(true);
       }
     })

@@ -26,7 +26,8 @@
         "format": "png"
       },
       "baseUrl": "",
-      "build": "development"
+      "build": "development",
+      "b2c": true
     },
 
     "endpoint": {
