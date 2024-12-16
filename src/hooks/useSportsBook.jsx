@@ -12,7 +12,12 @@ const useSportsBook = (group) => {
     queryKey: ["sports", group],
     enabled: group !== null ? true : false,
     queryFn: async () => {
-      const res = await axios.post(`${API.groupSportsBook}/${group}`);
+      const res = await axios.get(`${API.groupSportsBook}/${group}`, {
+        headers: {
+          "Cache-Control": "public",
+          "max-age": 1,
+        },
+      });
       const data = res.data;
       const decryptionData = await handleDecryptData(JSON.stringify(data));
       return decryptionData;

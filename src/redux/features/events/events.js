@@ -9,6 +9,10 @@ export const eventsApi = baseApi.injectEndpoints({
         return {
           url: `${API.groupSportsBook}/${sports}`,
           method: "GET",
+          headers: {
+            "Cache-Control": "public",
+            "max-age": 1,
+          },
         };
       },
       transformResponse: (data) => {
@@ -21,6 +25,10 @@ export const eventsApi = baseApi.injectEndpoints({
         return {
           url: `${API.eventDetails}/${payload.eventTypeId}/${payload.eventId}`,
           method: "GET",
+          headers: {
+            "Cache-Control": "public",
+            "max-age": 1,
+          },
         };
       },
       transformResponse: (data) => {
