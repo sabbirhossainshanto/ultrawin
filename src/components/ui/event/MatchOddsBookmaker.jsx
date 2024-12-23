@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import useExposer from "../../../hooks/useExposure";
 import assets from "../../../assets";
-import isOddSuspended from "../../../utils/isOddSuspended";
+import isOddSuspended, { isGameSuspended } from "../../../utils/isOddSuspended";
 import BetSlip from "./BetSlip";
 import { handleDesktopBetSlip } from "../../../utils/handleDesktopBetSlip";
 import { settings } from "../../../api";
@@ -43,7 +43,7 @@ const MatchOddsBookmaker = ({ data }) => {
     exposureB,
     runner1,
     runner2,
-    gameId
+    game
   ) => {
     let runner, largerExposure, layValue, oppositeLayValue, lowerExposure;
 
@@ -54,15 +54,27 @@ const MatchOddsBookmaker = ({ data }) => {
       // Team A has a larger exposure.
       runner = runner1;
       largerExposure = exposureA;
-      layValue = runner1?.lay?.[0]?.price;
-      oppositeLayValue = runner2?.lay?.[0]?.price;
+      layValue =
+        game?.btype === "MATCH_ODDS"
+          ? runner1?.lay?.[0]?.price
+          : 1 + Number(runner1?.lay?.[0]?.price) / 100;
+      oppositeLayValue =
+        game?.btype === "MATCH_ODDS"
+          ? runner2?.lay?.[0]?.price
+          : 1 + Number(runner2?.lay?.[0]?.price) / 100;
       lowerExposure = exposureB;
     } else {
       // Team B has a larger exposure.
       runner = runner2;
       largerExposure = exposureB;
-      layValue = runner2?.lay?.[0]?.price;
-      oppositeLayValue = runner1?.lay?.[0]?.price;
+      layValue =
+        game?.btype === "MATCH_ODDS"
+          ? runner2?.lay?.[0]?.price
+          : 1 + Number(runner2?.lay?.[0]?.price) / 100;
+      oppositeLayValue =
+        game?.btype === "MATCH_ODDS"
+          ? runner1?.lay?.[0]?.price
+          : 1 + Number(runner1?.lay?.[0]?.price) / 100;
       lowerExposure = exposureA;
     }
 
@@ -88,7 +100,7 @@ const MatchOddsBookmaker = ({ data }) => {
       profit,
       newStakeValue,
       oppositeLayValue,
-      gameId,
+      gameId: game?.id,
       isOnePositiveExposure,
     };
   };
@@ -114,14 +126,27 @@ const MatchOddsBookmaker = ({ data }) => {
           const pnl2 = pnlBySelection?.find(
             (pnl) => pnl?.RunnerId === runner2?.id
           )?.pnl;
+          const runner1back = runner1?.back?.[0]?.price;
+          const runner1Lay = runner1?.lay?.[0]?.price;
+          const runner2back = runner2?.back?.[0]?.price;
+          const runner2Lay = runner2?.lay?.[0]?.price;
 
-          if (pnl1 && pnl2 && runner1 && runner2) {
+          if (
+            pnl1 &&
+            pnl2 &&
+            runner1 &&
+            runner2 &&
+            runner1back &&
+            runner1Lay &&
+            runner2back &&
+            runner2Lay
+          ) {
             const result = computeExposureAndStake(
               pnl1,
               pnl2,
               runner1,
               runner2,
-              game?.id
+              game
             );
             results.push(result);
           }
@@ -181,15 +206,25 @@ const MatchOddsBookmaker = ({ data }) => {
                                   <button
                                     style={{
                                       cursor: `${
-                                        !teamProfitForGame
+                                        !teamProfitForGame ||
+                                        isGameSuspended(games) ||
+                                        teamProfitForGame?.profit === 0
                                           ? "not-allowed"
                                           : "pointer"
                                       }`,
                                       opacity: `${
-                                        !teamProfitForGame ? "0.6" : "1"
+                                        !teamProfitForGame ||
+                                        isGameSuspended(games) ||
+                                        teamProfitForGame?.profit === 0
+                                          ? "0.6"
+                                          : "1"
                                       }`,
                                     }}
-                                    disabled={!teamProfitForGame}
+                                    disabled={
+                                      !teamProfitForGame ||
+                                      isGameSuspended(games) ||
+                                      teamProfitForGame?.profit === 0
+                                    }
                                     onClick={() =>
                                       handleCashoutBetMobile(
                                         games,
@@ -211,14 +246,15 @@ const MatchOddsBookmaker = ({ data }) => {
                                   >
                                     <span className="MuiButton-label">
                                       Cashout{" "}
-                                      {teamProfitForGame?.profit && (
-                                        <>
-                                          : ₹{" "}
-                                          {teamProfitForGame?.profit?.toFixed(
-                                            2
-                                          )}
-                                        </>
-                                      )}
+                                      {teamProfitForGame?.profit &&
+                                        teamProfitForGame?.profit !== 0 && (
+                                          <>
+                                            : ₹{" "}
+                                            {teamProfitForGame?.profit?.toFixed(
+                                              2
+                                            )}
+                                          </>
+                                        )}
                                     </span>
                                     <span className="MuiTouchRipple-root"></span>
                                   </button>
