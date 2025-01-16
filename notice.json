@@ -28,7 +28,8 @@
       },
       "baseUrl": "",
       "build": "development",
-      "b2c": true
+      "b2c": true,
+      "betDelay": true
     },
 
     "endpoint": {

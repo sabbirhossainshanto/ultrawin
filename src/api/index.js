@@ -74,4 +74,5 @@ export const settings = {
   build: "",
   b2c: "",
   bookmakerCashOut: "",
+  betDelay: "",
 };

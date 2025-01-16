@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import useBalance from "../../../hooks/useBalance";
 import useExposer from "../../../hooks/useExposure";
 import { useOrderMutation } from "../../../redux/features/events/events";
+import { v4 as uuidv4 } from "uuid";
 import { useEffect, useState } from "react";
 import { setPrice, setStake } from "../../../redux/features/events/eventSlice";
 import handleRandomToken from "../../../utils/handleRandomToken";
@@ -26,7 +27,7 @@ const BetSlip = ({ setSelectedRunner }) => {
   if (buttonValues) {
     parseButtonValues = JSON.parse(buttonValues);
   }
-
+  const [loader, setLoader] = useState(false);
   const [betDelay, setBetDelay] = useState("");
 
   useEffect(() => {
@@ -84,36 +85,63 @@ const BetSlip = ({ setSelectedRunner }) => {
         ...payload,
         token: generatedToken,
         site: settings.siteUrl,
+        nounce: uuidv4(),
+        isbetDelay: settings.betDelay,
       },
     ]);
+    const delay = settings.betDelay ? placeBetValues?.betDelay * 1000 : 0;
+
+    setLoader(true);
     setBetDelay(placeBetValues?.betDelay);
-    const res = await createOrder(encryptedData).unwrap();
+    setTimeout(async () => {
+      const res = await createOrder(encryptedData).unwrap();
 
-    if (res?.success) {
-      refetchExposure();
-      refetchBalance();
-      setSelectedRunner("");
-      refetchCurrentBets();
-      setBetDelay("");
-      toast.success(res?.result?.result?.placed?.[0]?.message);
-    } else {
-      toast.error(
-        res?.error?.status?.[0]?.description || res?.error?.errorMessage
-      );
-      setBetDelay("");
-      setBetDelay(false);
-      // refetchExposure();
-      // refetchBalance();
-      // refetchCurrentBets();
-    }
+      if (res?.success) {
+        setLoader(false);
+        refetchExposure();
+        refetchBalance();
+        setSelectedRunner("");
+        refetchCurrentBets();
+        setBetDelay("");
+        toast.success(res?.result?.result?.placed?.[0]?.message);
+      } else {
+        toast.error(
+          res?.error?.status?.[0]?.description || res?.error?.errorMessage
+        );
+        setBetDelay("");
+        setBetDelay(false);
+        setLoader(false);
+        // refetchExposure();
+        // refetchBalance();
+        // refetchCurrentBets();
+      }
+    }, delay);
   };
-
+  useEffect(() => {
+    if (betDelay > 0) {
+      setTimeout(() => {
+        setBetDelay((prev) => prev - 1);
+      }, 1000);
+    } else {
+      setBetDelay(null);
+    }
+  }, [setBetDelay, betDelay]);
   return (
     <tr className="MuiTableRow-root inline-betslip mobile-betslip">
       <td className="MuiTableCell-root MuiTableCell-body" colSpan="4">
         <div className="exch-betslip-ctn">
-          {betDelay > 0 && (
+          {!loader && (
             <div className="betslip-progress">
+              <span
+                style={{
+                  position: "absolute",
+                  bottom: "10px",
+                  right: "2px",
+                  color: "white",
+                }}
+              >
+                {betDelay > 0 && betDelay}
+              </span>
               <div className="centered">
                 <div className="spinner loading"></div>
               </div>

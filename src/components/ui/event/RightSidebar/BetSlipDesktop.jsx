@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import useBalance from "../../../../hooks/useBalance";
 import useExposer from "../../../../hooks/useExposure";
 import useCurrentBets from "../../../../hooks/useCurrentBets";
+import { v4 as uuidv4 } from "uuid";
 import { useOrderMutation } from "../../../../redux/features/events/events";
 import { useEffect, useState } from "react";
 import {
@@ -25,6 +26,7 @@ const BetSlipDesktop = () => {
   );
   const dispatch = useDispatch();
   const { eventId } = useParams();
+  const [loader, setLoader] = useState(false);
   const { refetchBalance } = useBalance();
   const { refetchExposure } = useExposer(eventId);
   const { refetchCurrentBets, myBets } = useCurrentBets(eventId);
@@ -95,28 +97,47 @@ const BetSlipDesktop = () => {
         ...payload,
         token: generatedToken,
         site: settings.siteUrl,
+        nounce: uuidv4(),
+        isbetDelay: settings.betDelay,
       },
     ]);
     setBetDelay(placeBetValues?.betDelay);
-    const res = await createOrder(encryptedData).unwrap();
+    const delay = settings.betDelay ? placeBetValues?.betDelay * 1000 : 0;
 
-    if (res?.success) {
-      refetchExposure();
-      refetchBalance();
-      refetchCurrentBets();
-      setBetDelay("");
-      toast.success(res?.result?.result?.placed?.[0]?.message);
-    } else {
-      toast.error(
-        res?.error?.status?.[0]?.description || res?.error?.errorMessage
-      );
-      setBetDelay("");
-      setBetDelay(false);
-      // refetchExposure();
-      // refetchBalance();
-      // refetchCurrentBets();
-    }
+    setLoader(true);
+    setTimeout(async () => {
+      const res = await createOrder(encryptedData).unwrap();
+
+      if (res?.success) {
+        setLoader(false);
+        refetchExposure();
+        refetchBalance();
+        refetchCurrentBets();
+        setBetDelay("");
+        toast.success(res?.result?.result?.placed?.[0]?.message);
+      } else {
+        toast.error(
+          res?.error?.status?.[0]?.description || res?.error?.errorMessage
+        );
+        setLoader(false);
+        setBetDelay("");
+        setBetDelay(false);
+        // refetchExposure();
+        // refetchBalance();
+        // refetchCurrentBets();
+      }
+    }, delay);
   };
+
+  useEffect(() => {
+    if (betDelay > 0) {
+      setTimeout(() => {
+        setBetDelay((prev) => prev - 1);
+      }, 1000);
+    } else {
+      setBetDelay(null);
+    }
+  }, [setBetDelay, betDelay]);
   return (
     <div className="bet-slip-open-bets-ctn">
       <div className="betslip-container">
@@ -137,7 +158,7 @@ const BetSlipDesktop = () => {
       </div>
       {tab === "betSlip" && (
         <>
-          {betDelay > 0 && showBetSlip && (
+          {loader && showBetSlip && (
             <div
               style={{
                 position: "absolute",
@@ -149,6 +170,16 @@ const BetSlipDesktop = () => {
             >
               <div className="centered">
                 <div className="spinner loading"></div>
+                <span
+                  style={{
+                    position: "absolute",
+                    bottom: "10px",
+                    right: "2px",
+                    color: "white",
+                  }}
+                >
+                  {betDelay > 0 && betDelay}
+                </span>
               </div>
             </div>
           )}
